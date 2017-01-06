@@ -43,6 +43,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(educationFragment);
         fragmentList.add(noNameFragment);
 
-//        binding.indexViewpager.setAdapter();
     }
 }
