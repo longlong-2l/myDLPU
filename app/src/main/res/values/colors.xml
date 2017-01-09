@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="app_blue">#3385ff</color> <!-- APP蓝色 -->
     <color name="tab_gray">#ff929292</color> <!-- Tab灰色 -->
+    <color name="white">#ffffff</color> <!--间隔灰色 -->
 </resources>

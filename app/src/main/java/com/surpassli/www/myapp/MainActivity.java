@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import com.surpassli.www.myapp.adapter.FragmentAdapter;
 import com.surpassli.www.myapp.databinding.ActivityMainBinding;
 import com.surpassli.www.myapp.ui.EducationFragment;
 import com.surpassli.www.myapp.ui.LifeFragment;
+import com.surpassli.www.myapp.ui.LoginActivity;
 import com.surpassli.www.myapp.ui.MyFragment;
 import com.surpassli.www.myapp.ui.NoNameFragment;
 
@@ -24,6 +26,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private List<Fragment> fragmentList;
     private ActivityMainBinding binding;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +110,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             case R.id.tv_fourtab:
                 binding.indexViewpager.setCurrentItem(3);
                 binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 break;
         }
     }
