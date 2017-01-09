@@ -1,6 +1,25 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="onetab"
+            type="String" />
+
+        <variable
+            name="twotab"
+            type="String" />
+
+        <variable
+            name="threetab"
+            type="String" />
+
+        <variable
+            name="fourtab"
+            type="String" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,7 +30,9 @@
             android:id="@+id/index_viewpager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"></android.support.v4.view.ViewPager>
+            android:layout_weight="1">
+
+        </android.support.v4.view.ViewPager>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,36 +41,40 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/onetab"
+                android:id="@+id/tv_onetab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="第一项" />
+                android:text="@{onetab}"
+                android:textColor="@drawable/tab_font_selecter" />
 
             <TextView
-                android:id="@+id/twotab"
+                android:id="@+id/tv_twotab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="第二项" />
+                android:text="@{twotab}"
+                android:textColor="@drawable/tab_font_selecter" />
 
             <TextView
-                android:id="@+id/threetab"
+                android:id="@+id/tv_threetab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="第三项" />
+                android:text="@{threetab}"
+                android:textColor="@drawable/tab_font_selecter" />
 
             <TextView
-                android:id="@+id/fourtab"
+                android:id="@+id/tv_fourtab"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="第四项" />
+                android:text="@{fourtab}"
+                android:textColor="@drawable/tab_font_selecter" />
         </LinearLayout>
     </LinearLayout>
 </layout>
