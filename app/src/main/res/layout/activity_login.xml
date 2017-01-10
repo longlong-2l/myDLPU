@@ -10,6 +10,10 @@
         <variable
             name="number"
             type="String" />
+
+        <!--<variable
+            name="event"
+            type="com.surpassli.www.myapp.ui.LoginActivity.EventClickListener" />-->
     </data>
 
     <RelativeLayout
@@ -22,35 +26,50 @@
             android:id="@+id/iv_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@mipmap/logo"
-            android:layout_marginBottom="60dp"/>
+            android:layout_marginBottom="30dp"
+            android:src="@mipmap/logo" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_xuehao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/iv_logo">
+            android:layout_below="@id/iv_logo"
+            android:gravity="center">
 
             <EditText
-                android:layout_width="match_parent"
+                android:id="@+id/et_name"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:hint="学号"
-                android:lines="1"/>
+                android:layout_marginTop="15dp"
+                android:hint="Name"
+                android:lines="1" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/til_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/til_xuehao">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="密码"
-            android:inputType="textPassword"
-            android:lines="1"/>
+            android:layout_below="@id/til_xuehao"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:hint="PassWord"
+                android:inputType="textPassword"
+                android:lines="1" />
         </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/Bt_Login"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/til_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="#A52F2F"
+            android:text="Login" />
 
     </RelativeLayout>
 </layout>
