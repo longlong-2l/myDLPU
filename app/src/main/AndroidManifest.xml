@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.surpassli.www.myapp">
-
+    <!--<uses-sdk android:minSdkVersion="4"></uses-sdk>-->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
 
     <application
         android:allowBackup="true"
@@ -19,6 +23,14 @@
         </activity>
 
         <activity android:name=".ui.LoginActivity" android:launchMode="singleTask"></activity>
+
+        <meta-data android:name="UMENG_APPKEY"
+            android:value="58773045766613068b000585">
+        </meta-data><!--友盟AppKey-->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}">
+        </meta-data><!--渠道号-->
     </application>
 
 </manifest>
