@@ -1,9 +1,10 @@
 package com.surpassli.www.myapp.support.utils.request;
 
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.Request;
 
 import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.Request;
 
 /**
  * Created by SurpassLi on 2017/1/10.
@@ -16,7 +17,7 @@ public class CommonRequest {
      * @param params
      * @return
      */
-    public static Request createGetRequest(String url,RequestParams params){
+    public static Request createGetRequest(String url, RequestParams params){
         StringBuilder urlBuilder = new StringBuilder(url).append("?");
         if(params != null){
             for(Map.Entry<String,String> entry : params.urlParams.entrySet()){
