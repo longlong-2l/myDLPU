@@ -6,20 +6,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.databinding.ActivityLoginBinding;
-import com.surpassli.www.myapp.databinding.ActivityMainBinding;
-import com.surpassli.www.myapp.gson.Person;
-import com.surpassli.www.myapp.support.listener.DisposeDataHandle;
-import com.surpassli.www.myapp.support.listener.DisposeDataListener;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
-import com.surpassli.www.myapp.support.utils.net.callback.CommonHttpClient.CommonOkHttpClient;
-import com.surpassli.www.myapp.support.utils.request.CommonRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
