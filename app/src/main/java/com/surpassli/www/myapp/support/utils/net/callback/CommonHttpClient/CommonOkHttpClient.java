@@ -2,15 +2,16 @@ package com.surpassli.www.myapp.support.utils.net.callback.CommonHttpClient;
 
 import android.util.Log;
 
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.support.listener.DisposeDataHandle;
 import com.surpassli.www.myapp.support.utils.net.callback.callback.CommonJsonCallBack;
 
 import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 /**
  * Created by dell on 2017/1/10.
