@@ -4,9 +4,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by dell on 2017/1/16.
+ * Created by SurpassLi on 2017/1/16.
  */
-public class getMD5 {
+public class MD5 {
 
     public static String getMD5(String val) throws NoSuchAlgorithmException {
         MessageDigest md5 = MessageDigest.getInstance("MD5");

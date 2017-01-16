@@ -94,21 +94,27 @@ public class LoginActivity extends Activity {
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i(TAG, "onResponse: " + "获取数据成功");
                 String result = response.body().string();
-                Gson gson = new Gson();
-                Person person = gson.fromJson(result, Person.class);
-                if ("Success".equals(person.getMessage())) {
-                    Log.i(TAG, "getUsername: " + person.getUsername());
-                    Log.i(TAG, "getUserId: " + person.getUserId());
-                    Log.i(TAG, "getMessage: " + person.getMessage());
-                    Log.i(TAG, "getToken: " + person.getToken());
-                    AppVariables.isLogin = true;
+                try {
+                    JSONObject jsonObject = new  JSONObject(result);
+                    if ("Success".equals(jsonObject.getString("message"))) {
+                        AppVariables.isLogin = true;
+                        AppVariables.userId = jsonObject.getInt("userId");
+                        AppVariables.username = jsonObject.getString("username");
+                        AppVariables.token = jsonObject.getString("token");
+                        Log.i(TAG, "AppVariables.isLogin: " + AppVariables.isLogin);
+                        Log.i(TAG, "AppVariables.userId: " + AppVariables.userId);
+                        Log.i(TAG, "AppVariables.username: " + AppVariables.username);
+                        Log.i(TAG, "AppVariables.token: " + AppVariables.token);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         });
 
         Intent intent = new Intent();
         intent.putExtra("status", "Success");
-        LoginActivity.this.startActivityForResult(intent, 1);
+        LoginActivity.this.setResult(1,intent);
         LoginActivity.this.finish();
     }
 }
