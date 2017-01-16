@@ -77,7 +77,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
                     break;
                 case 3:
-                    binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                    if(!AppVariables.isLogin){
+                        Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
+                        startActivityForResult(intent1,1);
+                    }else {
+                        binding.indexViewpager.setCurrentItem(3);
+                        binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                    }
                     break;
             }
         }
@@ -108,10 +114,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
                 break;
             case R.id.tv_fourtab:
-                binding.indexViewpager.setCurrentItem(3);
-                binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                if(!AppVariables.isLogin){
+                    Intent intent1 = new Intent(MainActivity.this,LoginActivity.class);
+                    startActivityForResult(intent1,1);
+                }else {
+                    binding.indexViewpager.setCurrentItem(3);
+                    binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                }
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1 && resultCode == 1){
+            String status = data.getStringExtra("status");
+            if("Success".equals(status)){
+                binding.indexViewpager.setCurrentItem(0);
+            }
         }
     }
 

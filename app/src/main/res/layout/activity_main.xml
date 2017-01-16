@@ -46,8 +46,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{onetab}"
-                android:textColor="@drawable/tab_font_selecter" />
+                android:text="@{onetab}"/>
 
             <TextView
                 android:id="@+id/tv_twotab"
@@ -55,8 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{twotab}"
-                android:textColor="@drawable/tab_font_selecter" />
+                android:text="@{twotab}" />
 
             <TextView
                 android:id="@+id/tv_threetab"
@@ -64,8 +62,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{threetab}"
-                android:textColor="@drawable/tab_font_selecter" />
+                android:text="@{threetab}" />
 
             <TextView
                 android:id="@+id/tv_fourtab"
@@ -73,8 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{fourtab}"
-                android:textColor="@drawable/tab_font_selecter" />
+                android:text="@{fourtab}"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -3,9 +3,6 @@ package com.surpassli.www.myapp.support.utils.net.callback.callback;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 import com.surpassli.www.myapp.support.AppException;
 import com.surpassli.www.myapp.support.listener.DisposeDataHandle;
 import com.surpassli.www.myapp.support.listener.DisposeDataListener;
@@ -14,10 +11,14 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 /**
  * Created by SurpassLi on 2017/1/10.
  */
-public class CommonJsonCallBack implements Callback{
+public class CommonJsonCallBack implements Callback {
     protected final String RESULT_CODE = "ecode";
     protected final String ERROR_MSG = "emsg";
     protected final int RESULT_CODE_VALUE = 0;
@@ -40,27 +41,27 @@ public class CommonJsonCallBack implements Callback{
         this.mDelieverHandler = new Handler(Looper.getMainLooper());//返回到主线程中
     }
 
-    @Override
-    public void onFailure(Request request, final IOException e) {
-        mDelieverHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                mListener.onFailure(e);
-            }
-        });
-    }
-
-    @Override
-    public void onResponse(Response response) throws IOException {
-        //子线程中
-        final  String  result = response.body().string();
-        mDelieverHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                handleResponse(result);
-            }
-        });
-    }
+//    @Override
+//    public void onFailure(Request request, final IOException e) {
+//        mDelieverHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                mListener.onFailure(e);
+//            }
+//        });
+//    }
+//
+//    @Override
+//    public void onResponse(Response response) throws IOException {
+//        //子线程中
+//        final  String  result = response.body().string();
+//        mDelieverHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                handleResponse(result);
+//            }
+//        });
+//    }
     private void handleResponse(String result) {
         if (result == null || "".equals(result)){
                 mListener.onFailure(new AppException(NETWORK_ERROR,EMPTY_MSG));
@@ -96,6 +97,27 @@ public class CommonJsonCallBack implements Callback{
             mListener.onFailure(new AppException(OTHER_ERROR, e.getMessage()));
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onFailure(Call call, IOException e) {
+        mDelieverHandler.post(new Runnable() {
+            @Override
+            public void run() {
+//                mListener.onFailure(e.toString());
+            }
+        });
+    }
+
+    @Override
+    public void onResponse(Call call, Response response) throws IOException {
+        final  String  result = response.body().string();
+        mDelieverHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                handleResponse(result);
+            }
+        });
     }
 }
 
