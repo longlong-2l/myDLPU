@@ -33,11 +33,11 @@ public class MyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_my,container,false);
-        getTime();
+        getNetTime();
         return view;
     }
 
-    private void getTime() {
+    private void getNetTime() {
         HttpUtil.sendGetOkhttp("https://dlpu-aao-api.xu42.cn/v1/time", new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -63,11 +63,20 @@ public class MyFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
         getData();
     }
 
     private void getData() {
+//            HttpUtil.sendGetOkhttp();
+    }
+
+    public String getTime(){
+
+        long time=System.currentTimeMillis()/1000;//获取系统时间的10位的时间戳
+
+        String  str=String.valueOf(time);
+
+        return str;
 
     }
 }
