@@ -4,7 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "24.0.2"
 
-    dataBinding{
+    dataBinding {
         enabled = true
     }
 
@@ -15,7 +15,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true//突破应用方法数65535的限制
-        manifestPlaceholders = [UMENG_CHANNEL_VALUE:"umeng"]
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
     }
     buildTypes {
         release {
@@ -26,7 +26,7 @@ android {
     }
 //    添加我们的签名文件配置
     signingConfigs {
-        debug{}
+        debug {}
 
 //        release {
 //            keyAlias "dlpu"
@@ -62,4 +62,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.1.1'
     compile 'junit:junit:4.12'
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
 }
