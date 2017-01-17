@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="1"/>
+
+        <TextView
+            android:id="@+id/tv_No1_date"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="2013-2014-1"/>
+
+        <TextView
+            android:id="@+id/tv_course_num"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="050110022"/>
+
+        <TextView
+            android:id="@+id/tv_course_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="高等数学1"/>
+
+        <TextView
+            android:id="@+id/tv_course_score"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="86"/>
+
+        <TextView
+            android:id="@+id/tv_course_credit"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="4.5"/>
+
+        <TextView
+            android:id="@+id/tv_course_period"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="72"/>
+
+        <TextView
+            android:id="@+id/tv_exam_type"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="考试"/>
+
+        <TextView
+            android:id="@+id/tv_course_property"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="必修"/>
+
+        <TextView
+            android:id="@+id/tv_course_nature"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="通识必修"/>
+
+        <TextView
+            android:id="@+id/tv_exam_nature"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="正常考试"/>
+        </LinearLayout>
+
+</LinearLayout>

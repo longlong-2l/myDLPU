@@ -10,6 +10,7 @@ import org.json.JSONObject;
  * Created by SurpassLi on 2017/1/16.
  */
 public class Person_School_Roll {
+    private static final String TAG = "Person_School_Roll";
 
     private String academy;//学院
 
@@ -38,24 +39,30 @@ public class Person_School_Roll {
     public Person_School_Roll(JSONObject jsonObject) {
         JSONArray jsonArray = null;
         try {
-            jsonArray = jsonObject.getJSONArray("data");
-//            for (int i = 0; i < jsonArray.length(); i++) {
-                student_id = jsonArray.getString(0);
-                academy = jsonArray.getString(2);
-                major = jsonArray.getString(3);
-                educational_system = jsonArray.getString(4);
-                grades = jsonArray.getString(5);
-                name = jsonArray.getString(8);
-                sex = jsonArray.getString(10);
-                name_pinyin = jsonArray.getString(12);
-                birthday = jsonArray.getString(14);
-                intoSchool_date = jsonArray.getString(177);
-                intoSchool_num = jsonArray.getString(181);
-                idcard = jsonArray.getString(183);
-//            }
+            if ("Success".equals(jsonObject.getString("message"))) {
+                try {
+                    jsonArray = jsonObject.getJSONArray("data");
+                    student_id = jsonArray.getString(0);
+                    academy = jsonArray.getString(2);
+                    major = jsonArray.getString(3);
+                    educational_system = jsonArray.getString(4);
+                    grades = jsonArray.getString(5);
+                    name = jsonArray.getString(8);
+                    sex = jsonArray.getString(10);
+                    name_pinyin = jsonArray.getString(12);
+                    birthday = jsonArray.getString(14);
+                    intoSchool_date = jsonArray.getString(177);
+                    intoSchool_num = jsonArray.getString(181);
+                    idcard = jsonArray.getString(183);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Log.i(TAG, "Person_School_Roll: " + "json解析出现问题");
+                }
+            } else {
+                Log.i(TAG, "Person_School_Roll: " + "数据获取有误");
+            }
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.i("xxxxxx", "Person_School_Roll: " + "json解析出现问题");
         }
     }
 
