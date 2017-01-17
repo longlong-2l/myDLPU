@@ -15,85 +15,110 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/tab_gray"
+        android:background="@color/white"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/dlpu_logo" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="15dp"
-            android:paddingTop="5dp">
-
-            <ImageView
-                android:id="@+id/iv_myphoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+            android:layout_marginTop="70dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_xuejikapian"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_toRightOf="@id/iv_myphoto"
-                android:text="L。L" />
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="学籍卡片"
+                android:textColor="@color/account_text_grey" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_course_grade"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@id/iv_myphoto"
-                android:text="学号：123456789" />
-        </RelativeLayout>
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="课程成绩"
+                android:textColor="@color/account_text_grey" />
 
-        <TextView
+            <TextView
+                android:id="@+id/tv_level_grade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="等级成绩"
+                android:textColor="@color/account_text_grey" />
+
+            <TextView
+                android:id="@+id/tv_course_table"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="课程表"
+                android:textColor="@color/account_text_grey" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:padding="15dp"
-            android:text="信息一" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:padding="15dp"
-            android:text="信息二" />
+            <TextView
+                android:id="@+id/tv_current_week"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="当前周次"
+                android:textColor="@color/account_text_grey" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:padding="15dp"
-            android:text="信息三" />
+            <TextView
+                android:id="@+id/tv_exam_plan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="考试安排"
+                android:textColor="@color/account_text_grey" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:padding="15dp"
-            android:text="信息四" />
+            <TextView
+                android:id="@+id/tv_password_reset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="密码修改"
+                android:textColor="@color/account_text_grey" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@color/white"
-            android:elevation="15dp"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="退出登录" />
+            <TextView
+                android:id="@+id/tv_login_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center"
+                android:text="退出登录"
+                android:textColor="@color/account_text_grey" />
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

@@ -1,21 +1,17 @@
-package com.surpassli.www.myapp.ui;
+package com.surpassli.www.myapp.ui.Account;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.databinding.FragmentMyBinding;
+import com.surpassli.www.myapp.databinding.ActivitySchoolRollBinding;
+import com.surpassli.www.myapp.gson.Person_School_Roll;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
-import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,36 +22,21 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * Created by dell on 2017/1/6.
+ * Created by SurpassLi on 2017/1/17.
  */
-public class MyFragment extends Fragment implements View.OnClickListener{
-
-    private final static String TAG = "MyFragment";
-    private FragmentMyBinding myBinding;
-    private View view;
+public class School_Roll_Activity extends Activity {
+    private ActivitySchoolRollBinding School_roll_binding;
+    private static final String TAG = "School_Roll_Activity";
     private long resultTime;
     private String sign;
     private long mytime;
-    private TextView tv_xuejikapian;
+    Person_School_Roll person_school_roll;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_my, container, false);
-        initView();
-        return view;
-    }
-
-    private void initView() {
-        view.findViewById(R.id.tv_xuejikapian).setOnClickListener(this);
-        view.findViewById(R.id.tv_course_grade).setOnClickListener(this);
-        view.findViewById(R.id.tv_level_grade).setOnClickListener(this);
-        view.findViewById(R.id.tv_course_table).setOnClickListener(this);
-        view.findViewById(R.id.tv_current_week).setOnClickListener(this);
-        view.findViewById(R.id.tv_exam_plan).setOnClickListener(this);
-        view.findViewById(R.id.tv_password_reset).setOnClickListener(this);
-        view.findViewById(R.id.tv_login_out).setOnClickListener(this);
-
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        School_roll_binding = DataBindingUtil.setContentView(School_Roll_Activity.this,R.layout.activity_school_roll);
+        getNetTime();
     }
 
     private void getNetTime() {
@@ -83,12 +64,6 @@ public class MyFragment extends Fragment implements View.OnClickListener{
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-//        getNetTime();
-    }
-
     private void getData() {
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         resultTime = AppVariables.time - mytime;
@@ -104,19 +79,35 @@ public class MyFragment extends Fragment implements View.OnClickListener{
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i(TAG, "MyFragment_onResponse: " + "获取数据成功");
-                Log.i(TAG, "onResponse: " + response.body().string());
+                String data = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(data);
+                    person_school_roll = new Person_School_Roll(jsonObject);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            initView();
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case
-            R.id.tv_xuejikapian:
-                Intent intent = new Intent(getActivity(), School_Roll_Activity.class);
-                startActivity(intent);
-                break;
-        }
+    public void initView(){
+        School_roll_binding.tvAcademy.setText(person_school_roll.getAcademy());
+        School_roll_binding.tvMajor.setText(person_school_roll.getMajor());
+        School_roll_binding.tvEducationalSystem.setText(person_school_roll.getEducational_system());
+        School_roll_binding.tvGrades.setText(person_school_roll.getGrades());
+        School_roll_binding.tvStudentId.setText(person_school_roll.getStudent_id());
+        School_roll_binding.tvName.setText("姓名：" + person_school_roll.getname());
+        School_roll_binding.tvSex.setText("性别：" + person_school_roll.getSex());
+        School_roll_binding.tvNamePinyin.setText("姓名拼音：" + person_school_roll.getName_pinyin());
+        School_roll_binding.tvBirthday.setText("出生日期：" + person_school_roll.getBirthday());
+        School_roll_binding.tvIntoSchoolDate.setText("入学日期：" + person_school_roll.getIntoSchool_date());
+        School_roll_binding.tvIntoSchoolNum.setText("入学考号：" + person_school_roll.getIntoSchool_num());
+        School_roll_binding.tvIdcard.setText("身份证编号：" + person_school_roll.getIdcard());
     }
 }

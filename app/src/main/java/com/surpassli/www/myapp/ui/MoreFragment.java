@@ -12,7 +12,7 @@ import com.surpassli.www.myapp.R;
 /**
  * Created by dell on 2017/1/6.
  */
-public class NoNameFragment extends Fragment {
+public class MoreFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

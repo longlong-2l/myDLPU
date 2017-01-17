@@ -17,7 +17,7 @@ import com.surpassli.www.myapp.ui.EducationFragment;
 import com.surpassli.www.myapp.ui.LifeFragment;
 import com.surpassli.www.myapp.ui.LoginActivity;
 import com.surpassli.www.myapp.ui.MyFragment;
-import com.surpassli.www.myapp.ui.NoNameFragment;
+import com.surpassli.www.myapp.ui.MoreFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +41,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         fragmentList = new ArrayList<Fragment>();
         LifeFragment lifeFragment = new LifeFragment();
         EducationFragment educationFragment = new EducationFragment();
-        NoNameFragment noNameFragment = new NoNameFragment();
+        MoreFragment moreFragment = new MoreFragment();
         MyFragment myFragment = new MyFragment();
 
         fragmentList.add(lifeFragment);
         fragmentList.add(educationFragment);
-        fragmentList.add(noNameFragment);
+        fragmentList.add(moreFragment);
         fragmentList.add(myFragment);
 
         FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
@@ -54,7 +54,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         binding.indexViewpager.addOnPageChangeListener(pageChangeListener);
         binding.setOnetab("生活");
         binding.setTwotab("教育");
-        binding.setThreetab("NoName");
+        binding.setThreetab("更多");
         binding.setFourtab("我的");
         binding.tvOnetab.setOnClickListener(this);
         binding.tvTwotab.setOnClickListener(this);
