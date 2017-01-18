@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.zip.Inflater;
 
 /**
- * Created by dell on 2017/1/17.
+ * Created by SurpassLi on 2017/1/17.
  */
 public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Adapter.MyViewHolder> {
 
@@ -40,20 +40,19 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
     @Override
     public void onBindViewHolder(final MyViewHolder holder,final int position) {
         //设置要显示的数据
-        holder.tv_num.setText((CharSequence) Datas.get(position));
-        holder.tv_No1_date.setText((CharSequence) Datas.get(position));
-        holder.tv_course_num.setText((CharSequence) Datas.get(position));
-        holder.tv_course_name.setText((CharSequence) Datas.get(position));
-        holder.tv_course_score.setText((CharSequence) Datas.get(position));
-        holder.tv_score_flag.setText((CharSequence) Datas.get(position));
-        holder.tv_course_credit.setText((CharSequence) Datas.get(position));
-        holder.tv_course_period.setText((CharSequence) Datas.get(position));
-        holder.tv_exam_type.setText((CharSequence) Datas.get(position));
-        holder.tv_course_property.setText((CharSequence) Datas.get(position));
-        holder.tv_course_nature.setText((CharSequence) Datas.get(position));
-        holder.tv_exam_nature.setText((CharSequence) Datas.get(position));
-        holder.tv_again_term.setText((CharSequence) Datas.get(position));
-
+        holder.tv_num.setText(Datas.get(position).getNum());
+        holder.tv_No1_date.setText( Datas.get(position).getNo1_date());
+        holder.tv_course_num.setText(Datas.get(position).getCourse());
+        holder.tv_course_name.setText( Datas.get(position).getCourse_name());
+        holder.tv_course_score.setText(Datas.get(position).getCourse_score());
+        holder.tv_score_flag.setText( Datas.get(position).getScore_flag());
+        holder.tv_course_credit.setText( Datas.get(position).getCourse_credit());
+        holder.tv_course_period.setText( Datas.get(position).getCourse_period());
+        holder.tv_exam_type.setText(Datas.get(position).getExam_type());
+        holder.tv_course_property.setText(Datas.get(position).getCourse_property());
+        holder.tv_course_nature.setText( Datas.get(position).getCourse_nature());
+        holder.tv_exam_nature.setText( Datas.get(position).getExam_nature());
+        holder.tv_again_term.setText( Datas.get(position).getAgain_term());
     }
 
     @Override

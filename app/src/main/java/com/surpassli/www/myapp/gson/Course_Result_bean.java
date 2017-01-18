@@ -59,107 +59,107 @@ public class Course_Result_bean {
 //        }
 //    }
 
-//    public static String getNum() {
-//        return num;
-//    }
-//
-//    public static void setNum(String num) {
-//        Course_Result_bean.num = num;
-//    }
-//
-//    public static String getNo1_date() {
-//        return No1_date;
-//    }
-//
-//    public static void setNo1_date(String no1_date) {
-//        No1_date = no1_date;
-//    }
-//
-//    public static String getCourse() {
-//        return course;
-//    }
-//
-//    public static void setCourse(String course) {
-//        Course_Result_bean.course = course;
-//    }
-//
-//    public static String getCourse_name() {
-//        return course_name;
-//    }
-//
-//    public static void setCourse_name(String course_name) {
-//        Course_Result_bean.course_name = course_name;
-//    }
-//
-//    public static String getCourse_score() {
-//        return course_score;
-//    }
-//
-//    public static void setCourse_score(String course_score) {
-//        Course_Result_bean.course_score = course_score;
-//    }
-//
-//    public static String getScore_flag() {
-//        return score_flag;
-//    }
-//
-//    public static void setScore_flag(String score_flag) {
-//        Course_Result_bean.score_flag = score_flag;
-//    }
-//
-//    public static String getCourse_credit() {
-//        return course_credit;
-//    }
-//
-//    public static void setCourse_credit(String course_credit) {
-//        Course_Result_bean.course_credit = course_credit;
-//    }
-//
-//    public static String getCourse_period() {
-//        return course_period;
-//    }
-//
-//    public static void setCourse_period(String course_period) {
-//        Course_Result_bean.course_period = course_period;
-//    }
-//
-//    public static String getExam_type() {
-//        return exam_type;
-//    }
-//
-//    public static void setExam_type(String exam_type) {
-//        Course_Result_bean.exam_type = exam_type;
-//    }
-//
-//    public static String getCourse_property() {
-//        return course_property;
-//    }
-//
-//    public static void setCourse_property(String course_property) {
-//        Course_Result_bean.course_property = course_property;
-//    }
-//
-//    public static String getCourse_nature() {
-//        return course_nature;
-//    }
-//
-//    public static void setCourse_nature(String course_nature) {
-//        Course_Result_bean.course_nature = course_nature;
-//    }
-//
-//    public static String getExam_nature() {
-//        return exam_nature;
-//    }
-//
-//    public static void setExam_nature(String exam_nature) {
-//        Course_Result_bean.exam_nature = exam_nature;
-//    }
-//
-//    public static String getAgain_term() {
-//        return again_term;
-//    }
-//
-//    public static void setAgain_term(String again_term) {
-//        Course_Result_bean.again_term = again_term;
-//    }
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getNo1_date() {
+        return No1_date;
+    }
+
+    public void setNo1_date(String no1_date) {
+        No1_date = no1_date;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getCourse_name() {
+        return course_name;
+    }
+
+    public void setCourse_name(String course_name) {
+        this.course_name = course_name;
+    }
+
+    public String getCourse_score() {
+        return course_score;
+    }
+
+    public void setCourse_score(String course_score) {
+        this.course_score = course_score;
+    }
+
+    public String getScore_flag() {
+        return score_flag;
+    }
+
+    public void setScore_flag(String score_flag) {
+        this.score_flag = score_flag;
+    }
+
+    public String getCourse_credit() {
+        return course_credit;
+    }
+
+    public void setCourse_credit(String course_credit) {
+        this.course_credit = course_credit;
+    }
+
+    public String getCourse_period() {
+        return course_period;
+    }
+
+    public void setCourse_period(String course_period) {
+        this.course_period = course_period;
+    }
+
+    public String getExam_type() {
+        return exam_type;
+    }
+
+    public void setExam_type(String exam_type) {
+        this.exam_type = exam_type;
+    }
+
+    public String getCourse_property() {
+        return course_property;
+    }
+
+    public void setCourse_property(String course_property) {
+        this.course_property = course_property;
+    }
+
+    public String getCourse_nature() {
+        return course_nature;
+    }
+
+    public void setCourse_nature(String course_nature) {
+        this.course_nature = course_nature;
+    }
+
+    public String getExam_nature() {
+        return exam_nature;
+    }
+
+    public void setExam_nature(String exam_nature) {
+        this.exam_nature = exam_nature;
+    }
+
+    public String getAgain_term() {
+        return again_term;
+    }
+
+    public void setAgain_term(String again_term) {
+        this.again_term = again_term;
+    }
 }
