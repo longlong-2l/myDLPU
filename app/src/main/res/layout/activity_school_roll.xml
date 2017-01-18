@@ -1,6 +1,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="person_school_roll"
+            type="com.surpassli.www.myapp.gson.Person_School_Roll"/>
+        </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,9 +38,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_toRightOf="@id/iv_circle1"
-                app:cardBackgroundColor="@color/account_text_grey"
+                app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="15dp"
-                app:cardElevation="20dp">
+                app:cardElevation="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,7 +99,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_toRightOf="@id/iv_circle2"
-                app:cardBackgroundColor="@color/account_text_grey"
+                app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="15dp">
 
@@ -153,7 +159,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_toRightOf="@id/iv_circle3"
-                app:cardBackgroundColor="@color/account_text_grey"
+                app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="15dp">
 
@@ -192,7 +198,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/iv_circle4"
@@ -213,7 +219,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_toRightOf="@id/iv_circle4"
-                app:cardBackgroundColor="@color/account_text_grey"
+                app:cardBackgroundColor="@color/card_view_background"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="15dp">
 

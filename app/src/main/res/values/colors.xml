@@ -7,4 +7,5 @@
     <color name="tab_gray">#ff929292</color> <!-- Tab灰色 -->
     <color name="white">#ffffff</color> <!--间隔灰色 -->
     <color name="account_text_grey">#949494</color> <!--我的界面文字灰色 -->
+    <color name="card_view_background">#33ccff</color> <!--cardview的背景色 -->
 </resources>

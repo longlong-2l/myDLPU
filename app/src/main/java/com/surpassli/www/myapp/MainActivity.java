@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     break;
                 case 3:
                     if(!AppVariables.isLogin){
-                        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                        intent = new Intent(MainActivity.this,LoginActivity.class);
                         startActivityForResult(intent,1);
                     }else {
                         binding.indexViewpager.setCurrentItem(3);
@@ -115,7 +115,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.tv_fourtab:
                 if(!AppVariables.isLogin){
-                    Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                    intent = new Intent(MainActivity.this,LoginActivity.class);
                     startActivityForResult(intent,1);
                 }else {
                     binding.indexViewpager.setCurrentItem(3);
@@ -130,7 +130,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1 && resultCode == 1){
             String status = data.getStringExtra("status");
-            if("Success".equals(status)){
+            if(status.equals("Success")){
                 binding.indexViewpager.setCurrentItem(0);
             }
         }

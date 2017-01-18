@@ -30,7 +30,7 @@ public class School_Roll_Activity extends Activity {
     private long resultTime;
     private String sign;
     private long mytime;
-    Person_School_Roll person_school_roll;
+    private Person_School_Roll person_school_roll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +101,7 @@ public class School_Roll_Activity extends Activity {
         School_roll_binding.tvMajor.setText(person_school_roll.getMajor());
         School_roll_binding.tvEducationalSystem.setText(person_school_roll.getEducational_system());
         School_roll_binding.tvGrades.setText(person_school_roll.getGrades());
-        School_roll_binding.tvStudentId.setText(person_school_roll.getStudent_id());
+        School_roll_binding.tvStudentId.setText("学号：" + person_school_roll.getStudent_id());
         School_roll_binding.tvName.setText("姓名：" + person_school_roll.getname());
         School_roll_binding.tvSex.setText("性别：" + person_school_roll.getSex());
         School_roll_binding.tvNamePinyin.setText("姓名拼音：" + person_school_roll.getName_pinyin());

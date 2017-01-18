@@ -38,6 +38,12 @@
             android:text="86"/>
 
         <TextView
+            android:id="@+id/tv_score_flag"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="成绩标识"/>
+
+        <TextView
             android:id="@+id/tv_course_credit"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -72,6 +78,12 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="正常考试"/>
+
+        <TextView
+            android:id="@+id/tv_again_term"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="补重学期"/>
         </LinearLayout>
 
 </LinearLayout>

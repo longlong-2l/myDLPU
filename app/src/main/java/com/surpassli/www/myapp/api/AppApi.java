@@ -13,5 +13,9 @@ public class AppApi {
     /**
      * 账户信息
      */
-    public static final String MY_ACCOUNT =HOST + "/user/info?";
+    public static final String MY_ACCOUNT = HOST + "/user/info?";
+    /**
+     * 课程信息
+     */
+    public static final String MY_COURSE = HOST + "/user/courseScore?";
 }

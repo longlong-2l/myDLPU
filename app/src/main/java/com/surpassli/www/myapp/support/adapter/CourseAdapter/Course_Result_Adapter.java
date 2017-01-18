@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.gson.Course_Result_bean;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -18,10 +19,10 @@ import java.util.zip.Inflater;
 public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Adapter.MyViewHolder> {
 
     private Context context;
-    private List<String> Datas;
+    private List<Course_Result_bean> Datas;
     private LayoutInflater mInflater;
 
-    public Course_Result_Adapter(Context context, List<String> Datas) {
+    public Course_Result_Adapter(Context context, List<Course_Result_bean> Datas) {
         this.context = context;
         this.Datas = Datas;
         mInflater = LayoutInflater.from(context);
@@ -39,6 +40,19 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
     @Override
     public void onBindViewHolder(final MyViewHolder holder,final int position) {
         //设置要显示的数据
+        holder.tv_num.setText((CharSequence) Datas.get(position));
+        holder.tv_No1_date.setText((CharSequence) Datas.get(position));
+        holder.tv_course_num.setText((CharSequence) Datas.get(position));
+        holder.tv_course_name.setText((CharSequence) Datas.get(position));
+        holder.tv_course_score.setText((CharSequence) Datas.get(position));
+        holder.tv_score_flag.setText((CharSequence) Datas.get(position));
+        holder.tv_course_credit.setText((CharSequence) Datas.get(position));
+        holder.tv_course_period.setText((CharSequence) Datas.get(position));
+        holder.tv_exam_type.setText((CharSequence) Datas.get(position));
+        holder.tv_course_property.setText((CharSequence) Datas.get(position));
+        holder.tv_course_nature.setText((CharSequence) Datas.get(position));
+        holder.tv_exam_nature.setText((CharSequence) Datas.get(position));
+        holder.tv_again_term.setText((CharSequence) Datas.get(position));
 
     }
 
@@ -53,12 +67,15 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
         protected final TextView tv_course_num;
         protected final TextView tv_course_name;
         protected final TextView tv_course_score;
+        protected final TextView tv_score_flag;
         protected final TextView tv_course_credit;
         protected final TextView tv_course_period;
         protected final TextView tv_exam_type;
         protected final TextView tv_course_property;
         protected final TextView tv_course_nature;
         protected final TextView tv_exam_nature;
+        protected final TextView tv_again_term;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             tv_num = (TextView) itemView.findViewById(R.id.tv_num);
@@ -72,6 +89,8 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
             tv_course_property = (TextView) itemView.findViewById(R.id.tv_course_property);
             tv_course_nature = (TextView) itemView.findViewById(R.id.tv_course_nature);
             tv_exam_nature = (TextView) itemView.findViewById(R.id.tv_exam_nature);
+            tv_again_term = (TextView) itemView.findViewById(R.id.tv_again_term);
+            tv_score_flag = (TextView) itemView.findViewById(R.id.tv_score_flag);
         }
     }
 }
