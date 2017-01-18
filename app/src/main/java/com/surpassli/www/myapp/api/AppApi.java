@@ -5,7 +5,13 @@ package com.surpassli.www.myapp.api;
  */
 public class AppApi {
 
+
     public static final String HOST = "https://dlpu-aao-api.xu42.cn/v1";
+
+    /**
+     * 时间戳
+     */
+    public static final String TIME = HOST + "/time";
     /**
      * 登录
      */
@@ -18,4 +24,5 @@ public class AppApi {
      * 课程信息
      */
     public static final String MY_COURSE = HOST + "/user/courseScore?";
+
 }

@@ -8,22 +8,32 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
 import com.surpassli.www.myapp.adapter.FragmentAdapter;
+import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.databinding.ActivityMainBinding;
+import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.ui.EducationFragment;
 import com.surpassli.www.myapp.ui.LifeFragment;
 import com.surpassli.www.myapp.ui.LoginActivity;
 import com.surpassli.www.myapp.ui.MyFragment;
 import com.surpassli.www.myapp.ui.MoreFragment;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener {
+import okhttp3.Call;
+import okhttp3.Response;
 
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
+    private static final String TAG = "MainActivity";
     private List<Fragment> fragmentList;
     private ActivityMainBinding binding;
     private Intent intent;
@@ -34,10 +44,36 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         initView();
+        getData();
+    }
+
+    private void getData() {
+        HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.i(TAG, "onFailure: " + "获取系统授时失败：" + e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.i(TAG, "onResponse: " + "获取系统授时成功");
+                String result = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    if("Success".equals(jsonObject.getString("message"))){
+                        AppVariables.time = jsonObject.getInt("time");
+                    }else{
+                        Log.i(TAG, "onResponse: " + "状态不对");
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void initView() {
-
         fragmentList = new ArrayList<Fragment>();
         LifeFragment lifeFragment = new LifeFragment();
         EducationFragment educationFragment = new EducationFragment();

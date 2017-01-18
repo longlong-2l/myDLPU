@@ -2,9 +2,6 @@ package com.surpassli.www.myapp.ui.Account;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -13,10 +10,8 @@ import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.adapter.Course_Adapter;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.gson.Course_Result_bean;
-import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Result_Adapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
-import com.surpassli.www.myapp.support.utils.RecycleViewDivider.DividerItemDecoration;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,10 +28,10 @@ import okhttp3.Response;
  * Created by SurpassLi on 2017/1/17.
  */
 public class Course_Result_Activity extends Activity {
-//    private RecyclerView mRecycleView;
+    //    private RecyclerView mRecycleView;
     private ListView lv_course;
     private List<Course_Result_bean> mCourse_Result_list;
-//    private Course_Result_Adapter mCourse_result_adapter;
+    //    private Course_Result_Adapter mCourse_result_adapter;
     private Course_Adapter course_adapter;
     private long mytime;
     private long resultTime;
@@ -60,7 +55,7 @@ public class Course_Result_Activity extends Activity {
         HttpUtil.sendGetOkhttp_header(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败");
+                Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage().toString());
             }
 
             @Override
@@ -103,7 +98,7 @@ public class Course_Result_Activity extends Activity {
         });
 //        mCourse_result_adapter = new Course_Result_Adapter(this,mCourse_Result_list);
 //        mRecycleView.setAdapter(mCourse_result_adapter);
-         course_adapter = new Course_Adapter(Course_Result_Activity.this,mCourse_Result_list);
+        course_adapter = new Course_Adapter(Course_Result_Activity.this, mCourse_Result_list);
         lv_course.setAdapter(course_adapter);
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);//设置RecycleView 以ListView的方式显示
 //        mRecycleView.setLayoutManager(layoutManager);

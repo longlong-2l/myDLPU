@@ -36,11 +36,12 @@ public class School_Roll_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         School_roll_binding = DataBindingUtil.setContentView(School_Roll_Activity.this,R.layout.activity_school_roll);
-        getNetTime();
+//        getNetTime();
+        getData();
     }
 
     private void getNetTime() {
-        HttpUtil.sendGetOkhttp("https://dlpu-aao-api.xu42.cn/v1/time", new okhttp3.Callback() {
+        HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i(TAG, "onFailure: " + "获取系统授时失败");
@@ -73,7 +74,7 @@ public class School_Roll_Activity extends Activity {
         HttpUtil.sendGetOkhttp_header(AppApi.MY_ACCOUNT + "userId=" + AppVariables.userId + "&sign=" + sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "MyFragment_onFailure: " + "获取数据失败");
+                Log.i(TAG, "MyFragment_onFailure: " + "获取数据失败：" + e.getMessage().toString());
             }
 
             @Override
