@@ -67,9 +67,9 @@ public class School_Roll_Activity extends Activity {
 
     private void getData() {
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
-        resultTime = AppVariables.time - mytime;
-        String timestamp = String.valueOf(mytime + resultTime);
+        String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
+
         Log.i(TAG, "getData: " + AppApi.MY_ACCOUNT + "userId=" + AppVariables.userId + "&sign=" + sign + "&timestamp=" + timestamp);
         HttpUtil.sendGetOkhttp_header(AppApi.MY_ACCOUNT + "userId=" + AppVariables.userId + "&sign=" + sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
@@ -81,6 +81,7 @@ public class School_Roll_Activity extends Activity {
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i(TAG, "MyFragment_onResponse: " + "获取数据成功");
                 String data = response.body().string();
+                Log.i(TAG, "onResponse: " + data);
                 try {
                     JSONObject jsonObject = new JSONObject(data);
                     person_school_roll = new Person_School_Roll(jsonObject);

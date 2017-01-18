@@ -62,6 +62,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     JSONObject jsonObject = new JSONObject(result);
                     if("Success".equals(jsonObject.getString("message"))){
                         AppVariables.time = jsonObject.getInt("time");
+                        AppVariables.time_cha = AppVariables.time - (System.currentTimeMillis() / 1000);
                     }else{
                         Log.i(TAG, "onResponse: " + "状态不对");
                     }

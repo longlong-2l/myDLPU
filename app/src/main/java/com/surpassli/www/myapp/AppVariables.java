@@ -1,7 +1,5 @@
 package com.surpassli.www.myapp;
 
-import com.surpassli.www.myapp.support.utils.MD5.MD5;
-
 /**
  * Created by dell on 2017/1/16.
  */
@@ -21,11 +19,14 @@ public class AppVariables {
 
     public static long time;
 
+    public static long time_cha;
+
     public static void clear() {
         isLogin = false;
         userId = 0;
         token = "";
         username = "";
         time = 0;
+        time_cha = 0;
     }
 }

@@ -48,10 +48,11 @@ public class Course_Result_Activity extends Activity {
 //        mRecycleView = (RecyclerView) findViewById(R.id.rv_course_recycleView);
         lv_course = (ListView) findViewById(R.id.lv_course);
         mCourse_Result_list = new ArrayList<Course_Result_bean>();
+
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
-        resultTime = AppVariables.time - mytime;
-        String timestamp = String.valueOf(mytime + resultTime);
+        String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
+
         HttpUtil.sendGetOkhttp_header(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
