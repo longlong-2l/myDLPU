@@ -79,14 +79,14 @@ public class Course_Result_Activity extends Activity {
                             course_result_bean.course = jsonArray1.getString(2);
                             course_result_bean.course_name = jsonArray1.getString(3);
                             course_result_bean.course_score = jsonArray1.getString(4);
-                            course_result_bean.score_flag = jsonArray1.getString(5);
-                            course_result_bean.course_credit = jsonArray1.getString(6);
-                            course_result_bean.course_period = jsonArray1.getString(7);
-                            course_result_bean.exam_type = jsonArray1.getString(8);
-                            course_result_bean.course_property = jsonArray1.getString(9);
-                            course_result_bean.course_nature = jsonArray1.getString(10);
-                            course_result_bean.exam_nature = jsonArray1.getString(11);
-                            course_result_bean.again_term = jsonArray1.getString(12);
+//                            course_result_bean.score_flag = jsonArray1.getString(5);
+//                            course_result_bean.course_credit = jsonArray1.getString(6);
+//                            course_result_bean.course_period = jsonArray1.getString(7);
+//                            course_result_bean.exam_type = jsonArray1.getString(8);
+//                            course_result_bean.course_property = jsonArray1.getString(9);
+//                            course_result_bean.course_nature = jsonArray1.getString(10);
+//                            course_result_bean.exam_nature = jsonArray1.getString(11);
+//                            course_result_bean.again_term = jsonArray1.getString(12);
 //                            Course_Result_bean course_result_bean = new Course_Result_bean(jsonArray,i);
                             mCourse_Result_list.add(course_result_bean);
                         }

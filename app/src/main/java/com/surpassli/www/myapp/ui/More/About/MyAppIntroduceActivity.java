@@ -13,7 +13,7 @@ import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.databinding.ActivityIntroduceWebviewBinding;
 
 /**
- * Created by dell on 2017/1/19.
+ * Created by SurpassLi on 2017/1/19.
  */
 public class MyAppIntroduceActivity extends Activity {
 
