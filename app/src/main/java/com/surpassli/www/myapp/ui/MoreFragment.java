@@ -12,7 +12,7 @@ import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 
 /**
- * Created by dell on 2017/1/6.
+ * Created by SurpassLi on 2017/1/6.
  */
 public class MoreFragment extends Fragment implements View.OnClickListener{
     private View view;

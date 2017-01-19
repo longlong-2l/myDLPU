@@ -4,7 +4,6 @@
         <Preference
             android:key="id_app_intro"
             android:title="应用简介" />
-
         <Preference
             android:key="id_check_update"
             android:title="检查更新" />
@@ -13,7 +12,7 @@
             android:title="演示视频" />
         <Preference
             android:key="id_feedback"
-            android:title="意见反馈"></Preference>
+            android:title="意见反馈" />
         <Preference
             android:key="id_share"
             android:title="分享DLPU" />

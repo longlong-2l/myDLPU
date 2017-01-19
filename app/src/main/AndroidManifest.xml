@@ -26,6 +26,7 @@
         <activity android:name=".ui.Account.School_Roll_Activity" android:launchMode="singleTask"></activity>
         <activity android:name=".ui.Account.Course_Result_Activity" android:launchMode="singleTask"></activity>
         <activity android:name=".ui.More.About.About_us_activity" android:launchMode="singleTask"></activity>
+        <activity android:name=".ui.More.About.MyAppIntroduceActivity" android:launchMode="singleTask"></activity>
 
         <meta-data android:name="UMENG_APPKEY"
             android:value="58773045766613068b000585">

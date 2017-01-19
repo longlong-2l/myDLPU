@@ -15,7 +15,7 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.more_fragment_about);//测试我的码云
+        addPreferencesFromResource(R.xml.more_fragment_about);
         initView();
     }
 
@@ -27,8 +27,8 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if(mAppIntroduce == preference){
-//            Intent intent = new Intent(getActivity(),);
-
+            Intent intent = new Intent(getActivity(),MyAppIntroduceActivity.class);
+            startActivity(intent);
         }
 
         return false;
