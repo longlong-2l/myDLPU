@@ -23,7 +23,7 @@
             android:icon="@mipmap/surpassli"
             android:key="id_surpassli_blog"
             android:summary="https://github.com/longlong-2l"
-            android:title="SurpassLi的GitHub" />
+            android:title="SurpassLi" />
 
     </PreferenceCategory>
     <PreferenceCategory android:title="后端支持">
@@ -31,14 +31,14 @@
             android:icon="@mipmap/ic_xu42"
             android:key="id_xu42"
             android:summary="http://xu42.cn/"
-            android:title="xu42的主页" />
+            android:title="xu42" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Web前端">
         <Preference
             android:icon="@mipmap/surpassli"
             android:key="id_surpassli_blog"
             android:summary="https://github.com/longlong-2l"
-            android:title="SurpassLi的GitHub" />
+            android:title="SurpassLi" />
     </PreferenceCategory>
     <PreferenceCategory android:title="致谢">
         <Preference
