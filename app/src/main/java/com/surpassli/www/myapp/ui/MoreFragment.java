@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,14 +9,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 
 /**
  * Created by dell on 2017/1/6.
  */
-public class MoreFragment extends Fragment {
+public class MoreFragment extends Fragment implements View.OnClickListener{
+    private View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_noname,container,false);
+        view = inflater.inflate(R.layout.fragment_noname,container,false);
+        initView();
+        return view;
+    }
+
+    private void initView() {
+      view.findViewById(R.id.tv_About_us).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_About_us:
+                startActivity(new Intent(getActivity(), About_us_activity.class));
+                break;
+        }
     }
 }
