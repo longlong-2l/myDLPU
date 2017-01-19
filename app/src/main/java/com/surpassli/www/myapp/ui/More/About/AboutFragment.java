@@ -15,7 +15,7 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.more_fragment_about);
+        addPreferencesFromResource(R.xml.more_fragment_about);//测试我的码云
         initView();
     }
 
