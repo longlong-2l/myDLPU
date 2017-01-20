@@ -7,9 +7,9 @@ import android.widget.ListView;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.adapter.Course_Adapter;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.gson.Course_Result_bean;
+import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Adapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 

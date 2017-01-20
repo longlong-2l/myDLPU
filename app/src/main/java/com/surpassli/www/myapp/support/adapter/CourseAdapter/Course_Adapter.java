@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.adapter;
+package com.surpassli.www.myapp.support.adapter.CourseAdapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import com.surpassli.www.myapp.gson.Course_Result_bean;
 import java.util.List;
 
 /**
- * Created by dell on 2017/1/18.
+ * Created by SurpassLi on 2017/1/18.
  */
 public class Course_Adapter extends BaseAdapter {
 
