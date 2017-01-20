@@ -12,9 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
-import com.surpassli.www.myapp.adapter.FragmentAdapter;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.databinding.ActivityMainBinding;
+import com.surpassli.www.myapp.support.adapter.Fragment.FragmentAdapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.ui.EducationFragment;
 import com.surpassli.www.myapp.ui.LifeFragment;
