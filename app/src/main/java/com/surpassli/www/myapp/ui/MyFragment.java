@@ -7,8 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
 import com.surpassli.www.myapp.ui.Account.Course_Result_Activity;
+import com.surpassli.www.myapp.ui.Account.Level_Grade_Activity;
 import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
 
 /**
@@ -46,6 +49,31 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tv_course_grade:
                 startActivity( new Intent(getActivity(), Course_Result_Activity.class));
+                break;
+            case R.id.tv_level_grade:
+                startActivity(new Intent(getActivity(), Level_Grade_Activity.class));
+                break;
+            case R.id.tv_login_out:
+                final CustomDialogUtil customDialogUtil = new CustomDialogUtil(getActivity());
+                customDialogUtil.setTv_title("友情提示");
+                customDialogUtil.setTv_message("确定退出登录吗？");
+                customDialogUtil.PositiveClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AppVariables.clear();
+                        customDialogUtil.dismiss();
+//                        Intent intent = new Intent();
+//                        intent.setAction("tab");
+//                        intent.putExtra("tab","onetab");
+//                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                    }
+                });
+                customDialogUtil.CancelClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        customDialogUtil.dismiss();
+                    }
+                });
                 break;
         }
     }

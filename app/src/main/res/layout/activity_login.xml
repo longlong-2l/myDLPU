@@ -44,7 +44,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:hint="Name"
-                android:lines="1" />
+                android:maxLength="10"
+                android:maxLines="1" />
         </android.support.design.widget.TextInputLayout>
 
 
@@ -70,7 +71,8 @@
                     android:layout_centerHorizontal="true"
                     android:hint="PassWord"
                     android:inputType="textPassword"
-                    android:lines="1" />
+                    android:lines="1"
+                    android:maxLines="1" />
 
             </android.support.design.widget.TextInputLayout>
 

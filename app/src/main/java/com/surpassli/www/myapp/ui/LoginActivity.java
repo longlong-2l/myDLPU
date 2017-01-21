@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
@@ -42,14 +43,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         loginBinding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
         initView();
-//        loginBinding.BtLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                name = loginBinding.etName.getText().toString();
-//                password = loginBinding.etPassword.getText().toString();
-//                login();
-//            }
-//        });
     }
 
     private void initView() {
@@ -83,6 +76,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i(TAG, "onFailure: " + "获取数据失败");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(LoginActivity.this,"网络出先问题，请检查网络设置~~",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -100,17 +99,23 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         Log.i(TAG, "AppVariables.userId: " + AppVariables.userId);
                         Log.i(TAG, "AppVariables.username: " + AppVariables.username);
                         Log.i(TAG, "AppVariables.token: " + AppVariables.token);
+                        Intent intent = new Intent();
+                        intent.putExtra("status", "Success");
+                        LoginActivity.this.setResult(1, intent);
+                        LoginActivity.this.finish();
+                    }else{
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(LoginActivity.this,"用户名或密码错误~~~",Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
-
-        Intent intent = new Intent();
-        intent.putExtra("status", "Success");
-        LoginActivity.this.setResult(1, intent);
-        LoginActivity.this.finish();
     }
 
     @Override

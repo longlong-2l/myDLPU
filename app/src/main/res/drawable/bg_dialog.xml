@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--shape:设置形状-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- solid:填充 -->
+    <solid android:color="@color/white" />
+    <!-- corners:圆角 四角的弧度-->
+    <corners
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="5dp"
+        android:topLeftRadius="5dp"
+        android:topRightRadius="5dp" />
+</shape>

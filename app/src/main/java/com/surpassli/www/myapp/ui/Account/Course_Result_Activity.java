@@ -66,7 +66,7 @@ public class Course_Result_Activity extends Activity {
                 Log.i(TAG, "课程信息: " + res);
                 Course_Result_bean course_result_bean;
                 try {
-                    course_result_bean = new Course_Result_bean();
+
                     JSONObject jsonObject = new JSONObject(res);
                     JSONArray jsonArray1;
                     if (jsonObject.getString("message").equals("Success")) {
@@ -74,6 +74,7 @@ public class Course_Result_Activity extends Activity {
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0; i < jsonArray.length(); i++) {
                             jsonArray1 = jsonArray.getJSONArray(i);
+                            course_result_bean = new Course_Result_bean();
                             course_result_bean.num = jsonArray1.getString(0);
                             course_result_bean.No1_date = jsonArray1.getString(1);
                             course_result_bean.course = jsonArray1.getString(2);

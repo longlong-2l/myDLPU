@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_exam_property"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_property" />
+
+            <TextView
+                android:id="@+id/tv_exam_one"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_one" />
+
+            <TextView
+                android:id="@+id/tv_exam_two"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_two" />
+
+            <TextView
+                android:id="@+id/tv_exam_three"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_three" />
+
+            <TextView
+                android:id="@+id/tv_exam_four"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_four" />
+
+            <TextView
+                android:id="@+id/tv_exam_five"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/exam_five" />
+
+            <!--<TextView
+                android:id="@+id/tv_exam_six"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="考试六" />
+
+            <TextView
+                android:id="@+id/tv_exam_seven"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="考试七" />
+
+            <TextView
+                android:id="@+id/tv_exam_eight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="考试八" />-->
+
+        </LinearLayout>
+        <!--<ListView
+            android:id="@+id/lv_level_exam"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>-->
+        <com.surpassli.www.myapp.support.utils.MySelfView.HorizontalListView
+            android:id="@+id/lv_level_exam"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
+            </com.surpassli.www.myapp.support.utils.MySelfView.HorizontalListView>
+    </LinearLayout>
+</layout>

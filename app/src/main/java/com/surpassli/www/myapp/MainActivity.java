@@ -1,5 +1,7 @@
 package com.surpassli.www.myapp;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
@@ -178,5 +180,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         binding.tvTwotab.setTextColor(Color.GRAY);
         binding.tvThreetab.setTextColor(Color.GRAY);
         binding.tvFourtab.setTextColor(Color.GRAY);
+    }
+
+    public class MyBroadcastReceiver extends BroadcastReceiver{
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String tab = intent.getStringExtra("tab");
+            if("onetab".equals(tab)){
+                binding.indexViewpager.setCurrentItem(0);
+                binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
+            }
+        }
     }
 }

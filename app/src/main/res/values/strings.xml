@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MyApp</string>
+    <string name="exam_property">属性</string>
+    <string name="exam_one">考试一</string>
+    <string name="exam_two">考试二</string>
+    <string name="exam_three">考试三</string>
+    <string name="exam_four">考试四</string>
+    <string name="exam_five">考试五</string>
 </resources>

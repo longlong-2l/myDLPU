@@ -9,4 +9,6 @@
     <color name="account_text_grey">#949494</color> <!--我的界面文字灰色 -->
     <color name="card_view_background">#33ccff</color> <!--cardview的背景色 -->
     <color name="backgroundColor">#E0E5EA</color>
+    <color name="app_line">#e8e8e8</color><!--dialog的分隔线的颜色-->
+    <color name="app_font_dark">#333333</color><!--dialog的字体颜色-->
 </resources>
