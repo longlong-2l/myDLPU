@@ -1,97 +1,47 @@
 package com.surpassli.www.myapp.model.Course_Table;
 
 /**
- * Created by SurpassLi on 2017/1/21.
+ * Created by SurpassLi on 2017/1/22.
  */
 public class Course_Table_Bean {
 
-    private String order_number;            //序号
+    private String Course_name;
 
-    private String exam_name;               //等级考试名字
+    private String Course_time;
 
-    private String grade_pen;               //分数类考试笔试
+    private String Course_address;
 
-    private String grade_computer;         //分数类考试机试
+    private String Course_teacher;
 
-    private String grade_all;               //分数类成绩总成绩
-
-    private String level_grade_pen;        //等级类成绩笔试
-
-    private String level_grade_computer;  //等级类成绩机试
-
-    private String level_grade_all;        //等级类总成绩
-
-    private String exam_date;               //考试日期
-
-    public String getOrder_number() {
-        return order_number;
+    public String getCourse_teacher() {
+        return Course_teacher;
     }
 
-    public void setOrder_number(String order_number) {
-        this.order_number = order_number;
+    public void setCourse_teacher(String course_teacher) {
+        Course_teacher = course_teacher;
     }
 
-    public String getExam_name() {
-        return exam_name;
+    public String getCourse_address() {
+        return Course_address;
     }
 
-    public void setExam_name(String exam_name) {
-        this.exam_name = exam_name;
+    public void setCourse_address(String course_address) {
+        Course_address = course_address;
     }
 
-    public String getGrade_pen() {
-        return grade_pen;
+    public String getCourse_time() {
+        return Course_time;
     }
 
-    public void setGrade_pen(String grade_pen) {
-        this.grade_pen = grade_pen;
+    public void setCourse_time(String course_time) {
+        Course_time = course_time;
     }
 
-    public String getGrade_computer() {
-        return grade_computer;
+    public String getCourse_name() {
+        return Course_name;
     }
 
-    public void setGrade_computer(String grade_computer) {
-        this.grade_computer = grade_computer;
-    }
-
-    public String getGrade_all() {
-        return grade_all;
-    }
-
-    public void setGrade_all(String grade_all) {
-        this.grade_all = grade_all;
-    }
-
-    public String getLevel_grade_pen() {
-        return level_grade_pen;
-    }
-
-    public void setLevel_grade_pen(String level_grade_pen) {
-        this.level_grade_pen = level_grade_pen;
-    }
-
-    public String getLevel_grade_computer() {
-        return level_grade_computer;
-    }
-
-    public void setLevel_grade_computer(String level_grade_computer) {
-        this.level_grade_computer = level_grade_computer;
-    }
-
-    public String getLevel_grade_all() {
-        return level_grade_all;
-    }
-
-    public void setLevel_grade_all(String level_grade_all) {
-        this.level_grade_all = level_grade_all;
-    }
-
-    public String getExam_date() {
-        return exam_date;
-    }
-
-    public void setExam_date(String exam_date) {
-        this.exam_date = exam_date;
+    public void setCourse_name(String course_name) {
+        Course_name = course_name;
     }
 }

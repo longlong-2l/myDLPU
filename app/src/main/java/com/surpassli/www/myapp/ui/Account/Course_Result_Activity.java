@@ -42,7 +42,6 @@ public class Course_Result_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_result);
-        initView();
     }
 
     @Override
@@ -79,7 +78,7 @@ public class Course_Result_Activity extends Activity {
                     if (jsonObject.getString("message").equals("Success")) {
                         Log.i(TAG, "onResponse: " + "获取课程正确信息");
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
-                        for (int i = 0; i < jsonArray.length(); i++) {
+                        for (int i = 1; i < jsonArray.length(); i++) {
                             jsonArray1 = jsonArray.getJSONArray(i);
                             course_result_bean = new Course_Result_bean();
                             course_result_bean.num = jsonArray1.getString(0);

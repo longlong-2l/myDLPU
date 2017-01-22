@@ -36,34 +36,38 @@ public class School_Roll_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         School_roll_binding = DataBindingUtil.setContentView(School_Roll_Activity.this,R.layout.activity_school_roll);
-//        getNetTime();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getData();
     }
 
-    private void getNetTime() {
-        HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "onFailure: " + "获取系统授时失败");
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Log.i(TAG, "onResponse: " + "获取系统授时成功");
-                String result = response.body().string();
-                try {
-                    JSONObject jsonObject = new JSONObject(result);
-                    if ("Success".equals(jsonObject.getString("message"))) {
-                        AppVariables.time = jsonObject.getInt("time");
-                        Log.i(TAG, "AppVariables.time: " + AppVariables.time);
-                        getData();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+//    private void getNetTime() {
+//        HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
+//            @Override
+//            public void onFailure(Call call, IOException e) {
+//                Log.i(TAG, "onFailure: " + "获取系统授时失败");
+//            }
+//
+//            @Override
+//            public void onResponse(Call call, Response response) throws IOException {
+//                Log.i(TAG, "onResponse: " + "获取系统授时成功");
+//                String result = response.body().string();
+//                try {
+//                    JSONObject jsonObject = new JSONObject(result);
+//                    if ("Success".equals(jsonObject.getString("message"))) {
+//                        AppVariables.time = jsonObject.getInt("time");
+//                        Log.i(TAG, "AppVariables.time: " + AppVariables.time);
+//                        getData();
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
 
     private void getData() {
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳

@@ -9,7 +9,7 @@ import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.databinding.ActivityLevelGradeBinding;
-import com.surpassli.www.myapp.model.Course_Table.Course_Table_Bean;
+import com.surpassli.www.myapp.model.Course_Table.Level_Course_Bean;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Table_Adapter_listview;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
@@ -29,7 +29,7 @@ import okhttp3.Response;
  */
 public class Level_Grade_Activity extends Activity {
 
-    private ArrayList<Course_Table_Bean> myCourse_table_been;
+    private ArrayList<Level_Course_Bean> myCourse_table_been;
     private Course_Table_Adapter_listview myCourse_table_adapter_listview;
     private ActivityLevelGradeBinding MyLevelGradeBinding;
 
@@ -37,11 +37,16 @@ public class Level_Grade_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyLevelGradeBinding = DataBindingUtil.setContentView(this, R.layout.activity_level_grade);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         getData();
     }
 
     private void getData() {
-        myCourse_table_been = new ArrayList<Course_Table_Bean>();
+        myCourse_table_been = new ArrayList<Level_Course_Bean>();
         long mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
@@ -56,7 +61,7 @@ public class Level_Grade_Activity extends Activity {
                 Log.i("Level_Grade_Activity", "onResponse: " + "获取等级考试成绩数据成功");
                 String res = response.body().string();
                 Log.i("Level_Grade_Activity", "获取的信息: " + res);
-                Course_Table_Bean course_table_bean;
+                Level_Course_Bean course_table_bean;
                 try {
                     JSONObject jsonObject = new JSONObject(res);
                     if("Success".equals(jsonObject.getString("message"))){
@@ -64,7 +69,7 @@ public class Level_Grade_Activity extends Activity {
                             JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0 ;i < jsonArray.length(); i++){
                             JSONArray jsonArray1 = jsonArray.getJSONArray(i);
-                            course_table_bean = new Course_Table_Bean();
+                            course_table_bean = new Level_Course_Bean();
                             course_table_bean.setOrder_number(jsonArray1.getString(0));
                             course_table_bean.setExam_name(jsonArray1.getString(1));
                             course_table_bean.setGrade_pen(jsonArray1.getString(2));
