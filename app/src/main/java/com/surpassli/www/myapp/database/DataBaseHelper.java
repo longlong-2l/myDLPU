@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.surpassli.www.myapp.database.table.AccountTable;
 
 /**
- * Created by dell on 2017/1/9.
+ * Created by SurpassLi on 2017/1/9.
  */
 public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "MyApp";

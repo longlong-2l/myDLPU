@@ -27,7 +27,7 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 /**
- * Created by dell on 2017/1/9.
+ * Created by SurpassLi on 2017/1/9.
  */
 public class LoginActivity extends Activity implements View.OnClickListener {
     private ActivityLoginBinding loginBinding;
@@ -49,27 +49,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.iv_see).setOnClickListener(this);
         findViewById(R.id.Bt_Login).setOnClickListener(this);
     }
-
-//    public class EventClickListener{
-//        public void OnLoginClick(View view){
-//           Toast.makeText(LoginActivity.this,"dada",Toast.LENGTH_SHORT).show();
-//            name = loginBinding.etName.getText().toString();
-//            password = loginBinding.etPassword.getText().toString();
-//            login();
-//        }
-//        public void OnSeePassWord(View view){
-//            boolean flag = true;
-//            if(flag) {
-//                loginBinding.ivSee.setImageResource(R.mipmap.show);
-//                loginBinding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-//                flag = false;
-//            }else{
-//                loginBinding.ivSee.setImageResource(R.mipmap.hide);
-//                loginBinding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-//                flag = true;
-//            }
-//        }
-//    }
 
     public void login() {
         HttpUtil.sendGetOkhttp(AppApi.LOGIN + "username=" + name + "&password=" + password, new okhttp3.Callback() {

@@ -3,7 +3,7 @@ package com.surpassli.www.myapp.model.Course_Table;
 /**
  * Created by SurpassLi on 2017/1/21.
  */
-public class Level_Course_Bean {
+public class Level_Grade {
 
     private String order_number;            //序号
 

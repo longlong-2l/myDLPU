@@ -1,7 +1,7 @@
 package com.surpassli.www.myapp.database.table;
 
 /**
- * Created by dell on 2017/1/9.
+ * Created by SurpassLi on 2017/1/9.
  */
 public class AccountTable {
     private static final String NAME="AccountTable";

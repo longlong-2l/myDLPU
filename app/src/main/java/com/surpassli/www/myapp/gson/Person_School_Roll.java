@@ -36,9 +36,10 @@ public class Person_School_Roll {
 
     private String idcard;//身份证编号
 
-    public Person_School_Roll(JSONObject jsonObject) {
+    public Person_School_Roll(String response) {
         JSONArray jsonArray = null;
         try {
+           JSONObject jsonObject = new JSONObject(response);
             if ("Success".equals(jsonObject.getString("message"))) {
                 try {
                     jsonArray = jsonObject.getJSONArray("data");

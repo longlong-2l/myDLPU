@@ -25,7 +25,12 @@ public class HttpUtil {
         client.newCall(res).enqueue(callback);
     }
 
-    public static void sendGetOkhttp_header(String url,okhttp3.Callback callback){
+    /**
+     * 只带有key的header
+     * @param url
+     * @param callback
+     */
+    public static void sendGetOkHttp_header(String url,okhttp3.Callback callback){
         OkHttpClient client = genericClient();
         Request res = new Request.Builder().url(url).build();
         client.newCall(res).enqueue(callback);
@@ -38,6 +43,62 @@ public class HttpUtil {
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request()
                                 .newBuilder()
+                                .addHeader("key", AppVariables.key)
+                                .build();
+                        return chain.proceed(request);
+                    }
+                })
+                .build();
+        return httpClient;
+    }
+
+    /**
+     * 带有key、semester、week的header,查课程表
+     * @param url
+     * @param callback
+     */
+    public static void sendGetOkHttp_header_swk(String semester,String url,okhttp3.Callback callback){
+        OkHttpClient client = genericClient_swk(semester);
+        Request res = new Request.Builder().url(url).build();
+        client.newCall(res).enqueue(callback);
+    }
+    public static OkHttpClient genericClient_swk(final String semester) {
+        OkHttpClient httpClient = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request()
+                                .newBuilder()
+                                .addHeader("semester", semester)
+                                .addHeader("week", "2")
+                                .addHeader("key", AppVariables.key)
+                                .build();
+                        return chain.proceed(request);
+                    }
+                })
+                .build();
+        return httpClient;
+    }
+
+    /**
+     * 带有key、semester的header,用于课程成绩查询，考试安排
+     * @param url
+     * @param callback
+     */
+    public static void sendGetOkHttp_header_sk(String url,okhttp3.Callback callback){
+        OkHttpClient client = genericClient_sk();
+        Request res = new Request.Builder().url(url).build();
+        client.newCall(res).enqueue(callback);
+    }
+
+    public static OkHttpClient genericClient_sk() {
+        OkHttpClient httpClient = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request()
+                                .newBuilder()
+                                .addHeader("semester", "2015-2016-2")
                                 .addHeader("key", AppVariables.key)
                                 .build();
                         return chain.proceed(request);

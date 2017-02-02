@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.surpassli.www.myapp.R;
 
 /**
- * Created by dell on 2017/1/6.
+ * Created by SurpassLi on 2017/1/6.
  */
 public class EducationFragment extends Fragment {
     @Nullable

@@ -51,7 +51,6 @@ public class Course_Result_Activity extends Activity {
     }
 
     private void initView() {
-//        mRecycleView = (RecyclerView) findViewById(R.id.rv_course_recycleView);
         lv_course = (ListView) findViewById(R.id.lv_course);
         mCourse_Result_list = new ArrayList<Course_Result_bean>();
 
@@ -59,7 +58,7 @@ public class Course_Result_Activity extends Activity {
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
 
-        HttpUtil.sendGetOkhttp_header(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
+        HttpUtil.sendGetOkHttp_header_sk(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage().toString());
@@ -72,7 +71,6 @@ public class Course_Result_Activity extends Activity {
                 Log.i(TAG, "课程信息: " + res);
                 Course_Result_bean course_result_bean;
                 try {
-
                     JSONObject jsonObject = new JSONObject(res);
                     JSONArray jsonArray1;
                     if (jsonObject.getString("message").equals("Success")) {
@@ -94,7 +92,6 @@ public class Course_Result_Activity extends Activity {
                             course_result_bean.course_nature = jsonArray1.getString(10);
                             course_result_bean.exam_nature = jsonArray1.getString(11);
                             course_result_bean.again_term = jsonArray1.getString(12);
-//                            Course_Result_bean course_result_bean = new Course_Result_bean(jsonArray,i);
                             mCourse_Result_list.add(course_result_bean);
                         }
                     }

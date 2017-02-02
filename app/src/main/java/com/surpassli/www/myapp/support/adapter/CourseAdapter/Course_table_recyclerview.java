@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.model.Course_Table.Course_Table_Bean;
+import com.surpassli.www.myapp.model.Level_Grade.Course_Table;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,14 +20,15 @@ public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private List<Course_Table_Bean> mlist;
+    private List<Course_Table> mlist;
 
-    public Course_table_recyclerview(List<Course_Table_Bean> mlist, Context context) {
+    public Course_table_recyclerview(ArrayList<Course_Table> mlist, Context context) {
         this.mlist = mlist;
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
+    //用于创建控件
     @Override
     public Course_table_recyclerview.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = layoutInflater.inflate(R.layout.item_course_table, parent, false);
@@ -34,6 +36,7 @@ public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table
         return viewHolder;
     }
 
+    //为控件设置数据
     @Override
     public void onBindViewHolder(Course_table_recyclerview.ViewHolder holder, int position) {
         holder.tv_course_name.setText(mlist.get(position).getCourse_name());

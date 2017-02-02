@@ -8,7 +8,7 @@ import com.surpassli.www.myapp.model.AccountTableModel;
 import java.util.List;
 
 /**
- * Created by dell on 2017/1/9.
+ * Created by SurpassLi on 2017/1/9.
  */
 public class AccountDAO implements DAO<AccountTableModel> {
     public static final String TAG = "AccountDAO";

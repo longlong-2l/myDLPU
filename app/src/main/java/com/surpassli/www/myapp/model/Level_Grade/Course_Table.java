@@ -1,9 +1,9 @@
-package com.surpassli.www.myapp.model.Course_Table;
+package com.surpassli.www.myapp.model.Level_Grade;
 
 /**
  * Created by SurpassLi on 2017/1/22.
  */
-public class Course_Table_Bean {
+public class Course_Table {
 
     private String Course_name;
 

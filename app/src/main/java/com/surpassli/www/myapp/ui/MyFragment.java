@@ -11,6 +11,7 @@ import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
 import com.surpassli.www.myapp.ui.Account.Course_Result_Activity;
+import com.surpassli.www.myapp.ui.Account.Course_Table_Activity;
 import com.surpassli.www.myapp.ui.Account.Level_Grade_Activity;
 import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
 
@@ -74,6 +75,9 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                         customDialogUtil.dismiss();
                     }
                 });
+                break;
+            case R.id.tv_course_table:
+                startActivity(new Intent(getActivity(), Course_Table_Activity.class));
                 break;
         }
     }

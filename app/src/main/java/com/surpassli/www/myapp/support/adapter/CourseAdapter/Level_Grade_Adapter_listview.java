@@ -8,19 +8,19 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.model.Course_Table.Level_Course_Bean;
+import com.surpassli.www.myapp.model.Course_Table.Level_Grade;
 
 import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/21.
  */
-public class Course_Table_Adapter_listview extends BaseAdapter {
+public class Level_Grade_Adapter_listview extends BaseAdapter {
 
-    private List<Level_Course_Bean> mCourse_table_been_list;
+    private List<Level_Grade> mCourse_table_been_list;
     private LayoutInflater mInflater;
 
-    public Course_Table_Adapter_listview(Context context, List<Level_Course_Bean> mCourse_table_been) {
+    public Level_Grade_Adapter_listview(Context context, List<Level_Grade> mCourse_table_been) {
         this.mCourse_table_been_list = mCourse_table_been;
         this.mInflater = LayoutInflater.from(context);
     }
@@ -60,7 +60,7 @@ public class Course_Table_Adapter_listview extends BaseAdapter {
             viewholder = (ViewHolder) convertView.getTag();
         }
 
-        Level_Course_Bean myListBean = mCourse_table_been_list.get(position);
+        Level_Grade myListBean = mCourse_table_been_list.get(position);
         viewholder.tv_order_number.setText(myListBean.getOrder_number());
         viewholder.tv_exam_name.setText(myListBean.getExam_name());
         viewholder.tv_grade_pen.setText(myListBean.getGrade_pen());
