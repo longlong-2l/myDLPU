@@ -16,7 +16,7 @@ import okhttp3.Response;
  */
 public class HttpUtil {
     /**
-     * Get方法
+     * Get方法,没有header
      * @param url
      * @param callback
      */

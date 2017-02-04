@@ -25,7 +25,8 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView() {
-      view.findViewById(R.id.tv_About_us).setOnClickListener(this);
+        view.findViewById(R.id.tv_About_us).setOnClickListener(this);
+        view.findViewById(R.id.tv_weatherSearch).setOnClickListener(this);
     }
 
     @Override
@@ -33,6 +34,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.tv_About_us:
                 startActivity(new Intent(getActivity(), About_us_activity.class));
+                break;
+            case R.id.tv_weatherSearch:
+
                 break;
         }
     }

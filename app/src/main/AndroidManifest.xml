@@ -44,11 +44,14 @@
             android:name=".ui.Account.Course_Table_Activity"
             android:launchMode="singleTask" />
 
-        <receiver android:name=".MainActivity$MyBroadcastReceiver">
+        <activity
+            android:name=".ui.More.Weather.WeatherActivity"
+            android:launchMode="singleTask" />
+        <!--<receiver android:name=".MainActivity$MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="tab" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
         <meta-data
             android:name="UMENG_APPKEY"

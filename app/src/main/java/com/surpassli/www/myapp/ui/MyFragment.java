@@ -20,11 +20,8 @@ import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
  * Created by SurpassLi on 2017/1/6.
  */
 public class MyFragment extends Fragment implements View.OnClickListener{
-
-//    private final static String TAG = "MyFragment";
-//    private FragmentMyBinding myBinding;
     private View view;
-    private gofirstfregment gofregement;
+    private sendData sendedData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,8 +30,8 @@ public class MyFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    public interface gofirstfregment{
-        public void gofragment(String go);
+    public interface sendData{
+        public void sendData(String go);
     }
 
     private void initView() {
@@ -69,8 +66,8 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                     public void onClick(View v) {
                         AppVariables.clear();
                         customDialogUtil.dismiss();
-                        gofregement = (gofirstfregment) getActivity();
-                        gofregement.gofragment("onetab");
+                        sendedData = (sendData) getActivity();
+                        sendedData.sendData("onetab");
                         ActivityCollector.finishAll();
                     }
                 });

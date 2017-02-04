@@ -11,7 +11,7 @@ public class MyProgressDialog {
     public static void showProgressDialog(Context context) {
         if (progressDialog == null) {
             progressDialog = new android.app.ProgressDialog(context);
-            progressDialog.setMessage("正在加载，请稍后...");
+            progressDialog.setMessage("正在用生命加载，请稍后...");
             progressDialog.setCanceledOnTouchOutside(true);
         }
     }

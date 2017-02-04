@@ -31,7 +31,7 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener,MyFragment.gofirstfregment {
+public class MainActivity extends FragmentActivity implements View.OnClickListener,MyFragment.sendData {
     private static final String TAG = "MainActivity";
     private List<Fragment> fragmentList;
     private ActivityMainBinding binding;
@@ -64,7 +64,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         AppVariables.time = jsonObject.getInt("time");
                         AppVariables.time_cha = AppVariables.time - (System.currentTimeMillis() / 1000);
                     }else{
-                        Log.i(TAG, "onResponse: " + "状态不对");
+                        Log.i(TAG, "onResponse: " + "系统授时失败");
                     }
 
                 } catch (JSONException e) {
@@ -181,7 +181,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     @Override
-    public void gofragment(String go) {
+    public void sendData(String go) {
         if("onetab".equals(go)){
             binding.indexViewpager.setCurrentItem(0);
             binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
