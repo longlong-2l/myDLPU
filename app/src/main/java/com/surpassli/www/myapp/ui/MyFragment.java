@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.support.utils.ActivityCollector;
 import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
 import com.surpassli.www.myapp.ui.Account.Course_Result_Activity;
 import com.surpassli.www.myapp.ui.Account.Course_Table_Activity;
@@ -23,12 +24,17 @@ public class MyFragment extends Fragment implements View.OnClickListener{
 //    private final static String TAG = "MyFragment";
 //    private FragmentMyBinding myBinding;
     private View view;
+    private gofirstfregment gofregement;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_my, container, false);
         initView();
         return view;
+    }
+
+    public interface gofirstfregment{
+        public void gofragment(String go);
     }
 
     private void initView() {
@@ -63,10 +69,9 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                     public void onClick(View v) {
                         AppVariables.clear();
                         customDialogUtil.dismiss();
-//                        Intent intent = new Intent();
-//                        intent.setAction("tab");
-//                        intent.putExtra("tab","onetab");
-//                        LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);
+                        gofregement = (gofirstfregment) getActivity();
+                        gofregement.gofragment("onetab");
+                        ActivityCollector.finishAll();
                     }
                 });
                 customDialogUtil.CancelClickListener(new View.OnClickListener() {

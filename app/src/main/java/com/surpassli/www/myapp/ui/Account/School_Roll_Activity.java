@@ -51,9 +51,26 @@ public class School_Roll_Activity extends Activity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String personalInfo = prefs.getString("personalinfo", null);
         if (personalInfo != null) {
+            //有缓存时直接解析数据
             person_school_roll = new Person_School_Roll(personalInfo);
             initView(person_school_roll);
         } else {
+            //无缓存时从服务器解析数据
+            getData();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String personalInfo = prefs.getString("personalinfo", null);
+        if (personalInfo != null) {
+            //有缓存时直接解析数据
+            person_school_roll = new Person_School_Roll(personalInfo);
+            initView(person_school_roll);
+        } else {
+            //无缓存时从服务器解析数据
             getData();
         }
     }
@@ -103,7 +120,6 @@ public class School_Roll_Activity extends Activity {
                 });
             }
         });
-//        initView();
     }
 
     public void initView(Person_School_Roll person_school_roll) {

@@ -1,6 +1,8 @@
 package com.surpassli.www.myapp.support.utils;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.surpassli.www.myapp.database.School_Roll.Person_info;
 import com.surpassli.www.myapp.gson.Course_Result_bean;
@@ -233,12 +235,25 @@ public class Utility {
         }
         return null;
     }
+
     /**
      * 获取当前周次
      */
-//    public static handCurrentweek(String response){
-//
-//    }
+    public static boolean handCurrentweek(String response , Context context) {
+        try {
+           JSONObject jsonObject = new JSONObject(response);
+            if ("Success".equals(jsonObject.getString("message"))) {
+                Log.i(TAG, "handCurrentweek: " + "成功获取当前周次数据");
+                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                if (jsonArray == null) {
+                    Toast.makeText(context,"暂无数据...",Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     /**
      * 获取考试安排
      */
@@ -246,4 +261,18 @@ public class Utility {
     /**
      * 密码修改
      */
+    public static boolean handChangePassWord(String response){
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            String result = jsonObject.getString("message");
+            if ("Success, Password is the given or 123456".equals(result)){
+                return true;
+            }else {
+                return true;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
