@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
+import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
 
 /**
  * Created by SurpassLi on 2017/1/6.
@@ -36,7 +37,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), About_us_activity.class));
                 break;
             case R.id.tv_weatherSearch:
-
+                startActivity(new Intent(getActivity(), WeatherActivity.class));
                 break;
         }
     }

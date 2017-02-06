@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -80,7 +81,7 @@ public class WeatherActivity extends AppCompatActivity{
         }
 
         //初始化各种控件
-//      drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navButton = (Button) findViewById(R.id.nav_button);
         bingPicImg = (ImageView) findViewById(R.id.iv_pic_bing);
         weatherLayout = (ScrollView) findViewById(R.id.sv_weather);
@@ -94,6 +95,14 @@ public class WeatherActivity extends AppCompatActivity{
         comfortText = (TextView) findViewById(R.id.comfort_text);
         carWashText = (TextView) findViewById(R.id.car_wash_text);
         sportText = (TextView) findViewById(R.id.sport_text);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.srl_Refresh);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+        navButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
 
         SharedPreferences pres = PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString = pres.getString("weather",null);
@@ -106,9 +115,15 @@ public class WeatherActivity extends AppCompatActivity{
             //无缓存时从服务器获取数据
             mWeatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
-            requestWeather(mWeatherId);
+            requestWeather("CN101010100");
         }
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                requestWeather(mWeatherId);
+            }
+        });
         String bingPic = pres.getString("bing_pic", null);
         if (bingPic != null) {
             Glide.with(this).load(bingPic).into(bingPicImg);
