@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui.More.Weather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.gson.Weather;
 import com.surpassli.www.myapp.gson.Weather_Forecast;
+import com.surpassli.www.myapp.service.BingUpdateService;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.Utility;
 
@@ -166,8 +168,8 @@ public class WeatherActivity extends AppCompatActivity{
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
-//        Intent intent = new Intent(this, AutoUpdateService.class);
-//        startService(intent);
+        Intent intent = new Intent(this, BingUpdateService.class);
+        startService(intent);
     }
 
     //根据天气id请求城市天气信息

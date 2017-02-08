@@ -109,6 +109,14 @@ public class HttpUtil {
         return httpClient;
     }
 
+    /**
+     * post方法，用于密码修改
+     * @param url
+     * @param sign
+     * @param timestamp
+     * @param newpasswd
+     * @param callback
+     */
     public static void postChangePassWd(String url, String sign, String timestamp, String newpasswd,okhttp3.Callback callback) {
         OkHttpClient okHttpClient = genericClient_nk(newpasswd);
         FormBody.Builder formBodyBuild = new FormBody.Builder();

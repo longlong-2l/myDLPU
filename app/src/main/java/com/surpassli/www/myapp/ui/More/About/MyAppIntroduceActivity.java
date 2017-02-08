@@ -54,7 +54,7 @@ public class MyAppIntroduceActivity extends Activity {
                 super.onProgressChanged(view, newProgress);
                 if(isloading){
                     myProgressBar.incrementProgressBy(newProgress - myProgressBar.getProgress());
-                    if(newProgress > 45){
+                    if(newProgress > 80){
                         isloading = false;
                         myProgressBar.setVisibility(View.GONE);
                     }

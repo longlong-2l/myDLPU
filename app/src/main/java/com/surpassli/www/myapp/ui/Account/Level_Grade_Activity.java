@@ -1,9 +1,9 @@
 package com.surpassli.www.myapp.ui.Account;
 
 import android.app.Activity;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
@@ -30,13 +30,16 @@ import okhttp3.Response;
 public class Level_Grade_Activity extends Activity {
 
     private ArrayList<Level_Grade> myLevel_grades;
-    private Level_Grade_Adapter_listview myCourse_table_adapter_listview;
+    private Level_Grade_Adapter_listview level_grade_adapter_listview;
     private ActivityLevelGradeBinding MyLevelGradeBinding;
+
+    private ListView lv_level_exam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MyLevelGradeBinding = DataBindingUtil.setContentView(this, R.layout.activity_level_grade);
+        setContentView(R.layout.activity_level_grade);
+        lv_level_exam = (ListView) findViewById(R.id.lv_level_exam);
         getData();
     }
 
@@ -77,8 +80,8 @@ public class Level_Grade_Activity extends Activity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                myCourse_table_adapter_listview = new Level_Grade_Adapter_listview(Level_Grade_Activity.this, myLevel_grades);
-                                MyLevelGradeBinding.lvLevelExam.setAdapter(myCourse_table_adapter_listview);
+                                level_grade_adapter_listview = new Level_Grade_Adapter_listview(Level_Grade_Activity.this, myLevel_grades);
+                                lv_level_exam.setAdapter(level_grade_adapter_listview);
 
                             }
                         });

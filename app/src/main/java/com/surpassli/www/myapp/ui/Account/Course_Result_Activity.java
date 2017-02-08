@@ -14,10 +14,7 @@ import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Adapter;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Result_Adapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.surpassli.www.myapp.support.utils.Utility;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -69,42 +66,13 @@ public class Course_Result_Activity extends Activity {
                 Log.i(TAG, "onResponse: " + "获取课程信息返回数据成功");
                 String res = response.body().string();
                 Log.i(TAG, "课程信息: " + res);
-                Course_Result_bean course_result_bean;
-                try {
-                    JSONObject jsonObject = new JSONObject(res);
-                    JSONArray jsonArray1;
-                    if (jsonObject.getString("message").equals("Success")) {
-                        Log.i(TAG, "onResponse: " + "获取课程正确信息");
-                        JSONArray jsonArray = jsonObject.getJSONArray("data");
-                        for (int i = 1; i < jsonArray.length(); i++) {
-                            jsonArray1 = jsonArray.getJSONArray(i);
-                            course_result_bean = new Course_Result_bean();
-                            course_result_bean.num = jsonArray1.getString(0);
-                            course_result_bean.No1_date = jsonArray1.getString(1);
-                            course_result_bean.course = jsonArray1.getString(2);
-                            course_result_bean.course_name = jsonArray1.getString(3);
-                            course_result_bean.course_score = jsonArray1.getString(4);
-                            course_result_bean.score_flag = jsonArray1.getString(5);
-                            course_result_bean.course_credit = jsonArray1.getString(6);
-                            course_result_bean.course_period = jsonArray1.getString(7);
-                            course_result_bean.exam_type = jsonArray1.getString(8);
-                            course_result_bean.course_property = jsonArray1.getString(9);
-                            course_result_bean.course_nature = jsonArray1.getString(10);
-                            course_result_bean.exam_nature = jsonArray1.getString(11);
-                            course_result_bean.again_term = jsonArray1.getString(12);
-                            mCourse_Result_list.add(course_result_bean);
-                        }
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+                mCourse_Result_list = Utility.handCourse_Course_Result(res);
             }
         });
 //        mCourse_result_adapter = new Course_Result_Adapter(this, mCourse_Result_list);
 //        mRecycleView.setAdapter(mCourse_result_adapter);
-        course_adapter = new Course_Adapter(Course_Result_Activity.this, mCourse_Result_list);
-        lv_course.setAdapter(course_adapter);
+          course_adapter = new Course_Adapter(Course_Result_Activity.this, mCourse_Result_list);
+          lv_course.setAdapter(course_adapter);
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);//设置RecycleView 以ListView的方式显示
 //        mRecycleView.setLayoutManager(layoutManager);
 //        mRecycleView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL_LIST));//设置分割线

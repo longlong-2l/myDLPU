@@ -50,4 +50,16 @@ public class AppApi {
      */
     public static final String MY_PASSWORD_REPAIR = HOST + "/user/password?";
 
+    /**
+     * 新闻动态
+     */
+     public static final String NEWS=HOST + "/news/currentEvents";
+    /**
+     * 通知公告
+     */
+    public static final String NOTICE=HOST + "/news/notice";
+    /**
+     * 教务文件
+     */
+    public static final String EDUCATION_FILE=HOST + "/news/teachingFiles";
 }

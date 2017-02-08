@@ -2,13 +2,13 @@ package com.surpassli.www.myapp.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,20 +37,26 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private Button bt_login;
     private static final String TAG = "LoginActivity";
     private boolean flag = true;
+    private EditText et_name;
+    private EditText et_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        loginBinding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
+        setContentView(R.layout.activity_login);
+//        loginBinding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
         initView();
     }
 
     private void initView() {
-        findViewById(R.id.iv_see).setOnClickListener(this);
+        iv_see = (ImageView) findViewById(R.id.iv_see);
+        iv_see.setOnClickListener(this);
         findViewById(R.id.Bt_Login).setOnClickListener(this);
+        et_name = (EditText) findViewById(R.id.et_name);
+        et_password = (EditText) findViewById(R.id.et_password);
     }
 
-    public void login() {
+    public void login(String name,String password) {
         HttpUtil.sendGetOkhttp(AppApi.LOGIN + "username=" + name + "&password=" + password, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -103,19 +109,19 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.iv_see:
                 if (flag) {
-                    loginBinding.ivSee.setImageResource(R.mipmap.show);
-                    loginBinding.etPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    iv_see.setImageResource(R.mipmap.show);
+                    et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     flag = false;
                 } else {
-                    loginBinding.ivSee.setImageResource(R.mipmap.hide);
-                    loginBinding.etPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    iv_see.setImageResource(R.mipmap.hide);
+                    et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     flag = true;
                 }
                 break;
             case R.id.Bt_Login:
-                name = loginBinding.etName.getText().toString();
-                password = loginBinding.etPassword.getText().toString();
-                login();
+                name = et_name.getText().toString();
+                password = et_password.getText().toString();
+                login(name,password);
                 break;
         }
     }
