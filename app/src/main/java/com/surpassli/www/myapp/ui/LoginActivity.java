@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.databinding.ActivityLoginBinding;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 
 import org.json.JSONException;
@@ -30,7 +29,6 @@ import okhttp3.Response;
  * Created by SurpassLi on 2017/1/9.
  */
 public class LoginActivity extends Activity implements View.OnClickListener {
-    private ActivityLoginBinding loginBinding;
     private String name;
     private String password;
     private ImageView iv_see;
@@ -44,7 +42,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        loginBinding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
         initView();
     }
 

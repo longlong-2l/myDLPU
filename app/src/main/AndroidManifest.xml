@@ -78,7 +78,9 @@
         <service
             android:name=".service.BingUpdateService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".ui.Base.BaseToolBarActivity"></activity>
     </application>
 
 </manifest>
