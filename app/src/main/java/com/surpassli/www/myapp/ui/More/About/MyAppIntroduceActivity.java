@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui.More.About;
 
+import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
 
 /**
@@ -9,6 +10,7 @@ public class MyAppIntroduceActivity extends BaseWebViewActivity {
 
     @Override
     protected String getLink() {
+        super.title=getApplicationContext().getString(R.string.app_intro);
         return "file:///android_asset/MyAppIntroduction.html";
     }
 }

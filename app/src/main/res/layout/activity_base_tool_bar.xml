@@ -1,14 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+    <!--app:theme="@style/ThemeOverlay.AppCompat.ActionBar"是因为这个总主题是淡色的主题
+      而ToolBar是淡色的就不好看了，所以重新设置这个让ToolBar单独是深色主题
+      app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"是让ToolBar弹出来的菜单
+      是淡色主题
+    -->
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/tb_toolbar"
+    android:id="@+id/toolbar"
     android:titleTextColor="?attr/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_scrollFlags="scroll|enterAlways"
-    app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"
-    app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 </android.support.v7.widget.Toolbar>
 
