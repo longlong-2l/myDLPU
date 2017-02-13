@@ -15,6 +15,7 @@ import com.surpassli.www.myapp.gson.Person_School_Roll;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
+import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 import java.io.IOException;
 
@@ -24,7 +25,7 @@ import okhttp3.Response;
 /**
  * Created by SurpassLi on 2017/1/17.
  */
-public class School_Roll_Activity extends Activity {
+public class School_Roll_Activity extends BaseToolBarActivity {
     private static final String TAG = "School_Roll_Activity";
     private String sign;
     private long mytime;
@@ -47,6 +48,8 @@ public class School_Roll_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_school_roll);
+        initToolBar();
+        setToolbarTitle("学籍卡片");
         initView();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String personalInfo = prefs.getString("personalinfo", null);

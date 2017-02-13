@@ -5,11 +5,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <include layout="@layout/activity_base_tool_bar" />
 
-        <ListView
-            android:id="@+id/lv_level_exam"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
-            </ListView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_level_grade"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 </layout>

@@ -17,6 +17,7 @@ import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_table_recycl
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.Utility;
+import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import okhttp3.Response;
 /**
  * Created by SurpassLi on 2017/1/22.
  */
-public class Course_Table_Activity extends Activity {
+public class Course_Table_Activity extends BaseToolBarActivity {
     private ArrayList<Course_Table> course_table_been_list;
     private EditText et_course_table;
     private RecyclerView rv_course_table;
@@ -39,6 +40,8 @@ public class Course_Table_Activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_table);
+        initToolBar();
+        setToolbarTitle("课程表");
         initView();
     }
     public void initView(){

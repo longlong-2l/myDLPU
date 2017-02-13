@@ -2,7 +2,9 @@ package com.surpassli.www.myapp.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -61,7 +63,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(LoginActivity.this,"网络出先问题，请检查网络设置~~",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this,"网络出显问题，请检查网络设置~~",Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -77,10 +79,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         AppVariables.userId = jsonObject.getInt("userId");
                         AppVariables.username = jsonObject.getString("username");
                         AppVariables.token = jsonObject.getString("token");
-                        Log.i(TAG, "AppVariables.isLogin: " + AppVariables.isLogin);
-                        Log.i(TAG, "AppVariables.userId: " + AppVariables.userId);
-                        Log.i(TAG, "AppVariables.username: " + AppVariables.username);
-                        Log.i(TAG, "AppVariables.token: " + AppVariables.token);
+                        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).edit();
+                        editor.putBoolean("isLogin",AppVariables.isLogin);
+                        editor.putInt("userId",AppVariables.userId);
+                        editor.putString("username",AppVariables.username);
+                        editor.putString("token",AppVariables.token);
+                        editor.apply();
                         Intent intent = new Intent();
                         intent.putExtra("status", "Success");
                         LoginActivity.this.setResult(1, intent);

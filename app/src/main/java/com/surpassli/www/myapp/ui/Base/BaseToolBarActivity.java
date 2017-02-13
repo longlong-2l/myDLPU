@@ -17,13 +17,10 @@ public class BaseToolBarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_tool_bar);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        initToolBar();
     }
 
     protected void initToolBar(){
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//给左上角图标的左边加上一个返回的图标 。对应ActionBar.DISPLAY_HOME_AS_UP
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -43,6 +40,6 @@ public class BaseToolBarActivity extends AppCompatActivity {
     }
 
     public void setToolbarTitle(String title){
-          getSupportActionBar().setTitle("应用佳节");
+          getSupportActionBar().setTitle(title);
     }
 }

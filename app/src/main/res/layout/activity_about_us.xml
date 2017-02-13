@@ -5,6 +5,7 @@
     android:background="@color/backgroundColor"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
+    <include layout="@layout/activity_base_tool_bar"/>
 
     <ImageView
         android:layout_width="match_parent"

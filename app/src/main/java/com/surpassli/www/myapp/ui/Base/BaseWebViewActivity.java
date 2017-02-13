@@ -26,7 +26,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity{
         setContentView(R.layout.activity_basewebview);
         initData();
         initToolBar();
-        setToolbarTitle("应用简介");
+        setToolbarTitle(title);
     }
 
     protected abstract String getLink();
