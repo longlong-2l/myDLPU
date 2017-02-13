@@ -80,6 +80,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         AppVariables.username = jsonObject.getString("username");
                         AppVariables.token = jsonObject.getString("token");
                         SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this).edit();
+                        editor.clear();
+                        editor.apply();
                         editor.putBoolean("isLogin",AppVariables.isLogin);
                         editor.putInt("userId",AppVariables.userId);
                         editor.putString("username",AppVariables.username);

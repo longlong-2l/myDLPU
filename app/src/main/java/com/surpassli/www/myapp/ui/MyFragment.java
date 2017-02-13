@@ -2,6 +2,7 @@ package com.surpassli.www.myapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,7 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                     @Override
                     public void onClick(View v) {
                         AppVariables.clear();
+                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear();
                         customDialogUtil.dismiss();
                         sendedData = (sendData) getActivity();
                         sendedData.sendData("onetab");

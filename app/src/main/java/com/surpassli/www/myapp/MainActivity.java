@@ -10,9 +10,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.surpassli.www.myapp.api.AppApi;
@@ -40,12 +42,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private List<Fragment> fragmentList;
     private ActivityMainBinding binding;
     private Intent intent;
+    private TextView tv_toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);//状态栏设置成透明色
+//        getWindow().setStatusBarColor(Color.TRANSPARENT);//状态栏设置成透明色
         binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         boolean isLogin = prefs.getBoolean("isLogin",false);
@@ -96,6 +99,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
+        tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
         fragmentList = new ArrayList<Fragment>();
         LifeFragment lifeFragment = new LifeFragment();
         EducationFragment educationFragment = new EducationFragment();
@@ -110,10 +114,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
         binding.indexViewpager.setAdapter(fragmentadapter);
         binding.indexViewpager.addOnPageChangeListener(pageChangeListener);
-        binding.setOnetab("生活");
-        binding.setTwotab("教育");
-        binding.setThreetab("更多");
-        binding.setFourtab("我的");
+        binding.setOnetab(getString(R.string.life));
+        binding.setTwotab(getString(R.string.education));
+        binding.setThreetab(getString(R.string.more));
+        binding.setFourtab(getString(R.string.my));
         binding.tvOnetab.setOnClickListener(this);
         binding.tvTwotab.setOnClickListener(this);
         binding.tvThreetab.setOnClickListener(this);
@@ -127,12 +131,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             switch (position) {
                 case 0:
                     binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                    tv_toolbar.setText(getString(R.string.life));
                     break;
                 case 1:
                     binding.tvTwotab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                    tv_toolbar.setText(getString(R.string.education));
                     break;
                 case 2:
                     binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                    tv_toolbar.setText(getString(R.string.more));
                     break;
                 case 3:
                     if(!AppVariables.isLogin){
@@ -141,6 +148,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     }else {
                         binding.indexViewpager.setCurrentItem(3);
                         binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+                        tv_toolbar.setText(getString(R.string.my));
                     }
                     break;
             }
@@ -160,14 +168,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         resetTextView();
         switch (v.getId()) {
             case R.id.tv_onetab:
+                tv_toolbar.setText(getString(R.string.life));
                 binding.indexViewpager.setCurrentItem(0);
                 binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
                 break;
             case R.id.tv_twotab:
+                tv_toolbar.setText(getString(R.string.education));
                 binding.indexViewpager.setCurrentItem(1);
                 binding.tvTwotab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
                 break;
             case R.id.tv_threetab:
+                tv_toolbar.setText(getString(R.string.more));
                 binding.indexViewpager.setCurrentItem(2);
                 binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
                 break;
@@ -176,6 +187,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         intent = new Intent(MainActivity.this, LoginActivity.class);
                         startActivityForResult(intent, 1);
                     } else {
+                        tv_toolbar.setText(getString(R.string.my));
                         binding.indexViewpager.setCurrentItem(3);
                         binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
                     }

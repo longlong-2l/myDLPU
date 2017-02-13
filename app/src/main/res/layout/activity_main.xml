@@ -23,8 +23,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         android:orientation="vertical"
         tools:context="com.surpassli.www.myapp.MainActivity">
+
+        <TextView
+            android:id="@+id/tv_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="?attr/colorPrimary"
+            android:textColor="@color/white"
+            android:elevation="15dp"
+            android:gravity="center"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/index_viewpager"
@@ -46,7 +56,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{onetab}"/>
+                android:text="@{onetab}" />
 
             <TextView
                 android:id="@+id/tv_twotab"
@@ -70,7 +80,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@{fourtab}"/>
+                android:text="@{fourtab}" />
         </LinearLayout>
     </LinearLayout>
 </layout>

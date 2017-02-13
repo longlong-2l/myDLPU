@@ -9,4 +9,8 @@
     <string name="sure">确定</string>
     <string name="app_intro">应用简介</string>
     <string name="app_about">关于我们</string>
+    <string name="life">生活</string>
+    <string name="education">教育</string>
+    <string name="more">更多</string>
+    <string name="my">我的</string>
 </resources>

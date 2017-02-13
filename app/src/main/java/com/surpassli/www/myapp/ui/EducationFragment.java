@@ -108,7 +108,7 @@ public class EducationFragment extends Fragment {
 
             @Override
             public void onItemLongClick(View view, int position, String url) {
-                Toast.makeText(getActivity(), position + "click:" + "url=" + url, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), position + "click:" + "url=" + url, Toast.LENGTH_SHORT).show();
             }
         });
     }

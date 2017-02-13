@@ -24,18 +24,18 @@ public class EducationUtils {
                 if ("Success".equals(jsonObject.getString("message"))) {
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
                     Gson gson = new Gson();
-//                    for (int i = 0; i < jsonArray.length(); i++) {
-//                        String jsonObject1 = jsonArray.getJSONObject(i).toString();
-//                        Notice_Model Notice_Model = new Gson().fromJson(jsonObject1, Notice_Model.class);
-//                        arrayList.add(Notice_Model);
-//                    }
-                    for (int i = 0 ; i<jsonArray.length();i++){
-                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                        Notice_Model notice_model = new Notice_Model();
-                        notice_model.setTitle(jsonObject1.getString("title"));
-                        notice_model.setUrl(jsonObject1.getString("url"));
-                        arrayList.add(notice_model);
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        String jsonObject1 = jsonArray.getJSONObject(i).toString();
+                        Notice_Model Notice_Model = new Gson().fromJson(jsonObject1, Notice_Model.class);
+                        arrayList.add(Notice_Model);
                     }
+//                    for (int i = 0 ; i<jsonArray.length();i++){
+//                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+//                        Notice_Model notice_model = new Notice_Model();
+//                        notice_model.setTitle(jsonObject1.getString("title"));
+//                        notice_model.setUrl(jsonObject1.getString("url"));
+//                        arrayList.add(notice_model);
+//                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
