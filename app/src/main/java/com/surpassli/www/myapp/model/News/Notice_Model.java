@@ -1,7 +1,7 @@
 package com.surpassli.www.myapp.model.News;
 
 /**
- * Created by dell on 2017/2/13.
+ * Created by SurpassLi on 2017/2/13.
  */
 public class Notice_Model {
     private String title;
