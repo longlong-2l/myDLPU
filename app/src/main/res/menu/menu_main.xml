@@ -17,6 +17,6 @@
     <item
         android:id="@+id/id_traffic"
         android:orderInCategory="100"
-        android:title="实时交通"
+        android:title="实时交通（off）"
         app:showAsAction="never" />
 </menu>

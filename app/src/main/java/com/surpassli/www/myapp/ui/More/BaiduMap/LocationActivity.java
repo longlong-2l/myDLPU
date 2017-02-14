@@ -20,10 +20,11 @@ import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 /**
  * Created by SurpassLi on 2017/2/14.
  */
-public class LocationActivity extends AppCompatActivity{
+public class LocationActivity extends AppCompatActivity {
     private TextureMapView mTextureMapView;
     private BaiduMap mBaiduMap;
     private Toolbar mToolBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,15 +54,28 @@ public class LocationActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.id_normalMap:
-               break;
+                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                break;
+            case R.id.id_WeiXingMap:
+                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                break;
+            case R.id.id_traffic:
+                if (mBaiduMap.isTrafficEnabled()) {
+                    mBaiduMap.setTrafficEnabled(false);
+                    item.setTitle("实时交通（off）");
+                } else {
+                    mBaiduMap.setTrafficEnabled(true);
+                    item.setTitle("实时交通（on）");
+                }
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/dlpu_logo" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_weatherSearch"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -19,30 +19,30 @@
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:text="天气查询"
-        android:textSize="18sp" />
+        android:textSize="18sp" />-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/app_line" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@color/app_line" />-->
 
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:text="意见反馈"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />-->
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/app_line" />
+        android:background="@color/app_line" />-->
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_About_us"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -50,9 +50,9 @@
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:text="关于我们"
-        android:textSize="18sp"/>
+        android:textSize="18sp"/>-->
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_school_location"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -60,6 +60,63 @@
         android:gravity="center_vertical"
         android:paddingLeft="15dp"
         android:text="地理位置"
-        android:textSize="18sp"/>
+        android:textSize="18sp"/>-->
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_weatherSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="天气查询"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="意见反馈"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_About_us"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="关于我们"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_school_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:drawableTop="@mipmap/course"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:text="地理位置"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>
