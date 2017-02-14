@@ -1,7 +1,9 @@
 package com.surpassli.www.myapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -37,8 +39,6 @@ public class EducationFragment extends Fragment {
     private ArrayList<Notice_Model> mNotice_ModelsList;
     private NewsAdapter mNewAdapter;
     private SwipeRefreshLayout news_swiSwipeRefreshLayout;
-//    private NewsAdapterListView mNewsAdapterListView;
-//    private ListView lv_news;
 
     @Nullable
     @Override
@@ -53,14 +53,20 @@ public class EducationFragment extends Fragment {
                 getData();
             }
         });
-//        lv_news = (ListView) view.findViewById(R.id.lv_news);
-        getData();
+        mNotice_ModelsList = new ArrayList<Notice_Model>();
+        SharedPreferences pre = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String notice = pre.getString("notice",null);
+        if(notice!=null) {
+            mNotice_ModelsList = EducationUtils.handNew_Notice(notice);
+            initView();
+        } else
+            getData();
         return view;
     }
 
     private void getData() {
-        mNotice_ModelsList = new ArrayList<Notice_Model>();
-        HttpUtil.sendGetOkhttp(AppApi.EDUCATION_FILE, new okhttp3.Callback() {
+
+        HttpUtil.sendGetOkhttp(AppApi.NOTICE, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
@@ -78,6 +84,9 @@ public class EducationFragment extends Fragment {
                 Log.i("TAG", "onResponse: " + "通知公告数据获取成功");
                 String data = response.body().string();
                 mNotice_ModelsList = EducationUtils.handNew_Notice(data);
+                SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+                editor.putString("notice",data);
+                editor.apply();
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -90,13 +99,10 @@ public class EducationFragment extends Fragment {
     }
 
     private void initView() {
-        //          mNewsAdapterListView =  new NewsAdapterListView(getActivity(),mNotice_ModelsList);
-        //          lv_news.setAdapter(mNewsAdapterListView);
         mNewAdapter = new NewsAdapter(getActivity(), mNotice_ModelsList);
         news_RecycleView.setAdapter(mNewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         news_RecycleView.setItemAnimator(new DefaultItemAnimator());
-        //          news_RecycleView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         news_RecycleView.setLayoutManager(layoutManager);
         mNewAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override

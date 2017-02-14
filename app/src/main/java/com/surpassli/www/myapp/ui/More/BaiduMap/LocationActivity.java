@@ -58,7 +58,7 @@ public class LocationActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.action_settings:
+            case R.id.id_normalMap:
                break;
         }
         return super.onOptionsItemSelected(item);
