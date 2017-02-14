@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.surpassli.www.toolbar.MainActivity">
+    <item
+        android:id="@+id/id_normalMap"
+        android:orderInCategory="100"
+        android:title="普通地图"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/id_WeiXingMap"
+        android:orderInCategory="100"
+        android:title="卫星地图"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/id_traffic"
+        android:orderInCategory="100"
+        android:title="实时交通"
+        app:showAsAction="never" />
+</menu>

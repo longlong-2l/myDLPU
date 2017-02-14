@@ -60,7 +60,7 @@ public class EducationFragment extends Fragment {
 
     private void getData() {
         mNotice_ModelsList = new ArrayList<Notice_Model>();
-        HttpUtil.sendGetOkhttp(AppApi.NOTICE, new okhttp3.Callback() {
+        HttpUtil.sendGetOkhttp(AppApi.EDUCATION_FILE, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 getActivity().runOnUiThread(new Runnable() {
