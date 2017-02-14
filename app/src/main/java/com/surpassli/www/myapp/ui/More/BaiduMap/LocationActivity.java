@@ -6,12 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.TextureMapView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
@@ -19,7 +21,7 @@ import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
  * Created by SurpassLi on 2017/2/14.
  */
 public class LocationActivity extends AppCompatActivity{
-    private MapView mMapView;
+    private TextureMapView mTextureMapView;
     private BaiduMap mBaiduMap;
     private Toolbar mToolBar;
     @Override
@@ -34,19 +36,19 @@ public class LocationActivity extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
-        mMapView.onResume();
+        mTextureMapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mMapView.onPause();
+        mTextureMapView.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mMapView.onDestroy();
+        mTextureMapView.onDestroy();
     }
 
     @Override
@@ -65,14 +67,19 @@ public class LocationActivity extends AppCompatActivity{
     }
 
     private void initView() {
-        mMapView = (MapView) findViewById(R.id.mv_baidu);
+        mTextureMapView = (TextureMapView) findViewById(R.id.mv_baidu);
         mToolBar = (Toolbar) findViewById(R.id.tb_location);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setTitle("地图");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//给左上角图标的左边加上一个返回的图标 。对应ActionBar.DISPLAY_HOME_AS_UP
-
+        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         //设置打开Activity时显示500米左右
-        mBaiduMap = mMapView.getMap();
+        mBaiduMap = mTextureMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
         mBaiduMap.setMapStatus(msu);
     }
