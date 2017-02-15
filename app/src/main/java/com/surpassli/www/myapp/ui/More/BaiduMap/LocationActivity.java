@@ -92,7 +92,7 @@ public class LocationActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        //设置打开Activity时显示500米左右
+        //设置打开Activity时直接显示500米左右
         mBaiduMap = mTextureMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
         mBaiduMap.setMapStatus(msu);
