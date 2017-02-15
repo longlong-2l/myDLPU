@@ -46,10 +46,6 @@ public class LifeFragment extends Fragment {
     private SwipeRefreshLayout news_swiSwipeRefreshLayout;
     private RecyclerView rv_school_news;
     private RollPagerView mRollPagerView;
-    private ViewFlipper viewFlipper;
-    private int[] image={R.mipmap.school1,R.mipmap.school2,R.mipmap.school3,R.mipmap.school4,};
-
-
 
     @Nullable
     @Override
@@ -57,14 +53,6 @@ public class LifeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_life, container, false);
         rv_school_news = (RecyclerView) view.findViewById(R.id.rv_school_news);
         mRollPagerView = (RollPagerView) view.findViewById(R.id.roll_view_pager);
-//        viewFlipper = (ViewFlipper) view.findViewById(R.id.vf_viewFlipper);
-//        for (int i = 0;i < image.length ;i++){
-//            viewFlipper.addView(getImageView(image[i]));
-//        }
-//        viewFlipper.setInAnimation(getActivity(),R.anim.left_in);
-//        viewFlipper.setOutAnimation(getActivity().R.anim.left_out);
-//        viewFlipper.setFlipInterval(3000);
-//        viewFlipper.startFlipping();
 
         mRollPagerView.setPlayDelay(3000);
         mRollPagerView.setAnimationDurtion(500);
@@ -93,17 +81,9 @@ public class LifeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mRollPagerView.setPlayDelay(3000);
-        mRollPagerView.setAnimationDurtion(500);
         mRollPagerView.setAdapter(new rollViewPagerAdapter());
-        mRollPagerView.setHintView(new ColorPointHintView(getActivity(),Color.BLUE, Color.WHITE));
     }
 
-private ImageView getImageView(int resId){
-    ImageView imageView = new ImageView(getActivity());
-    imageView.setBackgroundResource(resId);
-    return imageView;
-}
     private void getData() {
         HttpUtil.sendGetOkhttp(AppApi.NEWS, new okhttp3.Callback() {
             @Override

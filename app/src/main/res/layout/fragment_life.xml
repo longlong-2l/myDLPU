@@ -7,11 +7,6 @@
     android:orientation="vertical"
     android:background="@color/background_color"
     android:gravity="center">
-    <ViewFlipper
-        android:id="@+id/vf_viewFlipper"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:visibility="gone"/>
 
     <com.jude.rollviewpager.RollPagerView
         android:id="@+id/roll_view_pager"
