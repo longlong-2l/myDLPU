@@ -49,6 +49,8 @@ public class LifeFragment extends Fragment {
     private ViewFlipper viewFlipper;
     private int[] image={R.mipmap.school1,R.mipmap.school2,R.mipmap.school3,R.mipmap.school4,};
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -86,6 +88,15 @@ public class LifeFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mRollPagerView.setPlayDelay(3000);
+        mRollPagerView.setAnimationDurtion(500);
+        mRollPagerView.setAdapter(new rollViewPagerAdapter());
+        mRollPagerView.setHintView(new ColorPointHintView(getActivity(),Color.BLUE, Color.WHITE));
     }
 
 private ImageView getImageView(int resId){
@@ -130,7 +141,6 @@ private ImageView getImageView(int resId){
         rv_school_news.setAdapter(mNewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rv_school_news.setItemAnimator(new DefaultItemAnimator());
-//      news_RecycleView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST));
         rv_school_news.setLayoutManager(layoutManager);
         mNewAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
@@ -142,7 +152,6 @@ private ImageView getImageView(int resId){
 
             @Override
             public void onItemLongClick(View view, int position, String url) {
-//                Toast.makeText(getActivity(), position + "click:" + "url=" + url, Toast.LENGTH_SHORT).show();
             }
         });
     }

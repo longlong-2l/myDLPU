@@ -46,8 +46,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/course_result"
                 android:gravity="center"
+                android:drawablePadding="10dp"
                 android:text="课程成绩"
                 android:textColor="@color/account_text_grey" />
 
@@ -56,8 +57,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/level_grade"
                 android:gravity="center"
+                android:drawablePadding="10dp"
                 android:text="等级成绩"
                 android:textColor="@color/account_text_grey" />
 
@@ -66,7 +68,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/course_table"
+                android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="课程表"
                 android:textColor="@color/account_text_grey" />
@@ -76,7 +79,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -84,8 +87,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/current_week"
                 android:gravity="center"
+                android:drawablePadding="10dp"
                 android:text="当前周次"
                 android:textColor="@color/account_text_grey" />
 
@@ -94,7 +98,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/exam"
+                android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="考试安排"
                 android:textColor="@color/account_text_grey" />
@@ -104,8 +109,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/repair_passwd"
                 android:gravity="center"
+                android:drawablePadding="10dp"
                 android:text="密码修改"
                 android:textColor="@color/account_text_grey" />
 
@@ -114,7 +120,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableTop="@mipmap/course"
+                android:drawableTop="@mipmap/login_out"
+                android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="退出登录"
                 android:textColor="@color/account_text_grey" />
