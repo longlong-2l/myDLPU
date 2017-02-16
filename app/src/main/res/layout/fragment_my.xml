@@ -41,16 +41,7 @@
                 android:text="学籍卡片"
                 android:textColor="@color/account_text_grey" />
 
-            <TextView
-                android:id="@+id/tv_course_grade"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableTop="@mipmap/course_result"
-                android:gravity="center"
-                android:drawablePadding="10dp"
-                android:text="课程成绩"
-                android:textColor="@color/account_text_grey" />
+
 
             <TextView
                 android:id="@+id/tv_level_grade"
@@ -72,6 +63,16 @@
                 android:drawablePadding="10dp"
                 android:gravity="center"
                 android:text="课程表"
+                android:textColor="@color/account_text_grey" />
+            <TextView
+                android:id="@+id/tv_course_grade"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@mipmap/course_result"
+                android:gravity="center"
+                android:drawablePadding="10dp"
+                android:text="课程成绩"
                 android:textColor="@color/account_text_grey" />
 
         </LinearLayout>

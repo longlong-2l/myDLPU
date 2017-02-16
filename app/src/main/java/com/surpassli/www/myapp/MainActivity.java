@@ -13,6 +13,8 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ActivityMainBinding binding;
     private Intent intent;
     private TextView tv_toolbar;
+    private ImageView iv_one_tab;
+    private ImageView iv_two_tab;
+    private ImageView iv_three_tab;
+    private ImageView iv_four_tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +103,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
+        iv_one_tab = (ImageView) findViewById(R.id.iv_one_tab);
+        iv_two_tab = (ImageView) findViewById(R.id.iv_two_tab);
+        iv_three_tab = (ImageView) findViewById(R.id.iv_three_tab);
+        iv_four_tab = (ImageView) findViewById(R.id.iv_four_tab);
         tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
         fragmentList = new ArrayList<Fragment>();
         LifeFragment lifeFragment = new LifeFragment();
@@ -112,14 +122,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
         binding.indexViewpager.setAdapter(fragmentadapter);
         binding.indexViewpager.addOnPageChangeListener(pageChangeListener);
-        binding.setOnetab(getString(R.string.life));
-        binding.setTwotab(getString(R.string.education));
-        binding.setThreetab(getString(R.string.more));
-        binding.setFourtab(getString(R.string.my));
-        binding.tvOnetab.setOnClickListener(this);
-        binding.tvTwotab.setOnClickListener(this);
-        binding.tvThreetab.setOnClickListener(this);
-        binding.tvFourtab.setOnClickListener(this);
+//        binding.ivOneTab.setOnClickListener(this);
+//        binding.ivTwoTab.setOnClickListener(this);
+//        binding.ivThreeTab.setOnClickListener(this);
+//        binding.ivFourTab.setOnClickListener(this);
+        iv_one_tab.setOnClickListener(this);
+        iv_two_tab.setOnClickListener(this);
+        iv_three_tab.setOnClickListener(this);
+        iv_four_tab.setOnClickListener(this);
     }
 
     public ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {
@@ -128,15 +138,18 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             resetTextView();
             switch (position) {
                 case 0:
-                    binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+//                    binding.ivOneTab.setImageResource(R.drawable.indexed);
+                    iv_one_tab.setImageResource(R.drawable.indexed);
                     tv_toolbar.setText(getString(R.string.life));
                     break;
                 case 1:
-                    binding.tvTwotab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+//                    binding.ivTwoTab.setImageResource(R.drawable.educationed);
+                    iv_two_tab.setImageResource(R.drawable.educationed);
                     tv_toolbar.setText(getString(R.string.education));
                     break;
                 case 2:
-                    binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+//                    binding.ivThreeTab.setImageResource(R.drawable.mored);
+                    iv_three_tab.setImageResource(R.drawable.mored);
                     tv_toolbar.setText(getString(R.string.more));
                     break;
                 case 3:
@@ -145,7 +158,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         startActivityForResult(intent,1);
                     }else {
                         binding.indexViewpager.setCurrentItem(3);
-                        binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
+//                        binding.ivFourTab.setImageResource(R.drawable.myed);
+                        iv_four_tab.setImageResource(R.drawable.myed);
                         tv_toolbar.setText(getString(R.string.my));
                     }
                     break;
@@ -164,32 +178,23 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         resetTextView();
-        switch (v.getId()) {
-            case R.id.tv_onetab:
-                tv_toolbar.setText(getString(R.string.life));
-                binding.indexViewpager.setCurrentItem(0);
-                binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
-                break;
-            case R.id.tv_twotab:
-                tv_toolbar.setText(getString(R.string.education));
-                binding.indexViewpager.setCurrentItem(1);
-                binding.tvTwotab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
-                break;
-            case R.id.tv_threetab:
-                tv_toolbar.setText(getString(R.string.more));
-                binding.indexViewpager.setCurrentItem(2);
-                binding.tvThreetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
-                break;
-            case R.id.tv_fourtab:
-                    if (!AppVariables.isLogin) {
-                        intent = new Intent(MainActivity.this, LoginActivity.class);
-                        startActivityForResult(intent, 1);
-                    } else {
-                        tv_toolbar.setText(getString(R.string.my));
-                        binding.indexViewpager.setCurrentItem(3);
-                        binding.tvFourtab.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.app_blue));
-                    }
-                break;
+        if(v==iv_one_tab){
+            tv_toolbar.setText(getString(R.string.life));
+            binding.indexViewpager.setCurrentItem(0);
+        }else if(v==iv_two_tab){
+            tv_toolbar.setText(getString(R.string.education));
+            binding.indexViewpager.setCurrentItem(1);
+        }else if(v==iv_three_tab){
+            tv_toolbar.setText(getString(R.string.more));
+            binding.indexViewpager.setCurrentItem(2);
+        }else if(v==iv_four_tab) {
+            if (!AppVariables.isLogin) {
+                intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivityForResult(intent, 1);
+            } else {
+                tv_toolbar.setText(getString(R.string.my));
+                binding.indexViewpager.setCurrentItem(3);
+            }
         }
     }
 
@@ -205,17 +210,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void resetTextView(){
-        binding.tvOnetab.setTextColor(Color.GRAY);
-        binding.tvTwotab.setTextColor(Color.GRAY);
-        binding.tvThreetab.setTextColor(Color.GRAY);
-        binding.tvFourtab.setTextColor(Color.GRAY);
+//        binding.ivOneTab.setImageResource(R.drawable.index);
+//        binding.ivTwoTab.setImageResource(R.drawable.education);
+//        binding.ivThreeTab.setImageResource(R.drawable.more);
+//        binding.ivFourTab.setImageResource(R.drawable.my);
+        iv_one_tab.setImageResource(R.drawable.index);
+        iv_two_tab.setImageResource(R.drawable.education);
+        iv_three_tab.setImageResource(R.drawable.more);
+        iv_four_tab.setImageResource(R.drawable.my);
     }
 
     @Override
     public void sendData(String go) {
         if("onetab".equals(go)){
             binding.indexViewpager.setCurrentItem(0);
-            binding.tvOnetab.setTextColor(ContextCompat.getColor(MainActivity.this,R.color.app_blue));
+//            binding.ivOneTab.setImageResource(R.drawable.indexed);
+           iv_one_tab.setImageResource(R.drawable.indexed);
         }
     }
 

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     android:paddingTop="25dp">
 
     <ImageView
@@ -21,18 +21,20 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_weatherSearch"
+                android:id="@+id/tv_school_location"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/weather"
+                android:drawablePadding="5dp"
+                android:drawableTop="@mipmap/school_location"
                 android:gravity="center"
-                android:text="天气查询"
+                android:text="地理位置"
                 android:textSize="18sp" />
 
+
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -48,21 +50,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/course"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/scenery"
                 android:gravity="center"
-                android:text="意见反馈"
+                android:text="校内景点"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_school_location"
+                android:id="@+id/tv_weatherSearch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/school_location"
                 android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/weather"
                 android:gravity="center"
-                android:text="地理位置"
+                android:text="天气查询"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -77,9 +80,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/course"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/exercise_yard"
                 android:gravity="center"
-                android:text="天气查询"
+                android:text="活动场所"
                 android:textSize="18sp" />
 
             <TextView
@@ -87,9 +91,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/course"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/expect"
                 android:gravity="center"
-                android:text="意见反馈"
+                android:text="敬请期待"
                 android:textSize="18sp" />
 
             <TextView
@@ -98,9 +103,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/course"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/expect"
                 android:gravity="center"
-                android:text="关于我们"
+                android:text="敬请期待"
                 android:textSize="18sp" />
 
             <TextView
@@ -109,8 +115,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:drawableTop="@mipmap/about_us"
                 android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/us"
                 android:gravity="center"
                 android:text="关于我们"
                 android:textSize="18sp" />

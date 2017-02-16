@@ -32,9 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="?attr/colorPrimary"
-            android:textColor="@color/white"
             android:elevation="15dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@color/white" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/index_viewpager"
@@ -47,41 +47,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:gravity="center"
             android:background="@color/background_color"
+            android:gravity="center"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_onetab"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/iv_one_tab"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@{onetab}" />
+                android:src="@drawable/tab_index_selecter" />
 
-            <TextView
-                android:id="@+id/tv_twotab"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/iv_two_tab"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@{twotab}" />
+                android:src="@drawable/tab_education_selecter" />
 
-            <TextView
-                android:id="@+id/tv_threetab"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/iv_three_tab"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@{threetab}" />
+                android:src="@drawable/tab_more_selecter" />
 
-            <TextView
-                android:id="@+id/tv_fourtab"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/iv_four_tab"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
                 android:layout_weight="1"
-                android:gravity="center"
-                android:text="@{fourtab}" />
+                android:src="@drawable/tab_my_selecter" />
         </LinearLayout>
+
+
     </LinearLayout>
 </layout>
