@@ -19,4 +19,9 @@
         android:orderInCategory="100"
         android:title="实时交通（off）"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/id_myLocation"
+        android:orderInCategory="100"
+        android:title="我的位置"
+        app:showAsAction="never" />
 </menu>

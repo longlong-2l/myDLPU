@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.surpassli.www.myapp"
         minSdkVersion 21
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         multiDexEnabled true//突破应用方法数65535的限制
