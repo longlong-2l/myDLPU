@@ -8,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdate;
@@ -24,6 +27,9 @@ public class LocationActivity extends AppCompatActivity {
     private TextureMapView mTextureMapView;
     private BaiduMap mBaiduMap;
     private Toolbar mToolBar;
+    //定位相关
+    private LocationClient mLocationClient;
+    private myLocationListener mLocationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,15 @@ public class LocationActivity extends AppCompatActivity {
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_location);
         initView();
+        initLocation();
+    }
+
+    private void initLocation() {
+        mLocationClient = new LocationClient(this);
+        mLocationListener = new myLocationListener();
+        mLocationClient.registerLocationListener(mLocationListener);//Client注册监听器
+        //为mLocationClient设置一些必要的配置
+        
     }
 
     @Override
@@ -96,5 +111,18 @@ public class LocationActivity extends AppCompatActivity {
         mBaiduMap = mTextureMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
         mBaiduMap.setMapStatus(msu);
+    }
+
+    private class myLocationListener implements BDLocationListener{
+
+        @Override
+        public void onReceiveLocation(BDLocation bdLocation) {
+
+        }
+
+        @Override
+        public void onConnectHotSpotMessage(String s, int i) {
+
+        }
     }
 }
