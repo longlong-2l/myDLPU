@@ -83,6 +83,9 @@
         <activity
             android:name=".ui.More.BaiduMap.LocationActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.More.About.LicenseActivity"
+            android:launchMode="singleTask" />
         <!--
         <receiver android:name=".MainActivity$MyBroadcastReceiver">
             <intent-filter>

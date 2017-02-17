@@ -92,7 +92,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/expect"
+                android:drawableTop="@mipmap/exercise_yard"
                 android:gravity="center"
                 android:text="敬请期待"
                 android:textSize="18sp" />
@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:drawablePadding="10dp"
-                android:drawableTop="@mipmap/expect"
+                android:drawableTop="@mipmap/exercise_yard"
                 android:gravity="center"
                 android:text="敬请期待"
                 android:textSize="18sp" />

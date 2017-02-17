@@ -13,4 +13,6 @@
     <string name="education">教育</string>
     <string name="more">更多</string>
     <string name="my">我的</string>
+    <string name="license">开源协议</string>
+    <string name="feedback">意见反馈</string>
 </resources>

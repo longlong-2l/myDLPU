@@ -17,6 +17,7 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
     private Preference mAppDemoVideo;
     private Preference mAppSuggestion;
     private Preference mAppShare;
+    private Preference mLicense;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,13 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
         mAppDemoVideo = findPreference("id_demo_video");
         mAppSuggestion = findPreference("id_feedback");
         mAppShare = findPreference("id_share");
+        mLicense = findPreference("id_license");
         mAppIntroduce.setOnPreferenceClickListener(this);
         mAppUpdate.setOnPreferenceClickListener(this);
         mAppDemoVideo.setOnPreferenceClickListener(this);
         mAppSuggestion.setOnPreferenceClickListener(this);
         mAppShare.setOnPreferenceClickListener(this);
+        mLicense.setOnPreferenceClickListener(this);
     }
 
     @Override
@@ -51,6 +54,8 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
             Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
         } else if (mAppShare == preference) {
             Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
+        } else if(mLicense == preference){
+            startActivity(new Intent(getActivity(),LicenseActivity.class));
         }
         return false;
     }

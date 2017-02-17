@@ -154,6 +154,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     break;
                 case 3:
                     if(!AppVariables.isLogin){
+
+
+
+
+
+
                         intent = new Intent(MainActivity.this,LoginActivity.class);
                         startActivityForResult(intent,1);
                     }else {

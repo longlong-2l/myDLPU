@@ -39,7 +39,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
         getLink();
         wv_base = (WebView) findViewById(R.id.wv_base);
         progressBar = (ProgressBar) findViewById(R.id.pb_basewebview);
-        if (!getApplication().getString(R.string.app_intro).equals(title)) {
+        if (!getApplication().getString(R.string.app_intro).equals(title) && !getApplication().getString(R.string.license).equals(title)) {
             WebSettings webSettings = wv_base.getSettings();
             webSettings.setJavaScriptEnabled(true);
             webSettings.setUseWideViewPort(true);
@@ -79,7 +79,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
                 super.onProgressChanged(view, newProgress);
                 if (isLoading) {
                     progressBar.incrementProgressBy(newProgress - progressBar.getProgress());
-                    if (newProgress > 80) {
+                    if (newProgress > 99) {
                         isLoading = false;
                         progressBar.setVisibility(View.GONE);
                     }
