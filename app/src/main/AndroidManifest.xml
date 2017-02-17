@@ -126,20 +126,12 @@
             </intent-filter>
         </service>
 
-        <!--
-        <service
-            android:name="com.baidu.location.f"
-            android:enabled="true"
-            android:process=":remote" >
-            <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2" >
-                </action>
-            </intent-filter>
-        </service>
-        -->
-
-        <activity android:name=".ui.More.Scenery.SceneryActivity" />
-        <activity android:name=".ui.More.ExerciseYard.ExerciseYardActivity"></activity>
+        <activity
+            android:name=".ui.More.ExerciseYard.SceneryActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.More.Scenery.ExerciseYardActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
