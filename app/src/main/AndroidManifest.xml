@@ -69,6 +69,12 @@
             android:name=".ui.More.Weather.WeatherActivity"
             android:launchMode="singleTask" />
         <activity
+            android:name=".ui.More.Scenery.SceneryActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.More.ExerciseYard.ExerciseYardActivity"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".ui.TestActivity"
             android:launchMode="singleTask" />
         <activity
@@ -85,6 +91,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.More.About.LicenseActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.More.ExerciseYard.ExerciseActivity"
             android:launchMode="singleTask" />
         <!--
         <receiver android:name=".MainActivity$MyBroadcastReceiver">
@@ -126,12 +135,6 @@
             </intent-filter>
         </service>
 
-        <activity
-            android:name=".ui.More.ExerciseYard.SceneryActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".ui.More.Scenery.ExerciseYardActivity"
-            android:launchMode="singleTask" />
     </application>
 
 </manifest>

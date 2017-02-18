@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
@@ -125,7 +126,10 @@ public class LifeFragment extends Fragment {
         mNewAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, String url) {
+                TextView title = (TextView) view.findViewById(R.id.tv_title);
+                String text = title.getText().toString();
                 Intent intent = new Intent(getActivity(), NewsWebView.class);
+                intent.putExtra("title",text);
                 intent.putExtra("url", url);
                 startActivity(intent);
             }

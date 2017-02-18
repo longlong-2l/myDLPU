@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.More.BaiduMap.LocationActivity;
+import com.surpassli.www.myapp.ui.More.ExerciseYard.ExerciseYardActivity;
 import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
 
 /**
@@ -30,6 +31,7 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
         view.findViewById(R.id.tv_About_us).setOnClickListener(this);
         view.findViewById(R.id.tv_weatherSearch).setOnClickListener(this);
         view.findViewById(R.id.tv_school_location).setOnClickListener(this);
+        view.findViewById(R.id.tv_exercise_yard).setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +45,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tv_school_location:
                 startActivity(new Intent(getActivity(), LocationActivity.class));
+                break;
+            case R.id.tv_exercise_yard:
+                startActivity(new Intent(getActivity(), ExerciseYardActivity.class));
                 break;
         }
     }

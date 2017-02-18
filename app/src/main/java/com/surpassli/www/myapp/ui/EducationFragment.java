@@ -14,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baidu.mapapi.map.Text;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.model.News.Notice_Model;
@@ -107,7 +109,10 @@ public class EducationFragment extends Fragment {
         mNewAdapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, String url) {
+                TextView textView = (TextView) view.findViewById(R.id.tv_title);
+                String title = textView.getText().toString();
                 Intent intent = new Intent(getActivity(), NewsWebView.class);
+                intent.putExtra("title",title);
                 intent.putExtra("url", url);
                 startActivity(intent);
             }

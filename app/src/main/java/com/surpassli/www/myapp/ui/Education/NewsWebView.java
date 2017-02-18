@@ -13,6 +13,7 @@ public class NewsWebView extends BaseWebViewActivity{
     @Override
     protected String getLink() {
         Intent intent = getIntent();
+        title = intent.getStringExtra("title");
         url = intent.getStringExtra("url");
         return url;
     }

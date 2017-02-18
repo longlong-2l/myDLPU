@@ -13,4 +13,5 @@
     <color name="app_line">#e8e8e8</color><!--dialog的分隔线的颜色-->
     <color name="app_font_dark">#333333</color><!--dialog的字体颜色-->
     <color name="textWhite">#fff</color>
+    <color name="textColor">#75787B</color>
 </resources>
