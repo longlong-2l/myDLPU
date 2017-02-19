@@ -117,7 +117,7 @@ public class WeatherActivity extends AppCompatActivity{
             //无缓存时从服务器获取数据
             mWeatherId = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.INVISIBLE);
-            requestWeather("CN101010100");
+            requestWeather("CN101070201");
         }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

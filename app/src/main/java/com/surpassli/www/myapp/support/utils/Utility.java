@@ -249,9 +249,8 @@ public class Utility {
         try {
            JSONObject jsonObject = new JSONObject(response);
             if ("Success".equals(jsonObject.getString("message"))) {
-                Log.i(TAG, "handCurrentweek: " + "成功获取当前周次数据");
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                if (jsonArray == null) {
+                if (jsonArray == null || jsonArray.equals("")) {
                     Toast.makeText(context,"暂无数据...",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -263,6 +262,9 @@ public class Utility {
     /**
      * 获取考试安排
      */
+    public static boolean handExamManger(String reponse){
+       return false;
+    }
 
     /**
      * 密码修改
@@ -274,7 +276,7 @@ public class Utility {
             if ("Success, Password is the given or 123456".equals(result)){
                 return true;
             }else {
-                return true;
+                return false;
             }
         } catch (JSONException e) {
             e.printStackTrace();

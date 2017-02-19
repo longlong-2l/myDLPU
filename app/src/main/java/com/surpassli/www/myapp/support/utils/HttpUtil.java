@@ -86,13 +86,13 @@ public class HttpUtil {
      * @param url
      * @param callback
      */
-    public static void sendGetOkHttp_header_sk(String url,okhttp3.Callback callback){
-        OkHttpClient client = genericClient_sk();
+    public static void sendGetOkHttp_header_sk(String url,String date,okhttp3.Callback callback){
+        OkHttpClient client = genericClient_sk(date);
         Request res = new Request.Builder().url(url).build();
         client.newCall(res).enqueue(callback);
     }
 
-    public static OkHttpClient genericClient_sk() {
+    public static OkHttpClient genericClient_sk(String date) {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override

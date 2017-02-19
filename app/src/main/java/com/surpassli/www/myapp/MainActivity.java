@@ -103,11 +103,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
-        iv_one_tab = (ImageView) findViewById(R.id.iv_one_tab);
-        iv_two_tab = (ImageView) findViewById(R.id.iv_two_tab);
-        iv_three_tab = (ImageView) findViewById(R.id.iv_three_tab);
-        iv_four_tab = (ImageView) findViewById(R.id.iv_four_tab);
-        tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
+//        iv_one_tab = (ImageView) findViewById(R.id.iv_one_tab);
+//        iv_two_tab = (ImageView) findViewById(R.id.iv_two_tab);
+//        iv_three_tab = (ImageView) findViewById(R.id.iv_three_tab);
+//        iv_four_tab = (ImageView) findViewById(R.id.iv_four_tab);
+//        tv_toolbar = (TextView) findViewById(R.id.tv_toolbar);
         fragmentList = new ArrayList<Fragment>();
         LifeFragment lifeFragment = new LifeFragment();
         EducationFragment educationFragment = new EducationFragment();
@@ -122,14 +122,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
         binding.indexViewpager.setAdapter(fragmentadapter);
         binding.indexViewpager.addOnPageChangeListener(pageChangeListener);
-//        binding.ivOneTab.setOnClickListener(this);
-//        binding.ivTwoTab.setOnClickListener(this);
-//        binding.ivThreeTab.setOnClickListener(this);
-//        binding.ivFourTab.setOnClickListener(this);
-        iv_one_tab.setOnClickListener(this);
-        iv_two_tab.setOnClickListener(this);
-        iv_three_tab.setOnClickListener(this);
-        iv_four_tab.setOnClickListener(this);
+        binding.ivOneTab.setOnClickListener(this);
+        binding.ivTwoTab.setOnClickListener(this);
+        binding.ivThreeTab.setOnClickListener(this);
+        binding.ivFourTab.setOnClickListener(this);
+//        iv_one_tab.setOnClickListener(this);
+//        iv_two_tab.setOnClickListener(this);
+//        iv_three_tab.setOnClickListener(this);
+//        iv_four_tab.setOnClickListener(this);
     }
 
     public ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {
@@ -138,35 +138,33 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             resetTextView();
             switch (position) {
                 case 0:
-//                    binding.ivOneTab.setImageResource(R.drawable.indexed);
-                    iv_one_tab.setImageResource(R.drawable.indexed);
-                    tv_toolbar.setText(getString(R.string.life));
+                    binding.ivOneTab.setImageResource(R.drawable.indexed);
+//                    iv_one_tab.setImageResource(R.drawable.indexed);
+                    binding.tvToolbar.setText(getString(R.string.life));
+//                    tv_toolbar.setText(getString(R.string.life));
                     break;
                 case 1:
-//                    binding.ivTwoTab.setImageResource(R.drawable.educationed);
-                    iv_two_tab.setImageResource(R.drawable.educationed);
-                    tv_toolbar.setText(getString(R.string.education));
+                    binding.ivTwoTab.setImageResource(R.drawable.educationed);
+//                    iv_two_tab.setImageResource(R.drawable.educationed);
+                    binding.tvToolbar.setText(getString(R.string.education));
+//                    tv_toolbar.setText(getString(R.string.education));
                     break;
                 case 2:
-//                    binding.ivThreeTab.setImageResource(R.drawable.mored);
-                    iv_three_tab.setImageResource(R.drawable.mored);
-                    tv_toolbar.setText(getString(R.string.more));
+                    binding.ivThreeTab.setImageResource(R.drawable.mored);
+//                    iv_three_tab.setImageResource(R.drawable.mored);
+//                    tv_toolbar.setText(getString(R.string.more));
+                    binding.tvToolbar.setText(getString(R.string.more));
                     break;
                 case 3:
                     if(!AppVariables.isLogin){
-
-
-
-
-
-
                         intent = new Intent(MainActivity.this,LoginActivity.class);
                         startActivityForResult(intent,1);
                     }else {
                         binding.indexViewpager.setCurrentItem(3);
-//                        binding.ivFourTab.setImageResource(R.drawable.myed);
-                        iv_four_tab.setImageResource(R.drawable.myed);
-                        tv_toolbar.setText(getString(R.string.my));
+                        binding.ivFourTab.setImageResource(R.drawable.myed);
+//                        iv_four_tab.setImageResource(R.drawable.myed);
+//                        tv_toolbar.setText(getString(R.string.my));
+                        binding.tvToolbar.setText(getString(R.string.my));
                     }
                     break;
             }
@@ -184,21 +182,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         resetTextView();
-        if(v==iv_one_tab){
-            tv_toolbar.setText(getString(R.string.life));
+        if(v==binding.ivOneTab){
+//            tv_toolbar.setText(getString(R.string.life));
+            binding.tvToolbar.setText(getString(R.string.life));
             binding.indexViewpager.setCurrentItem(0);
-        }else if(v==iv_two_tab){
-            tv_toolbar.setText(getString(R.string.education));
+        }else if(v==binding.ivTwoTab){
+//            tv_toolbar.setText(getString(R.string.education));
+            binding.tvToolbar.setText(getString(R.string.education));
             binding.indexViewpager.setCurrentItem(1);
-        }else if(v==iv_three_tab){
-            tv_toolbar.setText(getString(R.string.more));
+        }else if(v==binding.ivThreeTab){
+//            tv_toolbar.setText(getString(R.string.more));
+            binding.tvToolbar.setText(getString(R.string.more));
             binding.indexViewpager.setCurrentItem(2);
-        }else if(v==iv_four_tab) {
+        }else if(v==binding.ivFourTab) {
             if (!AppVariables.isLogin) {
                 intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivityForResult(intent, 1);
             } else {
-                tv_toolbar.setText(getString(R.string.my));
+//                tv_toolbar.setText(getString(R.string.my));
+                binding.tvToolbar.setText(getString(R.string.my));
                 binding.indexViewpager.setCurrentItem(3);
             }
         }
@@ -212,26 +214,31 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             if(status.equals("Success")){
                 binding.indexViewpager.setCurrentItem(0);
             }
+        }else if(requestCode == 1 && resultCode == 2){
+            String status = data.getStringExtra("status");
+            if(status.equals("Success")){
+                binding.indexViewpager.setCurrentItem(0);
+            }
         }
     }
 
     private void resetTextView(){
-//        binding.ivOneTab.setImageResource(R.drawable.index);
-//        binding.ivTwoTab.setImageResource(R.drawable.education);
-//        binding.ivThreeTab.setImageResource(R.drawable.more);
-//        binding.ivFourTab.setImageResource(R.drawable.my);
-        iv_one_tab.setImageResource(R.drawable.index);
-        iv_two_tab.setImageResource(R.drawable.education);
-        iv_three_tab.setImageResource(R.drawable.more);
-        iv_four_tab.setImageResource(R.drawable.my);
+        binding.ivOneTab.setImageResource(R.drawable.index);
+        binding.ivTwoTab.setImageResource(R.drawable.education);
+        binding.ivThreeTab.setImageResource(R.drawable.more);
+        binding.ivFourTab.setImageResource(R.drawable.my);
+//        iv_one_tab.setImageResource(R.drawable.index);
+//        iv_two_tab.setImageResource(R.drawable.education);
+//        iv_three_tab.setImageResource(R.drawable.more);
+//        iv_four_tab.setImageResource(R.drawable.my);
     }
 
     @Override
     public void sendData(String go) {
         if("onetab".equals(go)){
             binding.indexViewpager.setCurrentItem(0);
-//            binding.ivOneTab.setImageResource(R.drawable.indexed);
-           iv_one_tab.setImageResource(R.drawable.indexed);
+            binding.ivOneTab.setImageResource(R.drawable.indexed);
+//           iv_one_tab.setImageResource(R.drawable.indexed);
         }
     }
 

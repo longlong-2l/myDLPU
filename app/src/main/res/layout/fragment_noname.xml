@@ -34,7 +34,7 @@
 
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/tv_feedback"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -88,6 +88,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tv_waiting1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -99,7 +100,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_03"
+                android:id="@+id/tv_waiting2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

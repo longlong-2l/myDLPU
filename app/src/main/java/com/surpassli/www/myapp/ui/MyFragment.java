@@ -12,8 +12,11 @@ import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.support.utils.ActivityCollector;
 import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
+import com.surpassli.www.myapp.ui.Account.ChangedPassWord_Activity;
 import com.surpassli.www.myapp.ui.Account.Course_Result_Activity;
 import com.surpassli.www.myapp.ui.Account.Course_Table_Activity;
+import com.surpassli.www.myapp.ui.Account.CurrentWeekActivity;
+import com.surpassli.www.myapp.ui.Account.ExamManagerActivity;
 import com.surpassli.www.myapp.ui.Account.Level_Grade_Activity;
 import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
 
@@ -82,6 +85,15 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tv_course_table:
                 startActivity(new Intent(getActivity(), Course_Table_Activity.class));
+                break;
+            case R.id.tv_password_reset:
+                startActivity(new Intent(getActivity(), ChangedPassWord_Activity.class));
+                break;
+            case R.id.tv_exam_plan:
+                startActivity(new Intent(getActivity(), ExamManagerActivity.class));
+                break;
+            case R.id.tv_current_week:
+                startActivity(new Intent(getActivity(), CurrentWeekActivity.class));
                 break;
         }
     }

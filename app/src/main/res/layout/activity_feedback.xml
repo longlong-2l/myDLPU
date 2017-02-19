@@ -51,6 +51,15 @@
             android:hint="Please write your opinions here" />
     </android.support.design.widget.TextInputLayout>
 
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center_horizontal"
+        android:background="?attr/colorPrimary"
+        android:text="Submit"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

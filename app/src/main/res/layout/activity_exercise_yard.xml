@@ -26,9 +26,9 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
             <com.moxun.tagcloudlib.view.TagCloudView
                 android:id="@+id/tagView"
@@ -39,7 +39,7 @@
                 app:darkColor="?attr/textColor"
                 app:lightColor="?attr/colorAccent"
                 app:radiusPercent="0.8" />
-        </LinearLayout>
+        <!--</LinearLayout>-->
     </LinearLayout>
 
     <ProgressBar

@@ -38,4 +38,7 @@
     <string name="original_office_building">原办公楼</string>
     <string name="test_base">中试基地</string>
     <string name="school_food_technology_research_center">国海食品技术研究中心</string>
+    <string name="food_building">食堂</string>
+
+    <string name="school_scenery">校内景点</string>
 </resources>

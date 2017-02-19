@@ -1,55 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.Account.ChangedPassWord_Activity">
+
+    <View
+        android:id="@+id/id_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:elevation="10dp" />
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/dlpu_logo"
-        android:layout_marginBottom="20dp"/>
-
-    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:visibility="gone">
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp"
+        android:elevation="10dp"
+        android:src="@mipmap/dlpu_logo" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_oldpasswdlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_view"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/et_oldpasswd"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:hint="请输入旧密码"/>
+            android:hint="请输入旧密码" />
 
-        </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>
 
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_newpasswdlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tl_oldpasswdlayout"
         android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/et_newpasswd"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:hint="请输入新密码"/>
+            android:hint="请输入新密码" />
 
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/bt_sure"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/sure"/>
-</LinearLayout>
+        android:layout_below="@id/tl_newpasswdlayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="?attr/colorPrimary"
+        android:text="@string/sure" />
+</RelativeLayout>

@@ -72,6 +72,9 @@
             android:name=".ui.More.Scenery.SceneryActivity"
             android:launchMode="singleTask" />
         <activity
+            android:name=".ui.More.Scenery.SceneryContentActivity"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".ui.More.ExerciseYard.ExerciseYardActivity"
             android:launchMode="singleTask" />
         <activity
@@ -94,6 +97,9 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.More.ExerciseYard.ExerciseActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.More.About.FeedBackActivity"
             android:launchMode="singleTask" />
         <!--
         <receiver android:name=".MainActivity$MyBroadcastReceiver">
@@ -134,7 +140,16 @@
                 <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
         </service>
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".ui.Account.CurrentWeekActivity" />
+        <activity android:name=".ui.Account.ExamManagerActivity"></activity>
     </application>
 
 </manifest>

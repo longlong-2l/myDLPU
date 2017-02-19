@@ -55,7 +55,7 @@ public class Course_Result_Activity extends Activity {
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
 
-        HttpUtil.sendGetOkHttp_header_sk(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
+        HttpUtil.sendGetOkHttp_header_sk(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp,"2015-2016-2", new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage().toString());

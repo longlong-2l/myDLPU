@@ -16,6 +16,7 @@ import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.support.utils.Utility;
+import com.surpassli.www.myapp.ui.LoginActivity;
 
 import java.io.IOException;
 
@@ -25,8 +26,6 @@ import okhttp3.Response;
 public class ChangedPassWord_Activity extends AppCompatActivity {
     private EditText et_newpasswd;
     private Button bt_sure;
-    private long mytime;
-    private String sign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,9 @@ public class ChangedPassWord_Activity extends AppCompatActivity {
 
     private void post(String newpassword) {
         MyProgressDialog.showProgressDialog(ChangedPassWord_Activity.this);
-        mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
+        long mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
-        sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
+        String sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
 
         HttpUtil.postChangePassWd(AppApi.MY_PASSWORD_REPAIR,sign,String.valueOf(mytime),newpassword, new okhttp3.Callback() {
             @Override
@@ -61,18 +60,22 @@ public class ChangedPassWord_Activity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                MyProgressDialog.closeDialog();
                 String res = response.body().string();
                 boolean result = Utility.handChangePassWord(res);
                 if (result) {
-                    Toast.makeText(ChangedPassWord_Activity.this, "密码修改成功...", Toast.LENGTH_SHORT).show();
                     AppVariables.clear();
                     Intent intent = new Intent();
-                    intent.setAction("tab");
-                    intent.putExtra("tab", "onetab");
-                    LocalBroadcastManager.getInstance(ChangedPassWord_Activity.this).sendBroadcast(intent);
-                    finish();
+                    intent.putExtra("status", "Success");
+                    ChangedPassWord_Activity.this.setResult(2, intent);
+                    ChangedPassWord_Activity.this.finish();
                 } else {
-                    Toast.makeText(ChangedPassWord_Activity.this, "密码修改失败...", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(ChangedPassWord_Activity.this,"对不起,密码修改失败",Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });

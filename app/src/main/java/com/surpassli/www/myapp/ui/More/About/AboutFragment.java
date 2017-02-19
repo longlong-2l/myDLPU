@@ -51,7 +51,8 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
         } else if (mAppDemoVideo == preference) {
             Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
         } else if (mAppSuggestion == preference) {
-            Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), FeedBackActivity.class);
+            startActivity(intent);
         } else if (mAppShare == preference) {
             Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
         } else if(mLicense == preference){
