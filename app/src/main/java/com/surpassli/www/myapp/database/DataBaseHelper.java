@@ -23,6 +23,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //用户
         db.execSQL(AccountTable.CREATE_TABLE);
 
+        //活动场所
+//        db.execSQL(A);
     }
 
     //修改数据库

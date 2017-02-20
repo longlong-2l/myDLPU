@@ -25,13 +25,22 @@ import static u.aly.x.T;
  */
 
 public class TagCloudViewAdapter extends TagsAdapter{
-    private List<String> tags = new ArrayList<String>();
+//    private List<String> tags = new ArrayList<String>();
+    private List<ExerciseYard> tags;
     private Context mContext;
 
-    public TagCloudViewAdapter(Context mContext, @NonNull String... data) {
+//    public TagCloudViewAdapter(Context mContext, @NonNull String... data) {
+//        this.mContext = mContext;
+//        tags.clear();
+//        Collections.addAll(tags, data);
+//    }
+
+    public TagCloudViewAdapter(Context mContext, ArrayList<ExerciseYard> data) {
+        tags = new ArrayList<ExerciseYard>();
         this.mContext = mContext;
-        tags.clear();
-        Collections.addAll(tags, data);
+        this.tags.clear();
+//        Collections.addAll(tags,data);
+        this.tags.addAll(data);
     }
 
     @Override
@@ -42,7 +51,7 @@ public class TagCloudViewAdapter extends TagsAdapter{
     @Override
     public View getView(final Context context, final int position, ViewGroup parent) {
         TextView tv = new TextView(context);
-        tv.setText(tags.get(position).toString());
+        tv.setText(tags.get(position).getTag());
         tv.setGravity(Gravity.CENTER);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
