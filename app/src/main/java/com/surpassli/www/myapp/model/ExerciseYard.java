@@ -6,19 +6,37 @@ package com.surpassli.www.myapp.model;
 
 public class ExerciseYard {
 
-    private String tag;
+    private String name;
+    private String content;
+    private String subject;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
 
     public ExerciseYard(){}
 
     public ExerciseYard(String tag) {
-        this.tag = tag;
+        this.name = tag;
     }
 
     public String getTag() {
-        return tag;
+        return name;
     }
 
     public void setTag(String tag) {
-        this.tag = tag;
+        this.name = tag;
     }
 }

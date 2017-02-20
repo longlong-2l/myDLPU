@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.database.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ public interface DAO<M> {
      * @param list 数据源，需要写入的数据
      * @return
      */
-    boolean cacheall(List<M> list);
+    boolean cacheall(ArrayList<M> list);
 
     /**
      * 清除缓存

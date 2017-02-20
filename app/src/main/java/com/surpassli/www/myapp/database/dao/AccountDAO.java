@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by SurpassLi on 2017/1/9.
  */
-public class AccountDAO implements DAO<AccountTableModel> {
+public abstract  class AccountDAO implements DAO<AccountTableModel> {
     public static final String TAG = "AccountDAO";
     private Context context;
     DataBaseHelper dataBaseHelper;
@@ -25,7 +25,6 @@ public class AccountDAO implements DAO<AccountTableModel> {
     }
 
     //将数据写入到数据库中
-    @Override
     public boolean cacheall(List<AccountTableModel> list) {
         return false;
     }
