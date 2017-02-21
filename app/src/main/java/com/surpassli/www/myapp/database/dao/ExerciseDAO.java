@@ -8,12 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.surpassli.www.myapp.database.DataBaseHelper;
 import com.surpassli.www.myapp.database.table.ExerciseYardTable;
 import com.surpassli.www.myapp.model.ExerciseYard;
-import com.surpassli.www.myapp.model.ExerciseYardModel.ExerciseModel;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static com.surpassli.www.myapp.AppVariables.username;
 
 /**
  * Created by SurpassLi on 2017/2/20.
@@ -26,7 +22,7 @@ public class ExerciseDAO {
     public ExerciseDAO(Context context) {
         super();
         this.context = context;
-        mDataBaseHelper = new DataBaseHelper(context);
+        mDataBaseHelper = new DataBaseHelper(context,"MyApp.db",null,2);
     }
 
     /**
@@ -80,17 +76,16 @@ public class ExerciseDAO {
      * 查询name
      * @return
      */
-    public ArrayList<ExerciseYard> selectName() {
-        ArrayList<ExerciseYard> exerciseYardsList = null;
+    public ArrayList<String> selectName() {
+        ArrayList<String> exerciseYardsList = null;
         SQLiteDatabase db = mDataBaseHelper.getWritableDatabase();
         if (db.isOpen()) {
-            Cursor cursor = db.query("ExerciseYardTable", null, null, null, null, null, null);
-            exerciseYardsList = new ArrayList<ExerciseYard>();
+            Cursor cursor = db.query("ExerciseYardTable", new String[]{"name"}, null, null, null, null, null);
+            exerciseYardsList = new ArrayList<String>();
             while (cursor.moveToNext()) {
                 ExerciseYard exerciseYard = new ExerciseYard();
                 String name = cursor.getString(cursor.getColumnIndex("name"));
-                exerciseYard.setTag(name);
-                exerciseYardsList.add(exerciseYard);
+                exerciseYardsList.add(name);
             }
             cursor.close();
             db.close();

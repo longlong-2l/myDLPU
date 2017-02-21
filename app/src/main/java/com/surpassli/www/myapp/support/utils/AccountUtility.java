@@ -19,11 +19,7 @@ import java.util.List;
  */
 public class AccountUtility {
 
-    private static ArrayList<ExerciseYard> mExerciseYardList;
-
     public static boolean handExerciseYard(String response,Context context) {
-        mExerciseYardList = new ArrayList<ExerciseYard>();
-        ExerciseYard mExerciseYard;
         ExerciseDAO exerciseDAO = new ExerciseDAO(context);
 
         try {
@@ -32,11 +28,8 @@ public class AccountUtility {
             if (code.equals("数据获取成功")){
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < jsonArray.length(); i++) {
-                    mExerciseYard =  new ExerciseYard();
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-//                    mExerciseYard.setTag(jsonObject1.getString("name"));
                     exerciseDAO.insert(jsonObject1.getString("name"),"aa","bb");
-//                    mExerciseYardList.add(mExerciseYard);
                 }
                 return true;
             }

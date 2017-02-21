@@ -21,13 +21,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static SQLiteDatabase db = null;
     private static DataBaseHelper instance = null;
 
-    public DataBaseHelper(Context context) {
-        super(context, "MyApp.db", null, 1);
-    }
-
-//    public DataBaseHelper(Context context, String dbName, SQLiteDatabase.CursorFactory factory, int dbVersion) {
-//        super(context,dbName,factory,dbVersion);
+//    public DataBaseHelper(Context context) {
+//        super(context, "MyApp.db", null, 1);
 //    }
+
+    public DataBaseHelper(Context context, String dbName, SQLiteDatabase.CursorFactory factory, int dbVersion) {
+        super(context,dbName,factory,dbVersion);
+    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -43,7 +43,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     //修改数据库
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+           db.execSQL("drop table if exists ExerciseYardTable");
+//           db.execSQL("drop table if exists ExerciseYardTable");
+           onCreate(db);
     }
 
 //    public static  void clearTable(String table){

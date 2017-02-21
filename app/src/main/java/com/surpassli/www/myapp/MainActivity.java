@@ -43,11 +43,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private List<Fragment> fragmentList;
     private ActivityMainBinding binding;
     private Intent intent;
-    private TextView tv_toolbar;
-    private ImageView iv_one_tab;
-    private ImageView iv_two_tab;
-    private ImageView iv_three_tab;
-    private ImageView iv_four_tab;
+//    private TextView tv_toolbar;
+//    private ImageView iv_one_tab;
+//    private ImageView iv_two_tab;
+//    private ImageView iv_three_tab;
+//    private ImageView iv_four_tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
