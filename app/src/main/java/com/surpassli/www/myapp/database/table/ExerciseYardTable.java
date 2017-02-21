@@ -9,7 +9,7 @@ public class ExerciseYardTable {
     public static final String CONTENT="content";
     public static final String SUBJECT="subject";
 
-    public static final String CREATE_TABLE="create table " +NAME+" ("+
+    public static final String CREATE_TABLE="create table " + NAME + "("+
             NAME2+" text primary key, "+
             CONTENT+" text, "+
             SUBJECT+ " text)";

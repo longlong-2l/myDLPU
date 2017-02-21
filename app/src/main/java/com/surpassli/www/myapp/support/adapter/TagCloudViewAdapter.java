@@ -40,7 +40,8 @@ public class TagCloudViewAdapter extends TagsAdapter{
         this.mContext = mContext;
         this.tags.clear();
 //        Collections.addAll(tags,data);
-        this.tags.addAll(data);
+//        this.tags.addAll(data);
+        this.tags = data;
     }
 
     @Override
@@ -57,7 +58,7 @@ public class TagCloudViewAdapter extends TagsAdapter{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,ExerciseActivity.class);
-                intent.putExtra("exercise_yard",tags.get(position).toString());
+                intent.putExtra("exercise_yard",tags.get(position).getTag());
                 mContext.startActivity(intent);
             }
         });

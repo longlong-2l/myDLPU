@@ -36,27 +36,26 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
         initToolBar();
         setToolbarTitle(getString(R.string.exercise_yard));
         initView();
-//        String[] qw = {getString(R.string.comprehensive_building_A), getString(R.string.comprehensive_building_B),
-//                getString(R.string.comprehensive_building_C), getString(R.string.school_clothing),
-//                getString(R.string.school_art_layout), getString(R.string.school_mechanical_engineering),
-//                getString(R.string.school_food), getString(R.string.school_chemical_engineering),
-//                getString(R.string.school_manage), getString(R.string.school_graduate_student),
-//                getString(R.string.school_textiles_and_materials), getString(R.string.school_club),
-//                getString(R.string.school_gymnasium), getString(R.string.school_continuing_learning),
-//                getString(R.string.school_food_technology_research_center), getString(R.string.school_international_education),
-//                getString(R.string.school_biotechnology),getString(R.string.food_building)};
-//        ExerciseYard exy =  new ExerciseYard();
-//        mExerciseYard = new ArrayList<ExerciseYard>();
-//        for (int i = 0; i < 10;i++){
-//            exy.setTag("aaa");
-//            mExerciseYard.add(exy);
-//        }
-        getData();
-//        mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this,mExerciseYard);
-//        mTagCloudView.setAdapter(mCloudAdapter);
+        getExerciseYard();
+//        getExerciseYardFromSever();
     }
 
-    private void getData() {
+    /**
+     * 获取活动场地的数据
+     */
+    public void getExerciseYard() {
+        if (mExerciseYard!=null){
+            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
+            mTagCloudView.setAdapter(mCloudAdapter);
+        }else{
+            getExerciseYardFromSever();
+        }
+    }
+
+    /**
+     * 从服务器获取活动场地的数据
+     */
+    private void getExerciseYardFromSever() {
         exerciseDAO = new ExerciseDAO(ExerciseYardActivity.this);
         HttpUtil.sendGetOkhttp("http://1.linjie.applinzi.com/dlpu/index.php", new okhttp3.Callback() {
             @Override
@@ -74,15 +73,19 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 String res = response.body().string();
                 Log.i("onResponse", "onResponse: ====="+"网络无问题");
-                exerciseDAO = AccountUtility.handExerciseYard(res,ExerciseYardActivity.this);
-                mExerciseYard = exerciseDAO.selectName();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this,mExerciseYard);
-                        mTagCloudView.setAdapter(mCloudAdapter);
-                    }
-                });
+                boolean result = AccountUtility.handExerciseYard(res,ExerciseYardActivity.this);
+                if(result) {
+                    mExerciseYard = exerciseDAO.select();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
+                            mTagCloudView.setAdapter(mCloudAdapter);
+                        }
+                    });
+                }
+                    else
+                    Log.i("onResponse", "onResponse: "+"数据库读取失败");
             }
         });
     }

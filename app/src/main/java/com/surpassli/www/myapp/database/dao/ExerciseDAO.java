@@ -63,10 +63,10 @@ public class ExerciseDAO {
                 exerciseYard.setTag(name);
 
                 String content = cursor.getString(cursor.getColumnIndex("content"));
-                exerciseYard.setTag(content);
+                exerciseYard.setContent(content);
 
                 String subject = cursor.getString(cursor.getColumnIndex("subject"));
-                exerciseYard.setTag(subject);
+                exerciseYard.setSubject(subject);
 
                 exerciseYardsList.add(exerciseYard);
             }
@@ -84,13 +84,12 @@ public class ExerciseDAO {
         ArrayList<ExerciseYard> exerciseYardsList = null;
         SQLiteDatabase db = mDataBaseHelper.getWritableDatabase();
         if (db.isOpen()) {
-            Cursor cursor = db.rawQuery("select name from record ",null);
+            Cursor cursor = db.query("ExerciseYardTable", null, null, null, null, null, null);
             exerciseYardsList = new ArrayList<ExerciseYard>();
             while (cursor.moveToNext()) {
                 ExerciseYard exerciseYard = new ExerciseYard();
                 String name = cursor.getString(cursor.getColumnIndex("name"));
                 exerciseYard.setTag(name);
-
                 exerciseYardsList.add(exerciseYard);
             }
             cursor.close();

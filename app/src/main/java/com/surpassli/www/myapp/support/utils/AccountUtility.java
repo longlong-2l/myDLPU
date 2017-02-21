@@ -21,7 +21,7 @@ public class AccountUtility {
 
     private static ArrayList<ExerciseYard> mExerciseYardList;
 
-    public static ExerciseDAO handExerciseYard(String response,Context context) {
+    public static boolean handExerciseYard(String response,Context context) {
         mExerciseYardList = new ArrayList<ExerciseYard>();
         ExerciseYard mExerciseYard;
         ExerciseDAO exerciseDAO = new ExerciseDAO(context);
@@ -35,14 +35,15 @@ public class AccountUtility {
                     mExerciseYard =  new ExerciseYard();
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 //                    mExerciseYard.setTag(jsonObject1.getString("name"));
-                    exerciseDAO.insert(jsonObject1.getString("name"),"aa","aa");
-                    mExerciseYardList.add(mExerciseYard);
+                    exerciseDAO.insert(jsonObject1.getString("name"),"aa","bb");
+//                    mExerciseYardList.add(mExerciseYard);
                 }
+                return true;
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return exerciseDAO;
+        return false;
     }
 
     ;
