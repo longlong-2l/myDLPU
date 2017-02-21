@@ -46,7 +46,7 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
         exerciseDAO = new ExerciseDAO(ExerciseYardActivity.this);
         mExerciseYard = new ArrayList<String>();
         mExerciseYard = exerciseDAO.selectName();
-        if (mExerciseYard!=null){
+        if (mExerciseYard!=null && mExerciseYard.size()>0){
             mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard,"String");
             mTagCloudView.setAdapter(mCloudAdapter);
         }else{
