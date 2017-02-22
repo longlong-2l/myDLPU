@@ -34,7 +34,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private String name;
     private String password;
     private ImageView iv_see;
-    private Button bt_login;
     private static final String TAG = "LoginActivity";
     private boolean flag = true;
     private EditText et_name;
@@ -108,7 +107,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()) {
             case R.id.iv_see:
                 if (flag) {

@@ -26,7 +26,7 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
     private TagCloudView mTagCloudView;
     private ProgressBar mProgreBar;
     private TagCloudViewAdapter mCloudAdapter;
-    private ArrayList<ExerciseYard> mExerciseYard;
+    private ArrayList<String> mExerciseYard;
     private ExerciseDAO exerciseDAO;
 
     @Override
@@ -37,15 +37,17 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
         setToolbarTitle(getString(R.string.exercise_yard));
         initView();
         getExerciseYard();
-//        getExerciseYardFromSever();
     }
 
     /**
      * 获取活动场地的数据
      */
     public void getExerciseYard() {
-        if (mExerciseYard!=null){
-            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
+        exerciseDAO = new ExerciseDAO(ExerciseYardActivity.this);
+        mExerciseYard = new ArrayList<String>();
+        mExerciseYard = exerciseDAO.selectName();
+        if (mExerciseYard!=null && mExerciseYard.size()>0){
+            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard,"String");
             mTagCloudView.setAdapter(mCloudAdapter);
         }else{
             getExerciseYardFromSever();
@@ -75,11 +77,11 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
                 Log.i("onResponse", "onResponse: ====="+"网络无问题");
                 boolean result = AccountUtility.handExerciseYard(res,ExerciseYardActivity.this);
                 if(result) {
-                    mExerciseYard = exerciseDAO.select();
+                    mExerciseYard = exerciseDAO.selectName();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
+                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard,"String");
                             mTagCloudView.setAdapter(mCloudAdapter);
                         }
                     });

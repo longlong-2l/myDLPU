@@ -25,40 +25,51 @@ import static u.aly.x.T;
  */
 
 public class TagCloudViewAdapter extends TagsAdapter{
-//    private List<String> tags = new ArrayList<String>();
+    private List<String> tags_string;
     private List<ExerciseYard> tags;
     private Context mContext;
+    private String flag;
 
-//    public TagCloudViewAdapter(Context mContext, @NonNull String... data) {
-//        this.mContext = mContext;
-//        tags.clear();
-//        Collections.addAll(tags, data);
-//    }
+    public TagCloudViewAdapter(Context mContext, ArrayList<String> data,String flag) {
+        this.mContext = mContext;
+        this.flag = flag;
+        tags_string = new ArrayList<String>();
+        tags_string.clear();
+        this.tags_string = data;
+    }
 
     public TagCloudViewAdapter(Context mContext, ArrayList<ExerciseYard> data) {
         tags = new ArrayList<ExerciseYard>();
         this.mContext = mContext;
         this.tags.clear();
-//        Collections.addAll(tags,data);
-//        this.tags.addAll(data);
         this.tags = data;
     }
 
     @Override
     public int getCount() {
-        return tags.size();
+        if(flag!= null && "String".equals(flag))
+           return tags_string.size();
+        else{
+            return tags.size();
+        }
     }
 
     @Override
     public View getView(final Context context, final int position, ViewGroup parent) {
         TextView tv = new TextView(context);
-        tv.setText(tags.get(position).getTag());
-        tv.setGravity(Gravity.CENTER);
-        tv.setOnClickListener(new View.OnClickListener() {
+        if (tags != null)
+            tv.setText(tags.get(position).getTag());
+        else if (tags_string != null)
+            tv.setText(tags_string.get(position).toString());
+            tv.setGravity(Gravity.CENTER);
+            tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext,ExerciseActivity.class);
-                intent.putExtra("exercise_yard",tags.get(position).getTag());
+                Intent intent = new Intent(mContext, ExerciseActivity.class);
+                if (tags != null)
+                    intent.putExtra("exercise_yard", tags.get(position).getTag());
+                else if (tags_string != null)
+                    intent.putExtra("exercise_yard", tags_string.get(position).toString());
                 mContext.startActivity(intent);
             }
         });
@@ -68,7 +79,11 @@ public class TagCloudViewAdapter extends TagsAdapter{
 
     @Override
     public Object getItem(int position) {
-        return tags.get(position);
+        if(flag!= null && "String".equals(flag))
+            return tags_string.get(position);
+        else{
+            return tags.get(position);
+        }
     }
 
     @Override

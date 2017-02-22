@@ -17,7 +17,7 @@ public abstract  class AccountDAO implements DAO<AccountTableModel> {
 
     public AccountDAO(Context context) {
         this.context = context;
-        dataBaseHelper = new DataBaseHelper(context);
+//        dataBaseHelper = new DataBaseHelper(context);
     }
 
     public void add(){
