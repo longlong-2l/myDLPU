@@ -8,16 +8,13 @@ import android.widget.Toast;
 import com.moxun.tagcloudlib.view.TagCloudView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.database.dao.ExerciseDAO;
-import com.surpassli.www.myapp.model.ExerciseYard;
 import com.surpassli.www.myapp.support.adapter.TagCloudViewAdapter;
 import com.surpassli.www.myapp.support.utils.AccountUtility;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
-import com.surpassli.www.myapp.support.utils.HttpsUtils;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;

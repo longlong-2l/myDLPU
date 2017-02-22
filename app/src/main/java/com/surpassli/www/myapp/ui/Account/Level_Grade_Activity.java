@@ -14,6 +14,7 @@ import com.surpassli.www.myapp.model.Course_Table.Level_Grade;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Level_Grade_Adpater;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 import org.json.JSONArray;
@@ -43,6 +44,7 @@ public class Level_Grade_Activity extends BaseToolBarActivity {
         rv_level_grade = (RecyclerView) findViewById(R.id.rv_level_grade);
         initToolBar();
         setToolbarTitle("等级类考试成绩");
+        MyProgressDialog.showProgressDialog(Level_Grade_Activity.this);
         getData();
     }
 
@@ -93,6 +95,7 @@ public class Level_Grade_Activity extends BaseToolBarActivity {
                                 rv_level_grade.setAdapter(level_grade_adapter);
                                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Level_Grade_Activity.this,LinearLayoutManager.VERTICAL,false);
                                 rv_level_grade.setLayoutManager(layoutManager);
+                                MyProgressDialog.closeDialog();
                             }
                         });
                     }

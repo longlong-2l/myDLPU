@@ -1,130 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="课程名称："
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tv_course_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_name"
+        android:gravity="center_horizontal"
+        android:text="高等数学1"
+        android:textColor="#FFEC1616" />
 
     <LinearLayout
+        android:layout_below="@id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_num"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="1"
-            android:textColor="#000000" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_No1_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="2013-2014-1"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="1"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="050110022"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_No1_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="2013-2014-1"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="高等数学1"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="050110022"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="86"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="86"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_score_flag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="成绩标识"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_score_flag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="成绩标识"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_credit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="4.5"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="4.5"
+                android:textColor="#000000" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_course_period"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="72"
-            android:textColor="#000000" />
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_exam_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="考试"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="72"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_property"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="必修"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_exam_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="考试"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_course_nature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="通识必修"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_property"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="必修"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_exam_nature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="正常考试"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_course_nature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="通识必修"
+                android:textColor="#000000" />
 
-        <TextView
-            android:id="@+id/tv_again_term"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:gravity="center_horizontal"
-            android:text="补重学期"
-            android:textColor="#000000" />
+            <TextView
+                android:id="@+id/tv_exam_nature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="正常考试"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/tv_again_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_horizontal"
+                android:text="补重学期"
+                android:textColor="#000000" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

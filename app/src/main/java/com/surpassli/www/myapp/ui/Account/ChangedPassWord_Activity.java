@@ -55,6 +55,7 @@ public class ChangedPassWord_Activity extends AppCompatActivity {
         HttpUtil.postChangePassWd(AppApi.MY_PASSWORD_REPAIR,sign,String.valueOf(mytime),newpassword, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                MyProgressDialog.closeDialog();
                 Toast.makeText(ChangedPassWord_Activity.this,"网络出现问题,请检查网络设置...",Toast.LENGTH_SHORT).show();
             }
 

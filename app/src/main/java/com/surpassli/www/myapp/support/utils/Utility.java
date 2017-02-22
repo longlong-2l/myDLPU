@@ -81,7 +81,7 @@ public class Utility {
             if (jsonObject.getString("message").equals("Success")) {
                 Log.i("", "onResponse: " + "获取课程正确信息");
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
-                for (int i = 0; i < jsonArray.length(); i++) {
+                for (int i = 1; i < jsonArray.length(); i++) {
                     jsonArray1 = jsonArray.getJSONArray(i);
                     course_result_bean = new Course_Result_bean();
                     course_result_bean.num = jsonArray1.getString(0);
@@ -99,6 +99,7 @@ public class Utility {
                     course_result_bean.again_term = jsonArray1.getString(12);
                     mCourse_Result_list.add(course_result_bean);
                 }
+                Log.i("", "onResponse: " + "课程信息解析完毕");
                 return mCourse_Result_list;
             } else {
                 Log.i(TAG, "Utility: " + "获取课程成绩有误");

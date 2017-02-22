@@ -18,19 +18,17 @@ import java.util.zip.Inflater;
  */
 public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Adapter.MyViewHolder> {
 
-    private Context context;
     private List<Course_Result_bean> Datas;
     private LayoutInflater mInflater;
 
     public Course_Result_Adapter(Context context, List<Course_Result_bean> Datas) {
-        this.context = context;
         this.Datas = Datas;
         mInflater = LayoutInflater.from(context);
     }
 
     //用于创建控件
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Course_Result_Adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_course_result,parent,false);
         MyViewHolder viewHolder = new MyViewHolder(view);
         return viewHolder;
@@ -40,19 +38,19 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
     @Override
     public void onBindViewHolder(final MyViewHolder holder,final int position) {
         //设置要显示的数据
-        holder.tv_num.setText(Datas.get(position).getNum());
-        holder.tv_No1_date.setText( Datas.get(position).getNo1_date());
-        holder.tv_course_num.setText(Datas.get(position).getCourse());
-        holder.tv_course_name.setText( Datas.get(position).getCourse_name());
-        holder.tv_course_score.setText(Datas.get(position).getCourse_score());
-        holder.tv_score_flag.setText( Datas.get(position).getScore_flag());
-        holder.tv_course_credit.setText( Datas.get(position).getCourse_credit());
-        holder.tv_course_period.setText( Datas.get(position).getCourse_period());
-        holder.tv_exam_type.setText(Datas.get(position).getExam_type());
-        holder.tv_course_property.setText(Datas.get(position).getCourse_property());
-        holder.tv_course_nature.setText( Datas.get(position).getCourse_nature());
-        holder.tv_exam_nature.setText( Datas.get(position).getExam_nature());
-        holder.tv_again_term.setText( Datas.get(position).getAgain_term());
+        holder.tv_num.setText("序号：" + Datas.get(position).getNum());
+        holder.tv_No1_date.setText( "首修学期：" + Datas.get(position).getNo1_date());
+        holder.tv_course_num.setText("课程编号：" + Datas.get(position).getCourse());
+        holder.tv_course_name.setText( "课程名称：" + Datas.get(position).getCourse_name());
+        holder.tv_course_score.setText("成绩：" + Datas.get(position).getCourse_score());
+        holder.tv_score_flag.setText( "成绩标识：" + Datas.get(position).getScore_flag());
+        holder.tv_course_credit.setText( "学分：" + Datas.get(position).getCourse_credit());
+        holder.tv_course_period.setText( "总学时：" + Datas.get(position).getCourse_period());
+        holder.tv_exam_type.setText("考核方式：" + Datas.get(position).getExam_type());
+        holder.tv_course_property.setText("课程属性：" + Datas.get(position).getCourse_property());
+        holder.tv_course_nature.setText( "课程性质：" + Datas.get(position).getCourse_nature());
+        holder.tv_exam_nature.setText( "考试性质：" + Datas.get(position).getExam_nature());
+        holder.tv_again_term.setText( "补充学期：" + Datas.get(position).getAgain_term());
     }
 
     @Override
@@ -82,6 +80,7 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
             tv_course_num = (TextView) itemView.findViewById(R.id.tv_course_num);
             tv_course_name = (TextView) itemView.findViewById(R.id.tv_course_name);
             tv_course_score = (TextView) itemView.findViewById(R.id.tv_course_score);
+            tv_score_flag = (TextView) itemView.findViewById(R.id.tv_score_flag);
             tv_course_credit = (TextView) itemView.findViewById(R.id.tv_course_credit);
             tv_course_period = (TextView) itemView.findViewById(R.id.tv_course_period);
             tv_exam_type = (TextView) itemView.findViewById(R.id.tv_exam_type);
@@ -89,7 +88,6 @@ public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Ad
             tv_course_nature = (TextView) itemView.findViewById(R.id.tv_course_nature);
             tv_exam_nature = (TextView) itemView.findViewById(R.id.tv_exam_nature);
             tv_again_term = (TextView) itemView.findViewById(R.id.tv_again_term);
-            tv_score_flag = (TextView) itemView.findViewById(R.id.tv_score_flag);
         }
     }
 }

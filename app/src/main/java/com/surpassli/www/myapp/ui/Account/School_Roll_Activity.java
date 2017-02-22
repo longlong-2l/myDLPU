@@ -117,7 +117,6 @@ public class School_Roll_Activity extends BaseToolBarActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        MyProgressDialog.closeDialog();
                         initView(person_school_roll);
                     }
                 });
@@ -138,5 +137,6 @@ public class School_Roll_Activity extends BaseToolBarActivity {
         tv_intoSchool_date.setText("入学日期：" + person_school_roll.getIntoSchool_date());
         tv_intoSchool_num.setText("入学考号：" + person_school_roll.getIntoSchool_num());
         tv_idcard.setText("身份证编号：" + person_school_roll.getIdcard());
+        MyProgressDialog.closeDialog();
     }
 }

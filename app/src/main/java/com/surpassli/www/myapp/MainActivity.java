@@ -159,6 +159,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                     if(!AppVariables.isLogin){
                         intent = new Intent(MainActivity.this,LoginActivity.class);
                         startActivityForResult(intent,1);
+                        binding.indexViewpager.setCurrentItem(2);
                     }else {
                         binding.indexViewpager.setCurrentItem(3);
                         binding.ivFourTab.setImageResource(R.drawable.myed);
