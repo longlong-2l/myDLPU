@@ -44,6 +44,13 @@ public class Level_Grade_Activity extends BaseToolBarActivity {
         rv_level_grade = (RecyclerView) findViewById(R.id.rv_level_grade);
         initToolBar();
         setToolbarTitle("等级类考试成绩");
+
+        getData();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         MyProgressDialog.showProgressDialog(Level_Grade_Activity.this);
         getData();
     }

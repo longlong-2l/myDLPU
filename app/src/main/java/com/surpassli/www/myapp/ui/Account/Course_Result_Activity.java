@@ -15,6 +15,7 @@ import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Adapter;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Result_Adapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.support.utils.RecycleViewDivider.DividerItemDecoration;
 import com.surpassli.www.myapp.support.utils.Utility;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
@@ -49,6 +50,7 @@ public class Course_Result_Activity extends BaseToolBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        MyProgressDialog.showProgressDialog(Course_Result_Activity.this);
         initView();
     }
 
@@ -59,9 +61,11 @@ public class Course_Result_Activity extends BaseToolBarActivity {
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
+        Log.i(TAG, "initView: "+"userId="+AppVariables.userId+"token="+AppVariables.token+"timestamp="+timestamp);
         HttpUtil.sendGetOkHttp_header_sk(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp,"2015-2016-2", new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
+                MyProgressDialog.closeDialog();
                 Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage().toString());
             }
 
@@ -83,6 +87,7 @@ public class Course_Result_Activity extends BaseToolBarActivity {
 //                      mRecycleView.setItemAnimator(new DefaultItemAnimator());//设置动画效果为默认动画
                         course_adapter = new Course_Adapter(Course_Result_Activity.this, mCourse_Result_list);
                         lv_course.setAdapter(course_adapter);
+                        MyProgressDialog.closeDialog();
                     }
                 });
             }

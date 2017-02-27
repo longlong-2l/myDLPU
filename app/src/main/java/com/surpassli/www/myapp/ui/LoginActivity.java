@@ -18,6 +18,7 @@ import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,6 +63,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        MyProgressDialog.closeDialog();
                         Toast.makeText(LoginActivity.this,"网络出显问题，请检查网络设置~~",Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -86,6 +88,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         editor.putString("username",AppVariables.username);
                         editor.putString("token",AppVariables.token);
                         editor.apply();
+                        MyProgressDialog.closeDialog();
                         Intent intent = new Intent();
                         intent.putExtra("status", "Success");
                         LoginActivity.this.setResult(1, intent);
@@ -123,6 +126,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 name = et_name.getText().toString();
                 password = et_password.getText().toString();
                 login(name,password);
+                MyProgressDialog.showProgressDialog(LoginActivity.this);
                 break;
         }
     }
