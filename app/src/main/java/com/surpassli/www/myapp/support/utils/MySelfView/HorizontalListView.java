@@ -17,6 +17,7 @@ import java.util.Queue;
 
 /**
  * Created by SurpassLi on 2017/1/21.
+ * 一个横向滑动的ListView,暂时是用不到了
  */
 public class HorizontalListView extends AdapterView<ListAdapter>{
 

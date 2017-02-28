@@ -107,7 +107,7 @@ public class CommonJsonCallBack implements Callback {
 
     @Override
     public void onResponse(Call call, Response response) throws IOException {
-//子线程中
+        //子线程中
         final  String  result = response.body().string();
         mDelieverHandler.post(new Runnable() {
             @Override

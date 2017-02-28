@@ -27,9 +27,10 @@ import android.util.Log;
 import android.view.View;
 
 /**
- * This class is from the v7 samples of the Android SDK. It's not by me!
+ * This class is from the v7 samples of the Android SDK. It's not written by me!
  * <p/>
  * See the license above for details.
+ * 做为RecyclerView的分隔线使用
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration
 {

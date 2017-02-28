@@ -67,12 +67,5 @@ public class TestActivity extends Activity{
                 });
             }
         });
-
-//        mNewAdapter = new NewsAdapter(getActivity(),mNotice_ModelsList);
-        //news_RecycleView.setAdapter(mNewAdapter);
-//          mNewsAdapterListView =  new NewsAdapterListView(getActivity(),mNotice_ModelsList);
-//          lv_news.setAdapter(mNewsAdapterListView);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-//        news_RecycleView.setLayoutManager(layoutManager);
     }
 }

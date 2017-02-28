@@ -30,8 +30,7 @@ public class MD5 {
             }
             result = buf.toString();
             System.out.println("result: " + result);//32位的加密
-            System.out.println("result: " +
-                    buf.toString().substring(8,24));//16位的加密
+            System.out.println("result: " + buf.toString().substring(8, 24));//16位的加密
         } catch (NoSuchAlgorithmException e) {
             
         }

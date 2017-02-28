@@ -1,7 +1,7 @@
 package com.surpassli.www.myapp.support;
 
 /**
- * Created by dell on 2017/1/10.
+ * Created by SurpassLi on 2017/1/10.
  */
 public class AppException extends Exception {
     private static final long serialVersionUID = 1L;

@@ -22,6 +22,7 @@ import static u.aly.x.T;
 
 /**
  * Created by SurpassLi on 2017/2/17.
+ * 云标签的3D实现
  */
 
 public class TagCloudViewAdapter extends TagsAdapter{

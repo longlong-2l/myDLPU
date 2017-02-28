@@ -82,7 +82,6 @@ public class WeatherActivity extends AppCompatActivity{
             getWindow().setStatusBarColor(Color.TRANSPARENT);//屏幕设置成透明色
         }
 
-        //初始化各种控件
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navButton = (Button) findViewById(R.id.nav_button);
         bingPicImg = (ImageView) findViewById(R.id.iv_pic_bing);
@@ -134,7 +133,9 @@ public class WeatherActivity extends AppCompatActivity{
         }
     }
 
-    //处理并展示Weather实体类中的数据
+    /**
+     * 处理并展示Weather实体类中的数据
+     */
     private void showWeatherInfo(Weather weather) {
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
@@ -172,7 +173,9 @@ public class WeatherActivity extends AppCompatActivity{
         startService(intent);
     }
 
-    //根据天气id请求城市天气信息
+    /**
+     * 根据天气id请求城市天气信息
+     */
     public void requestWeather(final String weatherId) {
         String weatherUrl = "http://guolin.tech/api/weather?cityid=" + weatherId + "&key=6f7170e464174f8fa99142a2c57a0cb3";
         Log.i("weatherUrl", "requestWeather: "+weatherUrl);
@@ -183,7 +186,7 @@ public class WeatherActivity extends AppCompatActivity{
                     @Override
                     public void run() {
                         Toast.makeText(WeatherActivity.this, "获取天气信息失败", Toast.LENGTH_SHORT).show();
-                        swipeRefreshLayout.setRefreshing(false);//表示刷新结束，隐藏进度条
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 });
             }

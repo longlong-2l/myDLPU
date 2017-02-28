@@ -67,19 +67,6 @@ public class Course_Adapter extends BaseAdapter {
         }
 
         Course_Result_bean course_result_bean = Datas.get(position);
-//        viewHolder.tv_num.setText(course_result_bean.getNum());
-//        viewHolder.tv_No1_date.setText(course_result_bean.getNo1_date());
-//        viewHolder.tv_course_num.setText(course_result_bean.getCourse());
-//        viewHolder.tv_course_name.setText(course_result_bean.getCourse_name());
-//        viewHolder.tv_course_score.setText(course_result_bean.getCourse_score());
-//        viewHolder.tv_score_flag.setText(course_result_bean.getScore_flag());
-//        viewHolder.tv_course_credit.setText(course_result_bean.getCourse_credit());
-//        viewHolder.tv_course_period.setText(course_result_bean.getCourse_period());
-//        viewHolder.tv_exam_type.setText(course_result_bean.getExam_type());
-//        viewHolder.tv_course_property.setText(course_result_bean.getCourse_property());
-//        viewHolder.tv_course_nature.setText(course_result_bean.getCourse_nature());
-//        viewHolder.tv_exam_nature.setText(course_result_bean.getExam_nature());
-//        viewHolder.tv_again_term.setText(course_result_bean.getAgain_term());
         viewHolder.tv_num.setText( "序号：" + course_result_bean.getNum());
         viewHolder.tv_No1_date.setText( "首修学期：" + course_result_bean.getNo1_date());
         viewHolder.tv_course_num.setText( "课程编号：" + course_result_bean.getCourse());

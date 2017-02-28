@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 /**
- * Created by dell on 2017/1/10.
+ * Created by SurpassLi on 2017/1/10.
  */
 public class CommonOkHttpClient {
     private static final int TIME_OUT = 30;
