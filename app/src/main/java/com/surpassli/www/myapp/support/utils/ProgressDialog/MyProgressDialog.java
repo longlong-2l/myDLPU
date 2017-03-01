@@ -10,7 +10,7 @@ public class MyProgressDialog {
     private static ProgressDialog progressDialog;
 
     public static void showProgressDialog(Context context) {
-        if (progressDialog == null) {
+        if (progressDialog == null || !progressDialog.isShowing()) {
             progressDialog = new ProgressDialog(context);
             progressDialog.setMessage("正在用生命加载，请稍后...");
             progressDialog.setCanceledOnTouchOutside(false);

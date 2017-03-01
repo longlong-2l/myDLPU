@@ -61,6 +61,7 @@ public class Level_Grade_Activity extends BaseToolBarActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        MyProgressDialog.closeDialog();
                         Toast.makeText(Level_Grade_Activity.this,"网络出显问题，请检查网络设置~~",Toast.LENGTH_SHORT).show();
                     }
                 });
