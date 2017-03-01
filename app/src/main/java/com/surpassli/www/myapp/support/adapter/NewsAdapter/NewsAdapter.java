@@ -18,7 +18,6 @@ import java.util.List;
  * Created by SurpassLi on 2017/2/8.
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
-    private Context mContext;
 
     private List<Notice_Model> mNoticeModel;
 
@@ -37,7 +36,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
 
     public NewsAdapter(Context mContext, ArrayList<Notice_Model> mNoticeModel) {
-        this.mContext = mContext;
         this.mNoticeModel = mNoticeModel;
         this.mInflater = LayoutInflater.from(mContext);
     }

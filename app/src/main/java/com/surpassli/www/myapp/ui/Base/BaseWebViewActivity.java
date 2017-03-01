@@ -28,9 +28,9 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basewebview);
-        initData();
         initToolBar();
         setToolbarTitle(title);
+        initData();
     }
 
     protected abstract String getLink();

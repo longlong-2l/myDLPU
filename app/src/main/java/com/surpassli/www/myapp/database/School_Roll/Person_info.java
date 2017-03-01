@@ -6,7 +6,7 @@ import org.litepal.crud.DataSupport;
  * Created by SurpassLi on 2017/2/1.
  */
 public class Person_info extends DataSupport{
-    private static final String TAG = "Person_School_Roll";
+    private static final String TAG = "Person_info";
 
     private String academy;//学院
 

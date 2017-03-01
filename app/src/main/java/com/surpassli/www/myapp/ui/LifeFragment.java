@@ -29,6 +29,7 @@ import com.surpassli.www.myapp.model.News.Notice_Model;
 import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.ui.Education.NewsWebView;
 
 import java.io.IOException;
@@ -66,8 +67,10 @@ public class LifeFragment extends Fragment {
         if(school_news!=null) {
             mNotice_ModelsList2 = EducationUtils.handNew_Notice(school_news);
             setView();
-        } else
+        } else {
+            MyProgressDialog.showProgressDialog(getActivity());
             getData();
+        }
         news_swiSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.srl_Refresh);
         news_swiSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         news_swiSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -95,6 +98,7 @@ public class LifeFragment extends Fragment {
                     public void run() {
                         Toast.makeText(getActivity(), "网络出现问题...", Toast.LENGTH_SHORT).show();
                         news_swiSwipeRefreshLayout.setRefreshing(false);
+                        MyProgressDialog.closeDialog();
                     }
                 });
             }
@@ -110,6 +114,7 @@ public class LifeFragment extends Fragment {
                     @Override
                     public void run() {
                         news_swiSwipeRefreshLayout.setRefreshing(false);
+                        MyProgressDialog.closeDialog();
                         setView();
                     }
                 });

@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.gson.Course_Result_bean;
+import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 
 import java.util.List;
 
@@ -17,12 +17,10 @@ import java.util.List;
  */
 public class Course_Adapter extends BaseAdapter {
 
-    private Context context;
     private List<Course_Result_bean> Datas;
     private LayoutInflater mInflater;
 
     public Course_Adapter(Context context, List<Course_Result_bean> Datas) {
-        this.context = context;
         this.Datas = Datas;
         mInflater = LayoutInflater.from(context);
     }

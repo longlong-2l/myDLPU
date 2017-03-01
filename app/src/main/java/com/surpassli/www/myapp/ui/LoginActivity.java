@@ -49,10 +49,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 
     private void initView() {
         iv_see = (ImageView) findViewById(R.id.iv_see);
-        iv_see.setOnClickListener(this);
-        findViewById(R.id.Bt_Login).setOnClickListener(this);
         et_name = (EditText) findViewById(R.id.et_name);
         et_password = (EditText) findViewById(R.id.et_password);
+
+        iv_see.setOnClickListener(this);
+        findViewById(R.id.Bt_Login).setOnClickListener(this);
     }
 
     public void login(String name,String password) {

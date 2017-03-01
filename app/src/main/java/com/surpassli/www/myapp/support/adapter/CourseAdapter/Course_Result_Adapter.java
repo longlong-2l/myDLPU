@@ -8,10 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.gson.Course_Result_bean;
+import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by SurpassLi on 2017/1/17.

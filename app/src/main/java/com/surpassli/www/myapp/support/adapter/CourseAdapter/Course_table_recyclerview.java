@@ -18,13 +18,11 @@ import java.util.List;
  */
 public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table_recyclerview.ViewHolder> {
 
-    private Context context;
     private LayoutInflater layoutInflater;
     private List<Course_Table> mlist;
 
     public Course_table_recyclerview(ArrayList<Course_Table> mlist, Context context) {
         this.mlist = mlist;
-        this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
     }
 

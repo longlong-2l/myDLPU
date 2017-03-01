@@ -10,8 +10,8 @@ import com.surpassli.www.myapp.database.School_Roll.Person_info;
 import com.surpassli.www.myapp.database.Weather.City;
 import com.surpassli.www.myapp.database.Weather.County;
 import com.surpassli.www.myapp.database.Weather.Province;
-import com.surpassli.www.myapp.gson.Course_Result_bean;
 import com.surpassli.www.myapp.gson.Weather;
+import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 import com.surpassli.www.myapp.model.Course_Table.Level_Grade;
 import com.surpassli.www.myapp.model.Level_Grade.Course_Table;
 

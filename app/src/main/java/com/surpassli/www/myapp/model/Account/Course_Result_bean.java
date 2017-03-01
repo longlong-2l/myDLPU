@@ -31,27 +31,6 @@ public class Course_Result_bean {
 
     public String again_term;        //补重学期
 
-//    public Course_Result_bean(JSONArray jsonArray,int i) {
-//        try {
-//            JSONArray jsonArray1 = jsonArray.getJSONArray(i);
-//                Course_Result_bean.num = jsonArray1.getString(0);
-//                Course_Result_bean.No1_date = jsonArray1.getString(1);
-//                Course_Result_bean.course = jsonArray1.getString(2);
-//                Course_Result_bean.course_name = jsonArray1.getString(3);
-//                Course_Result_bean.course_score = jsonArray1.getString(4);
-//                Course_Result_bean.score_flag = jsonArray1.getString(5);
-//                Course_Result_bean.course_credit = jsonArray1.getString(6);
-//                Course_Result_bean.course_period = jsonArray1.getString(7);
-//                Course_Result_bean.exam_type = jsonArray1.getString(8);
-//                Course_Result_bean.course_property = jsonArray1.getString(9);
-//                Course_Result_bean.course_nature = jsonArray1.getString(10);
-//                Course_Result_bean.exam_nature = jsonArray1.getString(11);
-//                Course_Result_bean.again_term = jsonArray1.getString(12);
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public String getNum() {
         return num;
     }

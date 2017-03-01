@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.Account;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +9,7 @@ import android.widget.ListView;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.gson.Course_Result_bean;
+import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Adapter;
 import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Result_Adapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;

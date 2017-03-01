@@ -24,6 +24,7 @@ import com.surpassli.www.myapp.model.News.Notice_Model;
 import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.ui.Education.NewsWebView;
 
 import java.io.IOException;
@@ -61,13 +62,14 @@ public class EducationFragment extends Fragment {
         if(notice!=null) {
             mNotice_ModelsList = EducationUtils.handNew_Notice(notice);
             initView();
-        } else
+        } else {
+            MyProgressDialog.showProgressDialog(getActivity());
             getData();
+        }
         return view;
     }
 
     private void getData() {
-
         HttpUtil.sendGetOkhttp(AppApi.NOTICE, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -76,6 +78,7 @@ public class EducationFragment extends Fragment {
                     public void run() {
                         Toast.makeText(getActivity(), "网络出现问题...", Toast.LENGTH_SHORT).show();
                         news_swiSwipeRefreshLayout.setRefreshing(false);
+                        MyProgressDialog.closeDialog();
                     }
                 });
 
@@ -92,6 +95,7 @@ public class EducationFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        MyProgressDialog.closeDialog();
                         news_swiSwipeRefreshLayout.setRefreshing(false);
                         initView();
                     }

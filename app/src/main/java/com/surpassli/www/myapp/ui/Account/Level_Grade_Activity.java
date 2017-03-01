@@ -47,19 +47,13 @@ public class Level_Grade_Activity extends BaseToolBarActivity {
         getData();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MyProgressDialog.showProgressDialog(Level_Grade_Activity.this);
-        getData();
-    }
-
     private void getData() {
+        MyProgressDialog.showProgressDialog(Level_Grade_Activity.this);
         myLevel_grades = new ArrayList<Level_Grade>();
         long mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
-        Log.i("Level", "getData: " + AppApi.MY_ACCOUNT + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign  + "&timestamp=" + timestamp);
+        Log.i("Level_Grade_Activity", "getData: " + AppApi.MY_ACCOUNT + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign  + "&timestamp=" + timestamp);
         HttpUtil.sendGetOkHttp_header(AppApi.MY_LEVEL_GRADE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

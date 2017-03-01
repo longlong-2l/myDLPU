@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.Account;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,7 +10,7 @@ import android.widget.Toast;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.gson.Person_School_Roll;
+import com.surpassli.www.myapp.model.Account.Person_School_Roll;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
@@ -51,21 +50,6 @@ public class School_Roll_Activity extends BaseToolBarActivity {
         initToolBar();
         setToolbarTitle("学籍卡片");
         initView();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String personalInfo = prefs.getString("personalinfo", null);
-        if (personalInfo != null) {
-            //有缓存时直接解析数据
-            person_school_roll = new Person_School_Roll(personalInfo);
-            initView(person_school_roll);
-        } else {
-            //无缓存时从服务器解析数据
-            getData();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String personalInfo = prefs.getString("personalinfo", null);
         if (personalInfo != null) {

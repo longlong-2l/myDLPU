@@ -24,6 +24,7 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/2/8.
+ * 这是一个测试用的Activity，没有在程序中有任何体现。
  */
 public class TestActivity extends Activity{
     private NewsAdapterListView mNewsAdapterListView;
