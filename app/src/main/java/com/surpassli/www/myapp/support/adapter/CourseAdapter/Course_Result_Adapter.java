@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/17.
+ * Test
  */
 public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Adapter.MyViewHolder> {
 
