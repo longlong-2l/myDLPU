@@ -77,8 +77,7 @@ public class WeatherActivity extends AppCompatActivity{
         setContentView(R.layout.activity_weather);
         if(Build.VERSION.SDK_INT >= 21){
            View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);//屏幕设置成全屏幕的
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);//屏幕设置成全屏幕的
             getWindow().setStatusBarColor(Color.TRANSPARENT);//屏幕设置成透明色
         }
 

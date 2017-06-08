@@ -94,6 +94,7 @@ public class School_Roll_Activity extends BaseToolBarActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String data = response.body().string();
+                Log.i(TAG, "onResponse: data=="+data);
                 person_school_roll = new Person_School_Roll(data);
                 SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(School_Roll_Activity.this).edit();
                 editor.putString("personalinfo", data);

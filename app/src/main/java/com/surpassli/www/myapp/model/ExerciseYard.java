@@ -28,15 +28,15 @@ public class ExerciseYard {
 
     public ExerciseYard(){}
 
-    public ExerciseYard(String tag) {
-        this.name = tag;
+    public ExerciseYard(String name) {
+        this.name = name;
     }
 
-    public String getTag() {
+    public String getName() {
         return name;
     }
 
-    public void setTag(String tag) {
-        this.name = tag;
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -3,7 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="black_red">#cc0000</color> <!--黑红色 -->
     <color name="app_blue">#3385ff</color> <!-- APP蓝色 -->
+    <color name="orange">#ff772d</color> <!-- 橙色 -->
     <color name="tab_gray">#ff929292</color> <!-- Tab灰色 -->
     <color name="white">#ffffff</color> <!--纯白色 -->
     <color name="black">#000000</color> <!--纯黑色 -->

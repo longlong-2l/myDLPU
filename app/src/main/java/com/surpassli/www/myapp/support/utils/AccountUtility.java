@@ -29,7 +29,7 @@ public class AccountUtility {
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                    exerciseDAO.insert(jsonObject1.getString("name"),"aa","bb");
+                    exerciseDAO.insert(jsonObject1.getString("name"),jsonObject1.getString("content"),"empty");
                 }
                 return true;
             }

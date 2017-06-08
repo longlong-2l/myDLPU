@@ -29,7 +29,6 @@ public class ExerciseDAO {
      * 插入数据
      * @param name
      * @param content
-     * @param subject
      */
     public void insert(String name,String content,String subject) {
         SQLiteDatabase db = mDataBaseHelper.getWritableDatabase();
@@ -56,7 +55,7 @@ public class ExerciseDAO {
             while (cursor.moveToNext()) {
                 ExerciseYard exerciseYard = new ExerciseYard();
                 String name = cursor.getString(cursor.getColumnIndex("name"));
-                exerciseYard.setTag(name);
+                exerciseYard.setName(name);
 
                 String content = cursor.getString(cursor.getColumnIndex("content"));
                 exerciseYard.setContent(content);

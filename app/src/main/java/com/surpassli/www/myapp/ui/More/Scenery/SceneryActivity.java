@@ -59,6 +59,9 @@ public class SceneryActivity extends BaseToolBarActivity {
 
     private void addTexts()
     {
+//        for (int j = 0; j < 8; j++) {
+//            textList.add("景色1");
+//        }
         textList.add("景色1");
         textList.add("景色1");
         textList.add("景色1");

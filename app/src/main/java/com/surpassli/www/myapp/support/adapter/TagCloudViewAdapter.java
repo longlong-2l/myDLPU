@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static u.aly.x.T;
 
 /**
  * Created by SurpassLi on 2017/2/17.
@@ -59,18 +58,24 @@ public class TagCloudViewAdapter extends TagsAdapter{
     public View getView(final Context context, final int position, ViewGroup parent) {
         TextView tv = new TextView(context);
         if (tags != null)
-            tv.setText(tags.get(position).getTag());
+            tv.setText(tags.get(position).getName());
         else if (tags_string != null)
-            tv.setText(tags_string.get(position).toString());
+            tv.setText(tags_string.get(position));
             tv.setGravity(Gravity.CENTER);
             tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, ExerciseActivity.class);
-                if (tags != null)
-                    intent.putExtra("exercise_yard", tags.get(position).getTag());
-                else if (tags_string != null)
-                    intent.putExtra("exercise_yard", tags_string.get(position).toString());
+                if (tags != null) {
+                    intent.putExtra("exercise_yard", tags.get(position).getName());
+                    intent.putExtra("content",tags.get(position).getContent());
+                    intent.putExtra("position", position);
+                }
+                else if (tags_string != null) {
+                    intent.putExtra("exercise_yard", tags_string.get(position));
+                    intent.putExtra("content",tags.get(position).getContent());
+                    intent.putExtra("position", position);
+                }
                 mContext.startActivity(intent);
             }
         });

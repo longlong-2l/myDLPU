@@ -1,8 +1,6 @@
 package com.surpassli.www.myapp.ui.Account;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ListView;
 
@@ -15,7 +13,6 @@ import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_Result_Adapt
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
-import com.surpassli.www.myapp.support.utils.RecycleViewDivider.DividerItemDecoration;
 import com.surpassli.www.myapp.support.utils.Utility;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
@@ -60,7 +57,7 @@ public class Course_Result_Activity extends BaseToolBarActivity {
         mytime = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
         String timestamp = String.valueOf(mytime + AppVariables.time_cha);
         AppVariables.sign = MD5.getMd5(AppVariables.key + AppVariables.token + timestamp);
-        Log.i(TAG, "initView: "+"userId="+AppVariables.userId+"token="+AppVariables.token+"timestamp="+timestamp);
+        Log.i(TAG, "initView: "+"userId="+AppVariables.userId+"==token="+AppVariables.token+"==&sign=" + AppVariables.sign +"==timestamp="+timestamp);
         HttpUtil.sendGetOkHttp_header_sk(AppApi.MY_COURSE + "userId=" + AppVariables.userId + "&sign=" + AppVariables.sign + "&timestamp=" + timestamp,"2015-2016-2", new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {

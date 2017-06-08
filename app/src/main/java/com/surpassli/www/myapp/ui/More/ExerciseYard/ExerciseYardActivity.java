@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.moxun.tagcloudlib.view.TagCloudView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.database.dao.ExerciseDAO;
+import com.surpassli.www.myapp.model.ExerciseYard;
 import com.surpassli.www.myapp.support.adapter.TagCloudViewAdapter;
 import com.surpassli.www.myapp.support.utils.AccountUtility;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
@@ -23,7 +24,8 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
     private TagCloudView mTagCloudView;
     private ProgressBar mProgreBar;
     private TagCloudViewAdapter mCloudAdapter;
-    private ArrayList<String> mExerciseYard;
+    private ArrayList<String> mExerciseYard_String;
+    private ArrayList<ExerciseYard> mExerciseYard;
     private ExerciseDAO exerciseDAO;
 
     @Override
@@ -41,10 +43,13 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
      */
     public void getExerciseYard() {
         exerciseDAO = new ExerciseDAO(ExerciseYardActivity.this);
-        mExerciseYard = new ArrayList<String>();
-        mExerciseYard = exerciseDAO.selectName();
+        mExerciseYard_String = new ArrayList<String>();
+        mExerciseYard = new ArrayList<ExerciseYard>();
+//        mExerciseYard_String = exerciseDAO.selectName();
+        mExerciseYard = exerciseDAO.select();
         if (mExerciseYard!=null && mExerciseYard.size()>0){
-            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard,"String");
+//            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard_String,"String");
+            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
             mTagCloudView.setAdapter(mCloudAdapter);
         }else{
             getExerciseYardFromSever();
@@ -74,11 +79,13 @@ public class ExerciseYardActivity extends BaseToolBarActivity {
                 Log.i("onResponse", "onResponse: ====="+"网络无问题");
                 boolean result = AccountUtility.handExerciseYard(res,ExerciseYardActivity.this);
                 if(result) {
-                    mExerciseYard = exerciseDAO.selectName();
+//                    mExerciseYard_String = exerciseDAO.selectName();
+                    mExerciseYard = exerciseDAO.select();
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard,"String");
+//                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard_String,"String");
+                            mCloudAdapter = new TagCloudViewAdapter(ExerciseYardActivity.this, mExerciseYard);
                             mTagCloudView.setAdapter(mCloudAdapter);
                         }
                     });

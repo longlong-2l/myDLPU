@@ -18,6 +18,7 @@ import com.surpassli.www.myapp.model.Level_Grade.Course_Table;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -197,22 +198,22 @@ public class Utility {
                     course_table.setCourse_teacher(jsonArray2.getString(3));
                     course_table_been_list.add(course_table);
                 }
-                for (int n = 1; n < jsonArray.length(); n++) {
-                    jsonObject1 = jsonArray.getJSONObject(n);
-                    for (int i = 0; i < 5; i++) {
-                        JSONArray jsonArray1 = jsonObject1.optJSONArray(String.valueOf(i));
-                        if (jsonArray1 == null | "".equals(jsonArray1)) {
-                            continue;
-                        } else {
-                            course_table = new Course_Table();
-                            course_table.setCourse_name(jsonArray1.getString(0));
-                            course_table.setCourse_time(jsonArray1.getString(1));
-                            course_table.setCourse_address(jsonArray1.getString(2));
-                            course_table.setCourse_teacher(jsonArray1.getString(3));
-                            course_table_been_list.add(course_table);
-                        }
-                    }
-                }
+//                for (int n = 1; n < jsonArray.length(); n++) {
+//                    jsonObject1 = jsonArray.getJSONObject(n);
+//                    for (int i = 0; i < 5; i++) {
+//                        JSONArray jsonArray1 = jsonObject1.optJSONArray(String.valueOf(i));
+//                        if (jsonArray1 == null | "".equals(jsonArray1)) {
+//                            continue;
+//                        } else {
+//                            course_table = new Course_Table();
+//                            course_table.setCourse_name(jsonArray1.getString(0));
+//                            course_table.setCourse_time(jsonArray1.getString(1));
+//                            course_table.setCourse_address(jsonArray1.getString(2));
+//                            course_table.setCourse_teacher(jsonArray1.getString(3));
+//                            course_table_been_list.add(course_table);
+//                        }
+//                    }
+//                }
                 return course_table_been_list;
             } else {
                 Log.i(TAG, "Utility: " + "获取课程表有误");
@@ -246,19 +247,21 @@ public class Utility {
     /**
      * 获取当前周次
      */
-    public static boolean handCurrentweek(String response , Context context) {
+    public static String handCurrentweek(String response , Context context) {
         try {
            JSONObject jsonObject = new JSONObject(response);
             if ("Success".equals(jsonObject.getString("message"))) {
-                JSONArray jsonArray = jsonObject.getJSONArray("data");
-                if (jsonArray == null || jsonArray.equals("")) {
-                    Toast.makeText(context,"暂无数据...",Toast.LENGTH_SHORT).show();
+                String data = jsonObject.getString("data");
+                if (data == null || data.equals("")) {
+                    return "暂无数据";
+                }else{
+                    return data;
                 }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return false;
+        return null;
     }
     /**
      * 获取考试安排

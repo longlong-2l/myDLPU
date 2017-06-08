@@ -2,6 +2,7 @@ package com.surpassli.www.myapp.support.adapter.CourseAdapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +13,21 @@ import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 
 import java.util.List;
 
+import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 /**
  * Created by SurpassLi on 2017/1/17.
  * Test
  */
 public class Course_Result_Adapter extends RecyclerView.Adapter<Course_Result_Adapter.MyViewHolder> {
 
+    private static final String TAG = "Course_Result_Adapter";
     private List<Course_Result_bean> Datas;
     private LayoutInflater mInflater;
 
     public Course_Result_Adapter(Context context, List<Course_Result_bean> Datas) {
         this.Datas = Datas;
+        Log.i(TAG, "Course_Result_Adapter:list数据源 "+Datas.toString());
         mInflater = LayoutInflater.from(context);
     }
 

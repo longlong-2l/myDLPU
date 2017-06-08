@@ -4,16 +4,25 @@
     android:id="@+id/activity_current"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.surpassli.www.myapp.ui.Account.CurrentWeekActivity">
+
+    <include layout="@layout/activity_base_tool_bar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="暂时没有数据"
-        android:layout_centerInParent="true"/>
+        android:layout_marginTop="80dp"
+        android:text="@string/current_week_to"
+        android:textColor="@color/black_red"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/tv_current_week_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:text="@string/not_datas"
+        android:textSize="95sp" />
 
 </RelativeLayout>

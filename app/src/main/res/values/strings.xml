@@ -41,4 +41,6 @@
     <string name="food_building">食堂</string>
 
     <string name="school_scenery">校内景点</string>
+    <string name="not_datas">暂无数据</string>
+    <string name="current_week_to">当前周次为</string>
 </resources>

@@ -60,7 +60,7 @@ public class LocationActivity extends AppCompatActivity {
         Option.setCoorType("bd09ll");//必须为bd09ll，原因暂时不知道
         Option.setIsNeedAddress(true);//设置可以得到地址，方便用地址做其他操作
         Option.setOpenGps(true);
-        Option.setScanSpan(1000);//每隔一秒钟进行一次请求
+        Option.setScanSpan(5000);//每隔5秒钟进行一次定位请求
         mLocationClient.setLocOption(Option);//可以解决定位隔几个街区的问题
     }
 

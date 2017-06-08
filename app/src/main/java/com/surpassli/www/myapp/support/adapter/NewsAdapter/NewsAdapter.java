@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
+    private static final String TAG = "NewsAdapter";
     private List<Notice_Model> mNoticeModel;
 
     private LayoutInflater mInflater;
@@ -37,6 +38,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     public NewsAdapter(Context mContext, ArrayList<Notice_Model> mNoticeModel) {
         this.mNoticeModel = mNoticeModel;
+        Log.i(TAG, "NewsAdapter: 数据源=="+mNoticeModel.toString());
         this.mInflater = LayoutInflater.from(mContext);
     }
 
