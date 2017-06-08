@@ -41,6 +41,8 @@ public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table
         holder.tv_course_time.setText(mlist.get(position).getCourse_time());
         holder.tv_course_address.setText(mlist.get(position).getCourse_address());
         holder.tv_course_teacher.setText(mlist.get(position).getCourse_teacher());
+        holder.tv_week_day.setText(mlist.get(position).getWeek_day());
+        holder.tv_class_time.setText(mlist.get(position).getClass_time());
     }
 
     @Override
@@ -53,6 +55,8 @@ public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table
         protected final TextView tv_course_time;
         protected final TextView tv_course_address;
         protected final TextView tv_course_teacher;
+        protected final TextView tv_week_day;
+        protected final TextView tv_class_time;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +64,8 @@ public class Course_table_recyclerview extends RecyclerView.Adapter<Course_table
             tv_course_time = (TextView) itemView.findViewById(R.id.tv_course_time);
             tv_course_address = (TextView) itemView.findViewById(R.id.tv_course_address);
             tv_course_teacher = (TextView) itemView.findViewById(R.id.tv_course_teacher);
+            tv_week_day = (TextView) itemView.findViewById(R.id.tv_week_day);
+            tv_class_time = (TextView) itemView.findViewById(R.id.tv_class_time);
         }
     }
 }

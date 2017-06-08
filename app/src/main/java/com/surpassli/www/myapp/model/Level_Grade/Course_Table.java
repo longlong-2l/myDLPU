@@ -13,6 +13,26 @@ public class Course_Table {
 
     private String Course_teacher;
 
+    private String week_day;
+
+    private String class_time;
+
+    public String getWeek_day() {
+        return week_day;
+    }
+
+    public void setWeek_day(String week_day) {
+        this.week_day = week_day;
+    }
+
+    public String getClass_time() {
+        return class_time;
+    }
+
+    public void setClass_time(String class_time) {
+        this.class_time = class_time;
+    }
+
     public String getCourse_teacher() {
         return Course_teacher;
     }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/activity_base_tool_bar"/>
+
+    <include layout="@layout/activity_base_tool_bar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,8 +31,22 @@
             android:text="查询" />
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_course_table"
+    <FrameLayout
+        android:id="@+id/fl_course_table"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_course_table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_course_empty"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/member_empty"
+            android:visibility="visible"/>
+    </FrameLayout>
 </LinearLayout>

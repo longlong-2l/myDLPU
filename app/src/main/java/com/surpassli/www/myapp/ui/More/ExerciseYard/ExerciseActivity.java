@@ -56,7 +56,7 @@ public class ExerciseActivity extends BaseToolBarActivity {
     private void getData() {
         if (exercise_yard_name != null && !exercise_yard_name.isEmpty()) {
             mEmpty.setVisibility(View.GONE);
-            Glide.with(ExerciseActivity.this).load(exercise_yard_images[position]).into(mImage);
+            Glide.with(ExerciseActivity.this).load(exercise_yard_images[position]).crossFade(1500).into(mImage);
             if (content.length() < 3) {
                 mContent.setGravity(Gravity.CENTER_HORIZONTAL);
                 mContent.setText(exercise_yard_name);

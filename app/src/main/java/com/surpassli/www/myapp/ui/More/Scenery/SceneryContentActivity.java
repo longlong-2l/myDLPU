@@ -68,7 +68,7 @@ public class SceneryContentActivity extends BaseToolBarActivity{
     private void getData() {
             if (scenery_name != null && !scenery_name.isEmpty()) {
                 mEmpty.setVisibility(View.GONE);
-                Glide.with(SceneryContentActivity.this).load(scenery_images2.get(scenery_name)).into(iv_scerency);
+                Glide.with(SceneryContentActivity.this).load(scenery_images2.get(scenery_name)).crossFade(1000).into(iv_scerency);
             } else {
                 iv_scerency.setVisibility(View.GONE);
                 mEmpty.setVisibility(View.VISIBLE);
