@@ -3,7 +3,6 @@ package com.surpassli.www.myapp.ui.More.Scenery;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.support.utils.MySelfView.FlowLayout;
@@ -13,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SceneryActivity extends BaseToolBarActivity {
-    FlowLayout layout;
-    int i = 0;
-    List<String> textList;
-    List<String> leftextList;
-    List<String> righttextList;
+    private FlowLayout layout;
+    private int i = 0;
+    private List<String> textList;
+    private List<String> leftextList;
+    private List<String> righttextList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,6 @@ public class SceneryActivity extends BaseToolBarActivity {
         initToolBar();
         setToolbarTitle(getString(R.string.school_scenery));
         layout = (FlowLayout) findViewById(R.id.tagcloudview);
-        layout.setBackgroundResource(R.color.white);
         textList = new ArrayList<String>();
         leftextList = new ArrayList<String>();
         righttextList = new ArrayList<String>();
@@ -47,6 +45,7 @@ public class SceneryActivity extends BaseToolBarActivity {
             @Override
             public void onTagClick(View view, String text) {
                 Intent intent = new Intent(SceneryActivity.this,SceneryContentActivity.class);
+                intent.putExtra("scenery_name",text);
                 startActivity(intent);
             }
 
@@ -59,36 +58,26 @@ public class SceneryActivity extends BaseToolBarActivity {
 
     private void addTexts()
     {
-//        for (int j = 0; j < 8; j++) {
-//            textList.add("景色1");
-//        }
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
-        textList.add("景色1");
+        textList.add("水电管理部");
+        textList.add("食品院后草坪");
+        textList.add("二食堂林荫道");
+        textList.add("雕塑室前雕塑");
+        textList.add("体育场旁小道");
+        textList.add("工大水池");
 
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
-        leftextList.add("景色2");
+        leftextList.add("工大苗圃");
+        leftextList.add("造纸楼旁雕塑");
+        leftextList.add("服院旁花坛");
+        leftextList.add("艺院前花坛");
+        leftextList.add("Life Spring");
+        leftextList.add("原球场旁林荫道");
 
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
-        righttextList.add("景色3");
+        righttextList.add("林荫走廊");
+        righttextList.add("东山小红房");
+        righttextList.add("门诊部小道");
+        righttextList.add("服院前林荫道");
+        righttextList.add("艺院侧面雕塑");
+        righttextList.add("体育场爬山虎");
     }
 
     @Override

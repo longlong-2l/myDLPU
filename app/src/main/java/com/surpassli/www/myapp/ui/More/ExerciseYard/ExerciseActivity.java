@@ -20,14 +20,15 @@ public class ExerciseActivity extends BaseToolBarActivity {
     private int position;
     private String exercise_yard_name;
     private String content;
-    private int[] exercise_yard_images = {R.mipmap.exercise_yard00, R.mipmap.exercise_yard01, R.mipmap.exercise_yard02,
-            R.mipmap.exercise_yard03, R.mipmap.exercise_yard04, R.mipmap.exercise_yard05,
-            R.mipmap.exercise_yard06, R.mipmap.exercise_yard07, R.mipmap.exercise_yard08,
-            R.mipmap.exercise_yard09, R.mipmap.exercise_yard10, R.mipmap.exercise_yard11,
-            R.mipmap.exercise_yard12, R.mipmap.exercise_yard13, R.mipmap.exercise_yard14,
-            R.mipmap.exercise_yard16, R.mipmap.exercise_yard16, R.mipmap.exercise_yard17,
-            R.mipmap.exercise_yard18, R.mipmap.exercise_yard19, R.mipmap.exercise_yard20,
-            R.mipmap.exercise_yard21, R.mipmap.exercise_yard22, R.mipmap.exercise_yard23};
+    private int[] exercise_yard_images = {R.drawable.exercise_yard00, R.drawable.exercise_yard01, R.drawable.exercise_yard02,
+            R.drawable.exercise_yard03, R.drawable.exercise_yard04, R.drawable.exercise_yard05,
+            R.drawable.exercise_yard06, R.drawable.exercise_yard07, R.drawable.exercise_yard08,
+            R.drawable.exercise_yard09, R.drawable.exercise_yard10, R.drawable.exercise_yard11,
+            R.drawable.exercise_yard12, R.drawable.exercise_yard13, R.drawable.exercise_yard14,
+            R.drawable.exercise_yard16, R.drawable.exercise_yard16, R.drawable.exercise_yard17,
+            R.drawable.exercise_yard18, R.drawable.exercise_yard19, R.drawable.exercise_yard20,
+            R.drawable.exercise_yard21, R.drawable.exercise_yard22, R.drawable.exercise_yard23,
+            R.drawable.exercise_yard24, R.drawable.exercise_yard25, R.drawable.exercise_yard25,};
     private TextView mContent;
     private TextView mEmpty;
     private ImageView mImage;

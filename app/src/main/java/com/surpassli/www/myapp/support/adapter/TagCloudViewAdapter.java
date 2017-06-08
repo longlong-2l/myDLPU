@@ -3,19 +3,16 @@ package com.surpassli.www.myapp.support.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.moxun.tagcloudlib.view.TagsAdapter;
 import com.surpassli.www.myapp.model.ExerciseYard;
 import com.surpassli.www.myapp.ui.More.ExerciseYard.ExerciseActivity;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
