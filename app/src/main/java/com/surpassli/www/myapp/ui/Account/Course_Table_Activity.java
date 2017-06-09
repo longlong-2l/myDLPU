@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.Account;
 
-import android.content.pm.ProviderInfo;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
@@ -18,6 +18,8 @@ import com.surpassli.www.myapp.support.adapter.CourseAdapter.Course_table_recycl
 import com.surpassli.www.myapp.support.utils.Course_Table_json;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
+import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
+import com.surpassli.www.myapp.support.utils.Utility;
 import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 import java.io.IOException;
@@ -33,7 +35,7 @@ public class Course_Table_Activity extends BaseToolBarActivity {
     private ArrayList<Course_Table> course_table_been_list;
     private EditText et_course_table;
     private RecyclerView rv_course_table;
-    private ImageView mEmpty;
+    private TextView mEmpty;
     private Button bt_search;
     private Course_table_recyclerview course_table_recyclerview;
     private static final String TAG = "Course_Table_Activity";
@@ -49,7 +51,7 @@ public class Course_Table_Activity extends BaseToolBarActivity {
     public void initView(){
         et_course_table = (EditText) findViewById(R.id.et_course_table);
         rv_course_table = (RecyclerView) findViewById(R.id.rv_course_table);
-        mEmpty = (ImageView) findViewById(R.id.iv_course_empty);
+        mEmpty = (TextView) findViewById(R.id.tv_course_empty);
         bt_search = (Button) findViewById(R.id.bt_Search);
         bt_search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +62,7 @@ public class Course_Table_Activity extends BaseToolBarActivity {
     }
 
     public void getData() {
+        MyProgressDialog.showProgressDialog(Course_Table_Activity.this);
         final String term = et_course_table.getText().toString();
         course_table_been_list = new ArrayList<Course_Table>();
         long myTime = System.currentTimeMillis()/1000;
@@ -69,6 +72,12 @@ public class Course_Table_Activity extends BaseToolBarActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.i(TAG, "onFailure: " + "网络有问题");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        MyProgressDialog.closeDialog();
+                    }
+                });
             }
 
             @Override
@@ -87,15 +96,17 @@ public class Course_Table_Activity extends BaseToolBarActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        course_table_recyclerview = new Course_table_recyclerview(course_table_been_list,Course_Table_Activity.this);
-                        if (course_table_been_list.isEmpty()){
+                        course_table_recyclerview = new Course_table_recyclerview(course_table_been_list, Course_Table_Activity.this);
+                        if (course_table_been_list == null || course_table_been_list.isEmpty()) {
                             mEmpty.setVisibility(View.VISIBLE);
-                        }else{
+                            rv_course_table.setVisibility(View.GONE);
+                        } else {
                             mEmpty.setVisibility(View.GONE);
+                            rv_course_table.setAdapter(course_table_recyclerview);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Course_Table_Activity.this, LinearLayoutManager.VERTICAL, false);
+                            rv_course_table.setLayoutManager(layoutManager);
                         }
-                        rv_course_table.setAdapter(course_table_recyclerview);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Course_Table_Activity.this, LinearLayoutManager.VERTICAL, false);
-                        rv_course_table.setLayoutManager(layoutManager);
+                        MyProgressDialog.closeDialog();
                     }
                 });
             }

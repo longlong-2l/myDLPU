@@ -41,12 +41,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/iv_course_empty"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+        <TextView
+            android:id="@+id/tv_course_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@mipmap/member_empty"
-            android:visibility="visible"/>
+            android:drawableTop="@mipmap/member_empty"
+            android:text="暂无数据"
+            android:textSize="25sp"
+            android:visibility="visible" />
     </FrameLayout>
 </LinearLayout>

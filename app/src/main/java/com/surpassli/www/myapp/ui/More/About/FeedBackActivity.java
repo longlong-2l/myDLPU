@@ -22,13 +22,13 @@ import okhttp3.Response;
 /**
  * Created by SurpassLi on 2017/2/17.
  */
-public class FeedBackActivity extends BaseToolBarActivity{
+public class FeedBackActivity extends BaseToolBarActivity {
     private EditText respondentET;
     private EditText emailET;
     private EditText bodyET;
     private MenuItem sendMenu;
     private Button mButton;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class FeedBackActivity extends BaseToolBarActivity{
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(FeedBackActivity.this,"网络问题，请检查网络",Toast.LENGTH_LONG).show();
+                                Toast.makeText(FeedBackActivity.this, "网络问题，请检查网络", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -63,7 +63,12 @@ public class FeedBackActivity extends BaseToolBarActivity{
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         if (response.code() == 200) {
-                            Toast.makeText(FeedBackActivity.this, "信息已提交，感谢您的反馈！", Toast.LENGTH_LONG).show();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(FeedBackActivity.this, "信息已提交，感谢您的反馈！", Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                     }
                 });

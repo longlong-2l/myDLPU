@@ -7,9 +7,9 @@
         <Preference
             android:key="id_check_update"
             android:title="检查更新" />
-        <Preference
+        <!--<Preference
             android:key="id_demo_video"
-            android:title="演示视频" />
+            android:title="演示视频" />-->
         <Preference
             android:key="id_feedback"
             android:title="意见反馈" />

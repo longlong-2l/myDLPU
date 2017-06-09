@@ -66,5 +66,5 @@ public class AppApi {
     /**
      * 意见反馈
      */
-    public static final String FEEDBACK = "https://mydlpyu.xu42.cn/api/mina/feedback";
+    public static final String FEEDBACK = "https://mydlpu.xu42.cn/api/mina/feedback";
 }

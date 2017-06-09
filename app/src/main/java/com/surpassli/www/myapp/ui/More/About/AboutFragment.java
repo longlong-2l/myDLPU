@@ -14,7 +14,7 @@ import com.surpassli.www.myapp.R;
 public class AboutFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
     private Preference mAppIntroduce;
     private Preference mAppUpdate;
-    private Preference mAppDemoVideo;
+//    private Preference mAppDemoVideo;
     private Preference mAppSuggestion;
     private Preference mAppShare;
     private Preference mLicense;
@@ -29,13 +29,13 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
     private void initView() {
         mAppIntroduce = findPreference("id_app_intro");
         mAppUpdate = findPreference("id_check_update");
-        mAppDemoVideo = findPreference("id_demo_video");
+//        mAppDemoVideo = findPreference("id_demo_video");
         mAppSuggestion = findPreference("id_feedback");
         mAppShare = findPreference("id_share");
         mLicense = findPreference("id_license");
         mAppIntroduce.setOnPreferenceClickListener(this);
         mAppUpdate.setOnPreferenceClickListener(this);
-        mAppDemoVideo.setOnPreferenceClickListener(this);
+//        mAppDemoVideo.setOnPreferenceClickListener(this);
         mAppSuggestion.setOnPreferenceClickListener(this);
         mAppShare.setOnPreferenceClickListener(this);
         mLicense.setOnPreferenceClickListener(this);
@@ -47,14 +47,14 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
             Intent intent = new Intent(getActivity(), MyAppIntroduceActivity.class);
             startActivity(intent);
         } else if (mAppUpdate == preference) {
-            Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
-        } else if (mAppDemoVideo == preference) {
-            Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "当前已是最新版本", Toast.LENGTH_LONG).show();
+//        } else if (mAppDemoVideo == preference) {
+//            Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
         } else if (mAppSuggestion == preference) {
             Intent intent = new Intent(getActivity(), FeedBackActivity.class);
             startActivity(intent);
         } else if (mAppShare == preference) {
-            Toast.makeText(getActivity(), "正在玩命完善功能，请期待...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "该功能正在开发中，请期待", Toast.LENGTH_LONG).show();
         } else if(mLicense == preference){
             startActivity(new Intent(getActivity(),LicenseActivity.class));
         }

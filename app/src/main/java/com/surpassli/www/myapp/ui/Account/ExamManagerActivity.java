@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.surpassli.www.myapp.AppVariables;
@@ -28,6 +30,7 @@ public class ExamManagerActivity extends BaseToolBarActivity {
     private ArrayList<Exam_Manager> exam_managers_been_list;
     private Exam_Manager_Adpater exam_manager_adapter;
     private RecyclerView rv_exam_manager;
+    private TextView mEmpty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class ExamManagerActivity extends BaseToolBarActivity {
 
     private void initView() {
         rv_exam_manager = (RecyclerView) findViewById(R.id.rv_exam_manager);
+        mEmpty = (TextView) findViewById(R.id.tv_exam_empty);
     }
 
     private void handExamManager() {
@@ -67,10 +71,15 @@ public class ExamManagerActivity extends BaseToolBarActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        exam_manager_adapter = new Exam_Manager_Adpater(ExamManagerActivity.this, exam_managers_been_list);
-                        rv_exam_manager.setAdapter(exam_manager_adapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ExamManagerActivity.this, LinearLayoutManager.VERTICAL, false);
-                        rv_exam_manager.setLayoutManager(layoutManager);
+                        if (exam_managers_been_list == null || exam_managers_been_list.isEmpty()) {
+                            mEmpty.setVisibility(View.VISIBLE);
+                        } else {
+                            mEmpty.setVisibility(View.GONE);
+                            exam_manager_adapter = new Exam_Manager_Adpater(ExamManagerActivity.this, exam_managers_been_list);
+                            rv_exam_manager.setAdapter(exam_manager_adapter);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ExamManagerActivity.this, LinearLayoutManager.VERTICAL, false);
+                            rv_exam_manager.setLayoutManager(layoutManager);
+                        }
                         MyProgressDialog.closeDialog();
                     }
                 });
