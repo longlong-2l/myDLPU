@@ -32,7 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //用户
-//        db.execSQL(AccountTable.CREATE_TABLE);
+        db.execSQL(AccountTable.CREATE_TABLE);
 
         //活动场所
         db.execSQL(ExerciseYardTable.CREATE_TABLE);

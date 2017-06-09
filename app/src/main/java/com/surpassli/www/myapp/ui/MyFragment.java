@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.database.dao.AccountDAO;
 import com.surpassli.www.myapp.support.utils.ActivityCollector;
 import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
 import com.surpassli.www.myapp.ui.Account.ChangedPassWord_Activity;
@@ -69,7 +71,15 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                     @Override
                     public void onClick(View v) {
                         AppVariables.clear();
-                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear();
+//                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().clear().apply();
+                        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getActivity()).edit();
+                        editor.remove("isLogin");
+                        editor.remove("userId");
+                        editor.remove("username");
+                        editor.remove("token");
+                        editor.apply();
+                        AccountDAO accountDAO = new AccountDAO(getContext());
+                        accountDAO.delete_user(AppVariables.userId);
                         customDialogUtil.dismiss();
                         sendedData = (sendData) getActivity();
                         sendedData.sendData("onetab");

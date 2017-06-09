@@ -9,7 +9,6 @@ import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
+import com.surpassli.www.myapp.database.dao.AccountDAO;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 
@@ -39,11 +39,13 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private boolean flag = true;
     private EditText et_name;
     private EditText et_password;
+    AccountDAO accountDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        accountDAO = new AccountDAO(LoginActivity.this);
         initView();
     }
 
@@ -89,6 +91,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                         editor.putString("username",AppVariables.username);
                         editor.putString("token",AppVariables.token);
                         editor.apply();
+                        accountDAO.insert_user(String.valueOf(AppVariables.userId),"1",AppVariables.username);
                         MyProgressDialog.closeDialog();
                         Intent intent = new Intent();
                         intent.putExtra("status", "Success");
