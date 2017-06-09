@@ -92,14 +92,14 @@ public class HttpUtil {
         client.newCall(res).enqueue(callback);
     }
 
-    public static OkHttpClient genericClient_sk(String date) {
+    public static OkHttpClient genericClient_sk(final String date) {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
                         Request request = chain.request()
                                 .newBuilder()
-                                .addHeader("semester", "2015-2016-2")
+                                .addHeader("semester", date)
                                 .addHeader("key", AppVariables.key)
                                 .build();
                         return chain.proceed(request);
@@ -142,5 +142,19 @@ public class HttpUtil {
                 })
                 .build();
         return httpClient;
+    }
+
+    /**
+     * post方法，用于提交意见反馈
+     * @param url
+     * @param content
+     * @param callback
+     */
+    public static void postFeedBack(String url, String content,okhttp3.Callback callback) {
+        OkHttpClient client = new OkHttpClient();
+        FormBody.Builder formBodyBuild = new FormBody.Builder();
+        formBodyBuild.add("content", content);
+        Request request = new Request.Builder().url(url).post(formBodyBuild.build()).build();
+        client.newCall(request).enqueue(callback);
     }
 }

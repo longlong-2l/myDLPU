@@ -62,14 +62,13 @@ public class Course_Result_Activity extends BaseToolBarActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 MyProgressDialog.closeDialog();
-                Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage().toString());
+                Log.i(TAG, "onFailure: " + "获取课程信息返回数据失败：" + e.getMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 Log.i(TAG, "onResponse: " + "获取课程信息返回数据成功");
                 String res = response.body().string();
-                Log.i(TAG, "课程信息: " + res);
                 mCourse_Result_list = Utility.handCourse_Course_Result(res);
                 runOnUiThread(new Runnable() {
                     @Override
@@ -80,7 +79,7 @@ public class Course_Result_Activity extends BaseToolBarActivity {
 //                        mRecycleView.setLayoutManager(layoutManager);
 //                        mRecycleView.addItemDecoration(new DividerItemDecoration(Course_Result_Activity.this, DividerItemDecoration.VERTICAL_LIST));//设置分割线
 //                        mRecycleView.setAdapter(mCourse_result_adapter);
-//                      mRecycleView.setItemAnimator(new DefaultItemAnimator());//设置动画效果为默认动画
+//                        mRecycleView.setItemAnimator(new DefaultItemAnimator());//设置动画效果为默认动画
                         course_adapter = new Course_Adapter(Course_Result_Activity.this, mCourse_Result_list);
                         lv_course.setAdapter(course_adapter);
                         MyProgressDialog.closeDialog();

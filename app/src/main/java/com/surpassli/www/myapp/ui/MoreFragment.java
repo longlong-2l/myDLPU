@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.ui.Account.ChangedPassWord_Activity;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.More.About.FeedBackActivity;
 import com.surpassli.www.myapp.ui.More.BaiduMap.LocationActivity;

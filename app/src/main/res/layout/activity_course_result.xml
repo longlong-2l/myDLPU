@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <include layout="@layout/activity_base_tool_bar" />
 
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:id="@+id/rv_course_recycleView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content">-->
-        <!--</android.support.v7.widget.RecyclerView>-->
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/rv_course_recycleView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+    <!--</android.support.v7.widget.RecyclerView>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_course_table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入查询学期，如2015-2016-2"
+                android:maxLength="11"
+                android:maxLines="1" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/bt_Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="查询" />
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/lv_course"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        />
-    </LinearLayout>
+        android:scrollbars="none" />
+</LinearLayout>

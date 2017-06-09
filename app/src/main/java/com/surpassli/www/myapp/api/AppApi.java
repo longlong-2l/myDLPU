@@ -62,4 +62,9 @@ public class AppApi {
      * 教务文件
      */
     public static final String EDUCATION_FILE = HOST + "/news/teachingFiles";
+
+    /**
+     * 意见反馈
+     */
+    public static final String FEEDBACK = "https://mydlpyu.xu42.cn/api/mina/feedback";
 }

@@ -12,6 +12,7 @@ import com.surpassli.www.myapp.database.Weather.County;
 import com.surpassli.www.myapp.database.Weather.Province;
 import com.surpassli.www.myapp.gson.Weather;
 import com.surpassli.www.myapp.model.Account.Course_Result_bean;
+import com.surpassli.www.myapp.model.Account.Exam_Manager;
 import com.surpassli.www.myapp.model.Course_Table.Level_Grade;
 import com.surpassli.www.myapp.model.Level_Grade.Course_Table;
 
@@ -35,6 +36,8 @@ public class Utility {
     private static ArrayList<Level_Grade> myLevel_course_been;
 
     private static ArrayList<Course_Table> course_table_been_list;
+
+    private static ArrayList<Exam_Manager> exam_managers_been_list;
 
     /**
      * 获取学籍卡片
@@ -266,8 +269,34 @@ public class Utility {
     /**
      * 获取考试安排
      */
-    public static boolean handExamManger(String reponse){
-       return false;
+    public static List<Exam_Manager> handExamManager(String response) {
+        exam_managers_been_list = new ArrayList<Exam_Manager>();
+        Exam_Manager exam_manager;
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(response);
+            if ("Success".equals(jsonObject.getString("message"))) {
+                JSONArray jsonArray = jsonObject.getJSONArray("data");
+                for (int i = 1; i < jsonArray.length(); i++) {
+                    JSONArray jsonArray1 = jsonArray.getJSONArray(i);
+                    exam_manager = new Exam_Manager();
+                    exam_manager.setOrder_number(jsonArray1.getString(0));
+                    exam_manager.setExam_number(jsonArray1.getString(1));
+                    exam_manager.setCourse_number(jsonArray1.getString(2));
+                    exam_manager.setCourse_name(jsonArray1.getString(3));
+                    exam_manager.setExam_time(jsonArray1.getString(4));
+                    exam_manager.setExam_address(jsonArray1.getString(5));
+                    exam_manager.setExam_card_number(jsonArray1.getString(6));
+                    exam_managers_been_list.add(exam_manager);
+                }
+                return exam_managers_been_list;
+            } else {
+                Log.i(TAG, "Utility: " + "获取等级成绩有误");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return exam_managers_been_list;
     }
 
     /**
