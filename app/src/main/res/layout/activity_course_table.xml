@@ -6,34 +6,45 @@
 
     <include layout="@layout/activity_base_tool_bar" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="bottom">
+        <!-- <Button
+             android:id="@+id/bt_choice"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="7"
+             android:layout_alignParentLeft="true"
+             android:text="选择查询学期"
+             android:visibility="gone"/>-->
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/et_course_table"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="请输入查询学期，如2015-2016-2"
-                android:maxLength="11"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
+        <Spinner
+            android:id="@+id/sp_course_table"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7" />
 
         <Button
             android:id="@+id/bt_Search"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/sp_course_table"
+            android:layout_weight="3"
             android:text="查询" />
-    </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorAccent" />
 
     <FrameLayout
         android:id="@+id/fl_course_table"
         android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
@@ -48,7 +59,7 @@
             android:layout_gravity="center"
             android:drawableTop="@mipmap/member_empty"
             android:text="暂无数据"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:visibility="visible" />
     </FrameLayout>
 </LinearLayout>
