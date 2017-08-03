@@ -40,7 +40,7 @@
             android:layout_gravity="center"
             android:drawablePadding="10dp"
             android:drawableTop="@mipmap/member_empty"
-            android:text="@string/not_datas"
+            android:text="@string/not_data"
             android:textSize="15sp"
             android:visibility="gone" />
     </FrameLayout>

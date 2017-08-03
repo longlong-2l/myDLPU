@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApp</string>
+    <string name="app_name">myDLPU</string>
     <string name="exam_property">属性</string>
     <string name="exam_one">考试一</string>
     <string name="exam_two">考试二</string>
@@ -41,6 +41,10 @@
     <string name="food_building">食堂</string>
 
     <string name="school_scenery">校内景点</string>
-    <string name="not_datas">暂无数据</string>
+    <string name="not_data">暂无数据</string>
     <string name="current_week_to">当前周次为</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

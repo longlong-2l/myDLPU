@@ -63,7 +63,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), FeedBackActivity.class));
                 break;
             case R.id.tv_waiting1:
-                Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(),TestActivity.class);
+                startActivity(intent);
+//                Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_waiting2:
                 Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();

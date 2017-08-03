@@ -2,71 +2,82 @@ package com.surpassli.www.myapp.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.model.News.Notice_Model;
-import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
-import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapterListView;
-import com.surpassli.www.myapp.support.utils.EducationUtils;
-import com.surpassli.www.myapp.support.utils.HttpUtil;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/2/8.
  * 这是一个测试用的Activity，没有在程序中有任何体现。
  */
-public class TestActivity extends Activity{
-    private NewsAdapterListView mNewsAdapterListView;
-    private ListView lv_news;
-    private RecyclerView news_RecycleView;
-    private NewsAdapter mNewAdapter;
-    private ArrayList<Notice_Model> mNotice_ModelsList;
+public class TestActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-        lv_news = (ListView) findViewById(R.id.lv_news);
-        news_RecycleView = (RecyclerView) findViewById(R.id.rv_news);
-        getData();
-    }
+        setContentView(R.layout.activity_main_md);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    private void getData() {
-        mNotice_ModelsList = new ArrayList<Notice_Model>();
-        HttpUtil.sendGetOkhttp(AppApi.NOTICE, new okhttp3.Callback() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFailure(Call call, IOException e) {
-                Toast.makeText(TestActivity.this,"网络出现问题...",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Log.i("TAG", "onResponse: " + "通知公告数据获取成功");
-                String data = response.body().string();
-                mNotice_ModelsList = EducationUtils.handNew_Notice(data);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mNewsAdapterListView =  new NewsAdapterListView(TestActivity.this,mNotice_ModelsList);
-                        lv_news.setAdapter(mNewsAdapterListView);
-
-                        mNewAdapter = new NewsAdapter(TestActivity.this,mNotice_ModelsList);
-                        news_RecycleView.setAdapter(mNewAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TestActivity.this,LinearLayoutManager.VERTICAL,false);
-                        news_RecycleView.setLayoutManager(layoutManager);
-                    }
-                });
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

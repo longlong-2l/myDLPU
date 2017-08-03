@@ -1,85 +1,66 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.surpassli.www.myapp.MainActivity">
 
-    <data>
+    <TextView
+        android:id="@+id/tv_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?attr/colorPrimary"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:textColor="@color/white" />
 
-        <variable
-            name="onetab"
-            type="String" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/index_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <variable
-            name="twotab"
-            type="String" />
-
-        <variable
-            name="threetab"
-            type="String" />
-
-        <variable
-            name="fourtab"
-            type="String" />
-    </data>
+    </android.support.v4.view.ViewPager>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        tools:context="com.surpassli.www.myapp.MainActivity">
+        android:layout_height="50dp"
+        android:background="@color/background_color"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tv_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="?attr/colorPrimary"
-            android:elevation="15dp"
-            android:gravity="center"
-            android:textColor="@color/white" />
+        <ImageView
+            android:id="@+id/iv_one_tab"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/tab_index_selecter" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/index_viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+        <ImageView
+            android:id="@+id/iv_two_tab"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/tab_education_selecter" />
 
-        </android.support.v4.view.ViewPager>
+        <ImageView
+            android:id="@+id/iv_three_tab"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/tab_more_selecter" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/background_color"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_one_tab"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/tab_index_selecter" />
-
-            <ImageView
-                android:id="@+id/iv_two_tab"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/tab_education_selecter" />
-
-            <ImageView
-                android:id="@+id/iv_three_tab"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/tab_more_selecter" />
-
-            <ImageView
-                android:id="@+id/iv_four_tab"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:src="@drawable/tab_my_selecter" />
-        </LinearLayout>
-
-
+        <ImageView
+            android:id="@+id/iv_four_tab"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/tab_my_selecter" />
     </LinearLayout>
-</layout>
+
+</LinearLayout>

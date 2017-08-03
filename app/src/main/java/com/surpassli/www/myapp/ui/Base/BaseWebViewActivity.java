@@ -15,6 +15,7 @@ import com.surpassli.www.myapp.R;
 
 /**
  * Created by SurpassLi on 2017/2/11.
+ * Description: BaseWebViewActivity
  */
 public abstract class BaseWebViewActivity extends BaseToolBarActivity {
     protected WebView wv_base;

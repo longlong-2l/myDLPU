@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:text="@string/not_datas"
+        android:text="@string/not_data"
         android:textSize="95sp" />
 
 </RelativeLayout>
