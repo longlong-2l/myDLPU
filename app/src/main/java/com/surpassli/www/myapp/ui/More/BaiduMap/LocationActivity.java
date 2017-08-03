@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.More.BaiduMap;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,12 +17,10 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.mapapi.model.LatLng;
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 /**
  * Created by SurpassLi on 2017/2/14.

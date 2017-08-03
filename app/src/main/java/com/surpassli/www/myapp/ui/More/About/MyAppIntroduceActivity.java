@@ -1,7 +1,5 @@
 package com.surpassli.www.myapp.ui.More.About;
 
-import android.os.Bundle;
-
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
 

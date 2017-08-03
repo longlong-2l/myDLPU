@@ -1,18 +1,14 @@
 package com.surpassli.www.myapp.support.utils;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
-import com.google.gson.Gson;
 import com.surpassli.www.myapp.database.dao.ExerciseDAO;
-import com.surpassli.www.myapp.model.ExerciseYard;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/2/20.

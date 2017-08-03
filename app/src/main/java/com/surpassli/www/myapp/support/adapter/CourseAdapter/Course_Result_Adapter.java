@@ -13,8 +13,6 @@ import com.surpassli.www.myapp.model.Account.Course_Result_bean;
 
 import java.util.List;
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
-
 /**
  * Created by SurpassLi on 2017/1/17.
  * Test

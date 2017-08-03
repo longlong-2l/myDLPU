@@ -2,7 +2,6 @@ package com.surpassli.www.myapp.ui.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +15,6 @@ import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.MD5.MD5;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
 import com.surpassli.www.myapp.support.utils.Utility;
-import com.surpassli.www.myapp.ui.LoginActivity;
 
 import java.io.IOException;
 

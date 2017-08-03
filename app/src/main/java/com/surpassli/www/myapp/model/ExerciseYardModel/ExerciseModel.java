@@ -1,10 +1,5 @@
 package com.surpassli.www.myapp.model.ExerciseYardModel;
 
-import com.surpassli.www.myapp.database.dao.ExerciseDAO;
-import com.surpassli.www.myapp.model.IModel;
-
-import java.util.List;
-
 /**
  * Created by SurpassLi on 2017/2/20.
  */

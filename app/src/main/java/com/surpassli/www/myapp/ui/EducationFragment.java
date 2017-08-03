@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.mapapi.map.Text;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.model.News.Notice_Model;

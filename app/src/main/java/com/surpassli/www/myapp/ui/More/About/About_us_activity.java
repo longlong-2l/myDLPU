@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.More.About;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.surpassli.www.myapp.R;

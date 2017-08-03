@@ -1,7 +1,5 @@
 package com.surpassli.www.myapp.model;
 
-import java.util.List;
-
 /**
  * Created by SurpassLi on 2017/1/9.
  */

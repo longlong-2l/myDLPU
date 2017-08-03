@@ -1,7 +1,6 @@
 package com.surpassli.www.myapp.database.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/9.

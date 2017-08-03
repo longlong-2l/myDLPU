@@ -1,15 +1,11 @@
 package com.surpassli.www.myapp.database;
 
-import android.app.Application;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.surpassli.www.myapp.database.table.AccountTable;
 import com.surpassli.www.myapp.database.table.ExerciseYardTable;
-
-import org.litepal.LitePalApplication;
 
 /**
  * Created by SurpassLi on 2017/1/9.

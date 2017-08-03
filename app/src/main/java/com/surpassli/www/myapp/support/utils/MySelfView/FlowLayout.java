@@ -7,23 +7,18 @@ import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
-import com.surpassli.www.myapp.ui.More.About.FeedBackActivity;
 
 /**
  * 由于用到了Android3.0的API，所以只能在3.0及以上版本编译通过
