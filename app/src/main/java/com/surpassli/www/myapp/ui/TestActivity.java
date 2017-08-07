@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,12 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.View.home.HomeView;
+import com.surpassli.www.myapp.ui.Base.BaseActivity;
 
 /**
  * Created by SurpassLi on 2017/2/8.
  * 这是一个测试用的Activity，没有在程序中有任何体现。
  */
-public class TestActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class TestActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +29,17 @@ public class TestActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -62,17 +62,17 @@ public class TestActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.home) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.home) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.home) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.home) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.home) {
 
         }
 

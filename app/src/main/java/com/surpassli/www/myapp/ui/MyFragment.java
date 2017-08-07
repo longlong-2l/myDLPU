@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +20,13 @@ import com.surpassli.www.myapp.ui.Account.CurrentWeekActivity;
 import com.surpassli.www.myapp.ui.Account.ExamManagerActivity;
 import com.surpassli.www.myapp.ui.Account.Level_Grade_Activity;
 import com.surpassli.www.myapp.ui.Account.School_Roll_Activity;
+import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 
 /**
  * Created by SurpassLi on 2017/1/6.
+ *
  */
-public class MyFragment extends Fragment implements View.OnClickListener{
+public class MyFragment extends TopNavigationFragment implements View.OnClickListener{
     private View view;
     private sendData sendedData;
 
@@ -36,8 +37,8 @@ public class MyFragment extends Fragment implements View.OnClickListener{
         return view;
     }
 
-    public interface sendData{
-        public void sendData(String go);
+    interface sendData{
+        void sendData(String go);
     }
 
     private void initView() {
@@ -106,5 +107,9 @@ public class MyFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), CurrentWeekActivity.class));
                 break;
         }
+    }
+
+    public static MyFragment getInstance(){
+        return new MyFragment();
     }
 }

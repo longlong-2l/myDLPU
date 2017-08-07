@@ -4,15 +4,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.surpassli.www.myapp.ui.Base.BaseFragment;
+
 import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/9.
+ *
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    private List<Fragment> mDatas;
+    private List<BaseFragment> mDatas;
 
-    public FragmentAdapter(FragmentManager fm, List<Fragment> mDatas) {
+    public FragmentAdapter(FragmentManager fm, List<BaseFragment> mDatas) {
         super(fm);
         this.mDatas = mDatas;
     }

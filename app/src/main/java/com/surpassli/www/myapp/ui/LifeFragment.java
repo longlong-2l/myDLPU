@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,6 +28,7 @@ import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
+import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.Education.NewsWebView;
 
 import java.io.IOException;
@@ -39,11 +39,10 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/1/6.
+ *
  */
-public class LifeFragment extends Fragment {
-    private View view;
+public class LifeFragment extends TopNavigationFragment {
     private ArrayList<Notice_Model> mNotice_ModelsList2;
-    private NewsAdapter mNewAdapter;
     private SwipeRefreshLayout news_swiSwipeRefreshLayout;
     private RecyclerView rv_school_news;
     private RollPagerView mRollPagerView;
@@ -51,7 +50,7 @@ public class LifeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_life, container, false);
+        View view = inflater.inflate(R.layout.fragment_life, container, false);
         rv_school_news = (RecyclerView) view.findViewById(R.id.rv_school_news);
         mRollPagerView = (RollPagerView) view.findViewById(R.id.roll_view_pager);
 
@@ -60,7 +59,7 @@ public class LifeFragment extends Fragment {
         mRollPagerView.setAdapter(new rollViewPagerAdapter());
         mRollPagerView.setHintView(new ColorPointHintView(getActivity(),Color.BLUE, Color.WHITE));
 
-        mNotice_ModelsList2 = new ArrayList<Notice_Model>();
+        mNotice_ModelsList2 = new ArrayList<>();
         SharedPreferences pre = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String school_news = pre.getString("school_news",null);
         if(school_news!=null) {
@@ -85,6 +84,10 @@ public class LifeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mRollPagerView.setAdapter(new rollViewPagerAdapter());
+    }
+
+    public static LifeFragment getInstance(){
+        return new LifeFragment();
     }
 
     private void getData() {
@@ -122,7 +125,7 @@ public class LifeFragment extends Fragment {
     }
 
     private void setView(){
-        mNewAdapter = new NewsAdapter(getActivity(), mNotice_ModelsList2);
+        NewsAdapter  mNewAdapter = new NewsAdapter(getActivity(), mNotice_ModelsList2);
         rv_school_news.setAdapter(mNewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         rv_school_news.setItemAnimator(new DefaultItemAnimator());

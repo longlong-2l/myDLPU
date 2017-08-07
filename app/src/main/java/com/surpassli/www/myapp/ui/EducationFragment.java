@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +23,7 @@ import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.ProgressDialog.MyProgressDialog;
+import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.Education.NewsWebView;
 
 import java.io.IOException;
@@ -34,18 +34,17 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/1/6.
+ *
  */
-public class EducationFragment extends Fragment {
-    private View view;
+public class EducationFragment extends TopNavigationFragment {
     private RecyclerView news_RecycleView;
     private ArrayList<Notice_Model> mNotice_ModelsList;
-    private NewsAdapter mNewAdapter;
     private SwipeRefreshLayout news_swiSwipeRefreshLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_education, container, false);
+        View view = inflater.inflate(R.layout.fragment_education, container, false);
         news_RecycleView = (RecyclerView) view.findViewById(R.id.rv_news);
         news_swiSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.news_refresh);
         news_swiSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
@@ -55,7 +54,7 @@ public class EducationFragment extends Fragment {
                 getData();
             }
         });
-        mNotice_ModelsList = new ArrayList<Notice_Model>();
+        mNotice_ModelsList = new ArrayList<>();
         SharedPreferences pre = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String notice = pre.getString("notice",null);
         if(notice!=null) {
@@ -80,7 +79,6 @@ public class EducationFragment extends Fragment {
                         MyProgressDialog.closeDialog();
                     }
                 });
-
             }
 
             @Override
@@ -103,8 +101,12 @@ public class EducationFragment extends Fragment {
         });
     }
 
+    public static EducationFragment getInstance(){
+        return new EducationFragment();
+    }
+
     private void initView() {
-        mNewAdapter = new NewsAdapter(getActivity(), mNotice_ModelsList);
+        NewsAdapter mNewAdapter = new NewsAdapter(getActivity(), mNotice_ModelsList);
         news_RecycleView.setAdapter(mNewAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         news_RecycleView.setItemAnimator(new DefaultItemAnimator());

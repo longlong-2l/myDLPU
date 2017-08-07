@@ -3,13 +3,13 @@ package com.surpassli.www.myapp.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.More.About.FeedBackActivity;
 import com.surpassli.www.myapp.ui.More.BaiduMap.LocationActivity;
@@ -19,8 +19,9 @@ import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
 
 /**
  * Created by SurpassLi on 2017/1/6.
+ *
  */
-public class MoreFragment extends Fragment implements View.OnClickListener{
+public class MoreFragment extends TopNavigationFragment implements View.OnClickListener{
     private View view;
     @Nullable
     @Override
@@ -71,5 +72,9 @@ public class MoreFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    public static MoreFragment getInstance(){
+        return new MoreFragment();
     }
 }

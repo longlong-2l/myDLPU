@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">myDLPU</string>
+    <string name="exam_property">属性</string>
+    <string name="exam_one">考试一</string>
+    <string name="exam_two">考试二</string>
+    <string name="exam_three">考试三</string>
+    <string name="exam_four">考试四</string>
+    <string name="exam_five">考试五</string>
+    <string name="sure">确定</string>
+    <string name="app_intro">应用简介</string>
+    <string name="about">关于我们</string>
+    <string name="more">更多</string>
+    <string name="my">我的</string>
+    <string name="license">开源协议</string>
+    <string name="feedback">意见反馈</string>
+    <!--校内活动场所-->
+    <string name="exercise_yard">校内活动场所</string>
+    <string name="comprehensive_building_B">综合楼B座（信院）</string>
+    <string name="comprehensive_building_A">综合楼A座</string>
+    <string name="comprehensive_building_C">综合楼C座（外国语学院）</string>
+    <string name="school_clothing">服装学院</string>
+    <string name="school_art_layout">艺术设计学院</string>
+    <string name="school_mechanical_engineering">机械工程与自动化学院</string>
+    <string name="school_international_education">国际教育学院</string>
+    <string name="school_biotechnology">生物工程学院</string>
+    <string name="school_food">食品学院</string>
+    <string name="school_chemical_engineering">轻工与化学工程学院</string>
+    <string name="school_manage">管理学院</string>
+    <string name="school_graduate_student">研究生学院</string>
+    <string name="school_textiles_and_materials">纺织与材料工程学院</string>
+    <string name="school_club">俱乐部</string>
+    <string name="school_gymnasium">体育馆</string>
+    <string name="school_continuing_learning">继续教育学院</string>
+    <string name="school_library">图书馆</string>
+    <string name="school_paper_building">造纸楼</string>
+    <string name="original_office_building">原办公楼</string>
+    <string name="test_base">中试基地</string>
+    <string name="school_food_technology_research_center">国海食品技术研究中心</string>
+    <string name="food_building">食堂</string>
+
+    <string name="school_scenery">校内景点</string>
+    <string name="not_data">暂无数据</string>
+    <string name="current_week_to">当前周次为</string>
+</resources>
