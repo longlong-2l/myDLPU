@@ -24,7 +24,7 @@
             android:title="@string/education" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/theme"
@@ -40,5 +40,4 @@
                 android:title="@string/about" />
         </menu>
     </item>
-
 </menu>

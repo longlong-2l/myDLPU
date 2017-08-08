@@ -7,6 +7,7 @@ import com.surpassli.www.myapp.ui.Base.BaseToolBarActivity;
 
 /**
  * Created by SurpassLi on 2017/1/19.
+ *
  */
 public class About_us_activity extends BaseToolBarActivity{
     @Override

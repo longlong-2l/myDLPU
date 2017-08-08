@@ -1,13 +1,15 @@
 package com.surpassli.www.myapp;
 
-import android.app.Application;
 import android.content.Context;
+
+import org.litepal.LitePalApplication;
 
 /**
  * Created by SurpassLi on 2017/2/20.
+ * InitApp
  */
 
-public class InitApp extends Application{
+public class InitApp extends LitePalApplication{
     public static Context AppContext;
 
     @Override

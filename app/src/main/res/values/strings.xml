@@ -12,6 +12,86 @@
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
     <string name="about">About</string>
+    <string name="app_name">myDLPU</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="exam_property">exam_property</string>
+    <string name="exam_one">exam_one</string>
+    <string name="exam_two">exam_two</string>
+    <string name="exam_three">exam_three</string>
+    <string name="exam_four">exam_four</string>
+    <string name="exam_five">exam_five</string>
+    <string name="confirm">confirm</string>
+
+    <string name="more">more</string>
+    <string name="my">my</string>
+
+    <!--校内活动场所-->
+    <string name="exercise_yard">exercise_yard</string>
+    <string name="comprehensive_building_B">comprehensive_building_B（信院）</string>
+    <string name="comprehensive_building_A">comprehensive_building_A</string>
+    <string name="comprehensive_building_C">comprehensive_building_C（外国语学院）</string>
+    <string name="school_clothing">school_clothing</string>
+    <string name="school_art_layout">school_art_layout</string>
+    <string name="school_mechanical_engineering">school_mechanical_engineering</string>
+    <string name="school_international_education">school_international_education</string>
+    <string name="school_biotechnology">school_biotechnology</string>
+    <string name="school_food">school_food</string>
+    <string name="school_chemical_engineering">school_chemical_engineering</string>
+    <string name="school_manage">school_manage</string>
+    <string name="school_graduate_student">school_graduate_student</string>
+    <string name="school_textiles_and_materials">school_textiles_and_materials</string>
+    <string name="school_club">school_club</string>
+    <string name="school_gymnasium">school_gymnasium</string>
+    <string name="school_continuing_learning">school_continuing_learning</string>
+    <string name="school_library">school_library</string>
+    <string name="school_paper_building">school_paper_building</string>
+    <string name="original_office_building">original_office_building</string>
+    <string name="test_base">test_base</string>
+    <string name="school_food_technology_research_center">school_food_technology_research_center</string>
+    <string name="food_building">food_building</string>
+
+    <string name="school_scenery">school_scenery</string>
+    <string name="not_data">not_data</string>
+    <string name="current_week_to">current_week_to</string>
+    <string name="confirm_exit">Confirm Exit</string>
+
+    <!--about us-->
+    <string name="app_introduce">App Introduce</string>
+    <string name="check_update">Check Update</string>
+    <string name="feedback">FeedBack</string>
+    <string name="share_DLPU">Share DLPU</string>
+    <string name="android_client">Android Client</string>
+    <string name="support_service">Support Service</string>
+    <string name="support_web">Support Web</string>
+    <string name="thanks">Thanks</string>
+    <string name="copyright">Copyright</string>
+    <string name="data">Data</string>
+    <string name="warning">Warning</string>
+    <string name="license">License</string>
+    <string name="start">Good Job</string>
+
+    <!--setting-->
+    <string name="preference">Preference</string>
+    <string name="language">Language</string>
+    <string name="avatar">Avatar</string>
+    <string name="text_default">Default</string>
+    <string name="auto_refresh">Auto Refresh</string>
+    <string name="exit_confirm">Exit Confirm</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="storage">Storage</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="auto_refresh_summary">Load data from network automatically id WIFI is connected</string>
+    <string name="exit_confirm_summary">Press back key twice to exit</string>
+    <string name="clear_cache_summary">Clear MyDLPU`s Cache</string>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>简体中文</item>
+    </string-array>
+
+    <string-array name="avatars" translatable="false">
+        <item>@string/text_default</item>
+    </string-array>
 </resources>

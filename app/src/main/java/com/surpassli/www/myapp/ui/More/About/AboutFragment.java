@@ -10,6 +10,7 @@ import com.surpassli.www.myapp.R;
 
 /**
  * Created by SurpassLi on 2017/1/19.
+ *
  */
 public class AboutFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
     private Preference mAppIntroduce;

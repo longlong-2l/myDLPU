@@ -5,20 +5,24 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.repacked.antlr.v4.runtime.misc.NotNull;
 import com.surpassli.www.myapp.View.home.HomeView;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.presenter.Home.HomePresenter;
@@ -45,12 +49,14 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Response;
 
-public class MainActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
-    private Intent intent;
     public static HomePresenter presenter;
     private FragmentManager fragmentManager = getSupportFragmentManager();
     private FragmentTransaction fragmentTransaction;
+    private long lastPressTime = 0;
+    private DrawerLayout drawer;
+    private CoordinatorLayout cl_main;
 
     @Override
     public android.app.FragmentManager getFragmentManager() {
@@ -62,6 +68,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         setContentView(R.layout.activity_main);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         boolean isLogin = prefs.getBoolean("isLogin", false);
         int userId = prefs.getInt("userId", 0);
@@ -75,7 +82,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         }
         presenter = new HomePresenterImpl(this);
         presenter.initLization();
-//        initView();
+        switchFragment(LifeFragment.getInstance(), "life");
         getData();
     }
 
@@ -83,7 +90,6 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.i(TAG, "onFailure: " + "获取系统授时失败：" + e.getMessage());
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -94,7 +100,6 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                Log.i(TAG, "onResponse: " + "获取系统授时成功");
                 String result = response.body().string();
                 try {
                     JSONObject jsonObject = new JSONObject(result);
@@ -115,19 +120,24 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
     public void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
+        cl_main = (CoordinatorLayout) findViewById(R.id.main_content);
         List<BaseFragment> fragmentList = new ArrayList<>();
         LifeFragment lifeFragment = new LifeFragment();
         EducationFragment educationFragment = new EducationFragment();
@@ -159,7 +169,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
 
     @Override
     public void setTitle(String title) {
-
+        getSupportActionBar().setTitle(title);
     }
 
     @Override
@@ -172,34 +182,42 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         Intent intent;
-        switch (id){
+        switch (id) {
             case R.id.home:
                 presenter.clearAllFragments();
-                switchFragment(LifeFragment.getInstance(),"life");
+                drawer.closeDrawer(GravityCompat.START);
+                switchFragment(LifeFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.library:
                 presenter.clearAllFragments();
-                switchFragment(EducationFragment.getInstance(),"Education");
+                drawer.closeDrawer(GravityCompat.START);
+                switchFragment(EducationFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.leisure:
                 presenter.clearAllFragments();
-                switchFragment(MyFragment.getInstance(),"MY");
+                drawer.closeDrawer(GravityCompat.START);
+                switchFragment(MyFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.life:
                 presenter.clearAllFragments();
-                switchFragment(MoreFragment.getInstance(),"More");
+                drawer.closeDrawer(GravityCompat.START);
+                switchFragment(MoreFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.education:
                 presenter.clearAllFragments();
-                switchFragment(LifeFragment.getInstance(),"life");
+                drawer.closeDrawer(GravityCompat.START);
+                switchFragment(EducationFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.theme:
+                drawer.closeDrawer(GravityCompat.START);
                 break;
             case R.id.setting:
+                drawer.closeDrawer(GravityCompat.START);
                 intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
                 break;
             case R.id.about:
+                drawer.closeDrawer(GravityCompat.START);
                 intent = new Intent(MainActivity.this, About_us_activity.class);
                 startActivity(intent);
                 break;
@@ -208,8 +226,26 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
     }
 
     private void switchFragment(TopNavigationFragment fragment, String title) {
-//        fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id._main_frame_layout,fragment);
-//        fragmentTransaction.commit();
+        setTitle(title);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id._main_frame_layout, fragment);
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else if (canExit()) {
+            super.onBackPressed();
+        }
+    }
+
+    public boolean canExit() {
+        if (System.currentTimeMillis() - lastPressTime > 2000) {
+            lastPressTime = System.currentTimeMillis();
+            Snackbar.make(cl_main, "再按一次退出程序", Snackbar.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

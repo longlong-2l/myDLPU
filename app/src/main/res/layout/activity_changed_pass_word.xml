@@ -63,5 +63,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="?attr/colorPrimary"
-        android:text="@string/sure" />
+        android:text="@string/confirm" />
 </RelativeLayout>

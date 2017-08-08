@@ -5,12 +5,13 @@ import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
 
 /**
  * Created by SurpassLi on 2017/1/19.
+ * MyAppIntroduceActivity
  */
 public class MyAppIntroduceActivity extends BaseWebViewActivity {
 
     @Override
     protected String getLink() {
-        super.title=getApplicationContext().getString(R.string.app_intro);
+        super.title=getApplicationContext().getString(R.string.app_introduce);
         return "file:///android_asset/MyAppIntroduction.html";
     }
 }

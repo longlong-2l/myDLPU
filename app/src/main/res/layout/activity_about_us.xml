@@ -5,7 +5,8 @@
     android:background="@color/backgroundColor"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
-    <include layout="@layout/activity_base_tool_bar"/>
+
+    <include layout="@layout/activity_base_tool_bar" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -21,7 +22,6 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="Release Version" />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
