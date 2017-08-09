@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.View;
+package com.surpassli.www.myapp.view;
 
 /**
  * Created by SurpassLi on 2017/8/4.

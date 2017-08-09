@@ -17,20 +17,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.repacked.antlr.v4.runtime.misc.NotNull;
-import com.surpassli.www.myapp.View.home.HomeView;
+import com.surpassli.www.myapp.view.home.HomeView;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.presenter.Home.HomePresenter;
 import com.surpassli.www.myapp.presenter.Home.HomePresenterImpl;
-import com.surpassli.www.myapp.support.adapter.Fragment.FragmentAdapter;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.ui.Base.BaseActivity;
-import com.surpassli.www.myapp.ui.Base.BaseFragment;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.EducationFragment;
 import com.surpassli.www.myapp.ui.LifeFragment;
@@ -43,8 +39,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -66,9 +60,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         setContentView(R.layout.activity_main);
-
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         boolean isLogin = prefs.getBoolean("isLogin", false);
         int userId = prefs.getInt("userId", 0);
@@ -138,18 +130,18 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         });
 
         cl_main = (CoordinatorLayout) findViewById(R.id.main_content);
-        List<BaseFragment> fragmentList = new ArrayList<>();
-        LifeFragment lifeFragment = new LifeFragment();
-        EducationFragment educationFragment = new EducationFragment();
-        MoreFragment moreFragment = new MoreFragment();
-        MyFragment myFragment = new MyFragment();
-
-        fragmentList.add(lifeFragment);
-        fragmentList.add(educationFragment);
-        fragmentList.add(moreFragment);
-        fragmentList.add(myFragment);
-
-        FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
+//        List<BaseFragment> fragmentList = new ArrayList<>();
+//        LifeFragment lifeFragment = new LifeFragment();
+//        EducationFragment educationFragment = new EducationFragment();
+//        MoreFragment moreFragment = new MoreFragment();
+//        MyFragment myFragment = new MyFragment();
+//
+//        fragmentList.add(lifeFragment);
+//        fragmentList.add(educationFragment);
+//        fragmentList.add(moreFragment);
+//        fragmentList.add(myFragment);
+//
+//        FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
 
     }
 

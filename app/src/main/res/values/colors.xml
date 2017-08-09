@@ -5,7 +5,7 @@
 
     <color name="colorPrimary">#d50000</color>
     <color name="colorPrimaryDark">#d50000</color>
-    <color name="colorAccent">#33ccff</color>
+    <color name="colorAccent">#FF4081</color>
     <color name="black_red">#cc0000</color> <!--黑红色 -->
     <color name="app_blue">#3385ff</color> <!-- APP蓝色 -->
     <color name="orange">#ff772d</color> <!-- 橙色 -->

@@ -1,8 +1,13 @@
 <resources>
 
+    <!--Common-->
+    <string name="confirm_exit">Confirm Exit</string>
+    <string name="confirm">confirm</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--侧滑目录-->
     <string name="home">Home</string>
     <string name="leisure">Leisure</string>
     <string name="life">Life</string>
@@ -16,16 +21,14 @@
 
     <string name="action_settings">Settings</string>
 
+    <!--考试成绩-->
     <string name="exam_property">exam_property</string>
     <string name="exam_one">exam_one</string>
     <string name="exam_two">exam_two</string>
     <string name="exam_three">exam_three</string>
     <string name="exam_four">exam_four</string>
     <string name="exam_five">exam_five</string>
-    <string name="confirm">confirm</string>
 
-    <string name="more">more</string>
-    <string name="my">my</string>
 
     <!--校内活动场所-->
     <string name="exercise_yard">exercise_yard</string>
@@ -52,12 +55,14 @@
     <string name="school_food_technology_research_center">school_food_technology_research_center</string>
     <string name="food_building">food_building</string>
 
+    <!--校内景点-->
     <string name="school_scenery">school_scenery</string>
+
+    <!--当前周次-->
     <string name="not_data">not_data</string>
     <string name="current_week_to">current_week_to</string>
-    <string name="confirm_exit">Confirm Exit</string>
 
-    <!--about us-->
+    <!--关于我们-->
     <string name="app_introduce">App Introduce</string>
     <string name="check_update">Check Update</string>
     <string name="feedback">FeedBack</string>
@@ -72,7 +77,7 @@
     <string name="license">License</string>
     <string name="start">Good Job</string>
 
-    <!--setting-->
+    <!--设置-->
     <string name="preference">Preference</string>
     <string name="language">Language</string>
     <string name="avatar">Avatar</string>

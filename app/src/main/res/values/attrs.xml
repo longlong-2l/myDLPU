@@ -5,4 +5,9 @@
     <attr name="cardViewColor" format="color"></attr>
     <attr name="backgroundColor" format="color"></attr>
     <attr name="dialogCardColor" format="color"></attr>
+
+    <declare-styleable name="CircleView">
+        <attr name="border_width" format="dimension"/>
+        <attr name="border_color" format="color"/>
+        </declare-styleable>
 </resources>

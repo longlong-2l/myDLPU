@@ -1,9 +1,6 @@
 package com.surpassli.www.myapp.presenter.Home;
 
-import android.app.Activity;
-import android.support.v7.widget.Toolbar;
-
-import com.surpassli.www.myapp.View.home.HomeView;
+import com.surpassli.www.myapp.view.home.HomeView;
 
 /**
  * Created by SurpassLi on 2017/8/4.

@@ -1,6 +1,6 @@
-package com.surpassli.www.myapp.View.home;
+package com.surpassli.www.myapp.view.home;
 
-import com.surpassli.www.myapp.View.IView;
+import com.surpassli.www.myapp.view.IView;
 
 /**
  * Created by SurpassLi on 2017/8/4.
