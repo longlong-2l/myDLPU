@@ -18,13 +18,15 @@
         android:paddingBottom="4dp"
         app:stl_customTabTextLayoutId="@layout/custom_tab"
         app:stl_customTabTextViewId="@id/custom_text"
-        app:stl_indicatorColor="#fff"
         app:stl_dividerColor="#00000000"
+        app:stl_indicatorAlwaysInCenter="false"
+        app:stl_indicatorInFront="false"
+        app:stl_indicatorCornerRadius="2dp"
+        app:stl_indicatorColor="#fff"
         app:stl_indicatorThickness="3dp"
         app:stl_defaultTabTextColor="#fff"
         app:stl_defaultTabTextHorizontalPadding="24dp"
-        app:stl_indicatorCornerRadius="1.5dp"
         app:stl_underlineColor="#00000000"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
 </android.support.design.widget.AppBarLayout>

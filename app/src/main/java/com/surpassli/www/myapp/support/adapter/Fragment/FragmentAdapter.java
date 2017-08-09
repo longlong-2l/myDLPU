@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/9.
- *
+ *FragmentAdapter
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
     private List<BaseFragment> mDatas;
@@ -18,6 +18,11 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public FragmentAdapter(FragmentManager fm, List<BaseFragment> mDatas) {
         super(fm);
         this.mDatas = mDatas;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mDatas.get(position).getTitle();
     }
 
     @Override

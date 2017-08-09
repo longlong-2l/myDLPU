@@ -24,6 +24,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/2/1.
+ * Utility
  */
 public class Utility {
 
@@ -75,7 +76,7 @@ public class Utility {
      * 获取课程成绩
      */
     public static List<Course_Result_bean> handCourse_Course_Result(String response) {
-        mCourse_Result_list = new ArrayList<Course_Result_bean>();
+        mCourse_Result_list = new ArrayList<>();
         Course_Result_bean course_result_bean;
         try {
             JSONObject jsonObject = new JSONObject(response);
@@ -116,9 +117,9 @@ public class Utility {
      * 获取等级成绩
      */
     public static List<Level_Grade> handLevel_Grade(String response) {
-        myLevel_course_been = new ArrayList<Level_Grade>();
+        myLevel_course_been = new ArrayList<>();
         Level_Grade level_grade;
-        JSONObject jsonObject = null;
+        JSONObject jsonObject;
         try {
             jsonObject = new JSONObject(response);
             if ("Success".equals(jsonObject.getString("message"))) {
@@ -156,7 +157,6 @@ public class Utility {
             JSONArray jsonArray0;
             JSONObject jsonObject1;
             JSONObject jsonObject2;
-            JSONObject jsonObject3;
             if ("Success".equals(jsonObject.getString("message"))) {
                 Log.i(TAG, "onResponse: " + "访问课程表信息成功");
                 jsonObject1 = jsonObject.getJSONObject("data");
@@ -169,7 +169,6 @@ public class Utility {
                 }
                 jsonObject2.getJSONArray("1");
             }
-            ;
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -181,11 +180,10 @@ public class Utility {
      */
     public static List<Course_Table> course_table_15_16_1(String response) {
         Course_Table course_table;
-        course_table_been_list = new ArrayList<Course_Table>();
+        course_table_been_list = new ArrayList<>();
         try {
             JSONObject jsonObject = new JSONObject(response);
             JSONArray jsonArray0;
-            JSONObject jsonObject1;
             if ("Success".equals(jsonObject.getString("message"))) {
                 Log.i(TAG, "onResponse: " + "访问课程表信息成功");
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -199,22 +197,6 @@ public class Utility {
                     course_table.setCourse_teacher(jsonArray2.getString(3));
                     course_table_been_list.add(course_table);
                 }
-//                for (int n = 1; n < jsonArray.length(); n++) {
-//                    jsonObject1 = jsonArray.getJSONObject(n);
-//                    for (int i = 0; i < 5; i++) {
-//                        JSONArray jsonArray1 = jsonObject1.optJSONArray(String.valueOf(i));
-//                        if (jsonArray1 == null | "".equals(jsonArray1)) {
-//                            continue;
-//                        } else {
-//                            course_table = new Course_Table();
-//                            course_table.setCourse_name(jsonArray1.getString(0));
-//                            course_table.setCourse_time(jsonArray1.getString(1));
-//                            course_table.setCourse_address(jsonArray1.getString(2));
-//                            course_table.setCourse_teacher(jsonArray1.getString(3));
-//                            course_table_been_list.add(course_table);
-//                        }
-//                    }
-//                }
                 return course_table_been_list;
             } else {
                 Log.i(TAG, "Utility: " + "获取课程表有误");
@@ -232,8 +214,6 @@ public class Utility {
         try {
             JSONObject jsonObject = new JSONObject(response);
             JSONArray jsonArray0;
-            JSONArray jsonArray1;
-            JSONObject jsonObject1;
             if ("Success".equals(jsonObject.getString("message"))) {
                 Log.i(TAG, "onResponse: " + "访问课程表信息成功");
                 JSONArray jsonArray = jsonObject.getJSONArray("data");
@@ -268,9 +248,9 @@ public class Utility {
      * 获取考试安排
      */
     public static List<Exam_Manager> handExamManager(String response) {
-        exam_managers_been_list = new ArrayList<Exam_Manager>();
+        exam_managers_been_list = new ArrayList<>();
         Exam_Manager exam_manager;
-        JSONObject jsonObject = null;
+        JSONObject jsonObject ;
         try {
             jsonObject = new JSONObject(response);
             if ("Success".equals(jsonObject.getString("message"))) {

@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.ui.Base;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by SurpassLi on 2017/8/7.
- *
+ * BaseFragment
  */
 
 public abstract class BaseFragment extends Fragment {
@@ -35,6 +34,13 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract int getLayoutID();
     protected  abstract void init();
+    public abstract String getTitle();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        EventBus.getDefault().register(this);
+    }
 
     @Nullable
     @Override
@@ -44,4 +50,17 @@ public abstract class BaseFragment extends Fragment {
         loadConfig();
         return parentView;
     }
+
+    @Override
+    public void onDestroy() {
+//        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+//    @Subscribe
+//    public void onEventMainThread(EventModel eventModel){
+//        if(eventModel != null){
+//            onEventComing(eventModel);
+//        }
+//    }
 }

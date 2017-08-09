@@ -55,6 +55,11 @@
     <string name="school_food_technology_research_center">school_food_technology_research_center</string>
     <string name="food_building">food_building</string>
 
+    <!--课余-->
+    <string name="science">Science</string>
+    <string name="film">Film</string>
+    <string name="hot">hot ：</string>
+
     <!--校内景点-->
     <string name="school_scenery">school_scenery</string>
 

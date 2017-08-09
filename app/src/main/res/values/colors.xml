@@ -3,8 +3,8 @@
     <color name="text_enabled">#FFFFFFFF</color>
     <color name="text_disabled">#4DFFFFFF</color>
 
-    <color name="colorPrimary">#d50000</color>
-    <color name="colorPrimaryDark">#d50000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black_red">#cc0000</color> <!--黑红色 -->
     <color name="app_blue">#3385ff</color> <!-- APP蓝色 -->

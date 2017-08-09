@@ -17,6 +17,11 @@
     <string name="logout">退出</string>
     <string name="about">关于</string>
 
+    <!--课余-->
+    <string name="science">科学</string>
+    <string name="film">影评</string>
+    <string name="hot">热度 ：</string>
+
     <!--考试成绩-->
     <string name="exam_property">属性</string>
     <string name="exam_one">考试一</string>

@@ -1,6 +1,5 @@
 package com.surpassli.www.myapp.support.utils;
 
-
 import com.surpassli.www.myapp.AppVariables;
 
 import java.io.IOException;
@@ -13,12 +12,13 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/1/16.
+ * HttpUtil
  */
 public class HttpUtil {
     /**
      * Get方法,没有header
-     * @param url
-     * @param callback
+     * @param url url
+     * @param callback callback
      */
     public static void sendGetOkhttp(String url,okhttp3.Callback callback) {
         OkHttpClient client = new OkHttpClient();
@@ -28,8 +28,8 @@ public class HttpUtil {
 
     /**
      * 只带有key的header
-     * @param url
-     * @param callback
+     * @param url url
+     * @param callback callback
      */
     public static void sendGetOkHttp_header(String url,okhttp3.Callback callback){
         OkHttpClient client = genericClient();
@@ -37,7 +37,7 @@ public class HttpUtil {
         client.newCall(res).enqueue(callback);
     }
 
-    public static OkHttpClient genericClient() {
+    private static OkHttpClient genericClient() {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -55,15 +55,15 @@ public class HttpUtil {
 
     /**
      * 带有key、semester、week的header,查课程表
-     * @param url
-     * @param callback
+     * @param url url
+     * @param callback callback
      */
     public static void sendGetOkHttp_header_swk(String semester,String url,okhttp3.Callback callback){
         OkHttpClient client = genericClient_swk(semester);
         Request res = new Request.Builder().url(url).build();
         client.newCall(res).enqueue(callback);
     }
-    public static OkHttpClient genericClient_swk(final String semester) {
+    private static OkHttpClient genericClient_swk(final String semester) {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -83,8 +83,8 @@ public class HttpUtil {
 
     /**
      * 带有key、semester的header,用于课程成绩查询，考试安排
-     * @param url
-     * @param callback
+     * @param url url
+     * @param callback callback
      */
     public static void sendGetOkHttp_header_sk(String url,String date,okhttp3.Callback callback){
         OkHttpClient client = genericClient_sk(date);
@@ -92,7 +92,7 @@ public class HttpUtil {
         client.newCall(res).enqueue(callback);
     }
 
-    public static OkHttpClient genericClient_sk(final String date) {
+    private static OkHttpClient genericClient_sk(final String date) {
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -111,11 +111,11 @@ public class HttpUtil {
 
     /**
      * post方法，用于密码修改
-     * @param url
-     * @param sign
-     * @param timestamp
-     * @param newpasswd
-     * @param callback
+     * @param url url
+     * @param sign sign
+     * @param timestamp  timestamp
+     * @param newpasswd newpasswd
+     * @param callback callback
      */
     public static void postChangePassWd(String url, String sign, String timestamp, String newpasswd,okhttp3.Callback callback) {
         OkHttpClient okHttpClient = genericClient_nk(newpasswd);
@@ -127,7 +127,7 @@ public class HttpUtil {
         okHttpClient.newCall(request).enqueue(callback);
     }
 
-    public static OkHttpClient genericClient_nk(final String newpasswd){
+    private static OkHttpClient genericClient_nk(final String newpasswd){
         OkHttpClient httpClient = new OkHttpClient.Builder()
                 .addInterceptor(new Interceptor() {
                     @Override
@@ -146,9 +146,9 @@ public class HttpUtil {
 
     /**
      * post方法，用于提交意见反馈
-     * @param url
-     * @param content
-     * @param callback
+     * @param url url
+     * @param content content
+     * @param callback callback
      */
     public static void postFeedBack(String url, String content,okhttp3.Callback callback) {
         OkHttpClient client = new OkHttpClient();

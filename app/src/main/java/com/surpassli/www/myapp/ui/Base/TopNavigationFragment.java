@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/8/7.
- *
+ *TopNavigationFragment
  */
 
 public class TopNavigationFragment extends BaseFragment {
@@ -39,6 +39,11 @@ public class TopNavigationFragment extends BaseFragment {
         smartTabLayout = (SmartTabLayout) getActivity().findViewById(R.id.tab_layout);
         smartTabLayout.setVisibility(View.VISIBLE);
         smartTabLayout.setViewPager(viewPager);
+    }
+
+    @Override
+    public String getTitle() {
+        return null;
     }
 
     public static void clearChildFragment() {
