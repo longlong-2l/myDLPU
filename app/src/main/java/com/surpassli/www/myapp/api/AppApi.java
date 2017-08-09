@@ -67,4 +67,6 @@ public class AppApi {
      * 意见反馈
      */
     public static final String FEEDBACK = "https://mydlpu.xu42.cn/api/mina/feedback";
+
+    public static String SCIENCE_URL = "http://www.guokr.com/apis/minisite/article.json?retrieve_type=by_channel&channel_key=hot";
 }

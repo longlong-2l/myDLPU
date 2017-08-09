@@ -35,7 +35,7 @@ public class ScienceDAO implements DAO<ScienceModel>{
             values.put(ScienceTable.IMAGE_URL,scienceModel.getImage_info().getUrl());
             values.put(ScienceTable.URL,scienceModel.getUrl());
             values.put(ScienceTable.TITLE,scienceModel.getTitle());
-            values.put(ScienceTable.SCIENCE_DETAILS,scienceModel.getScienceDetails());
+//            values.put(ScienceTable.SCIENCE_DETAILS,scienceModel.getScienceDetails());
             DataBaseHelper.insert(ScienceTable.NAME,values);
         }
         return false;
@@ -60,7 +60,7 @@ public class ScienceDAO implements DAO<ScienceModel>{
             model.getImage_info().setUrl(cursor.getString(ScienceTable.ID_IMAGE_URL));
             model.setUrl(cursor.getString(ScienceTable.ID_URL));
             model.setTitle(cursor.getString(ScienceTable.ID_TITLE));
-            model.setScienceDetails(cursor.getString(ScienceTable.ID_SCIENCE_DETAILS));
+//            model.setScienceDetails(cursor.getString(ScienceTable.ID_SCIENCE_DETAILS));
             list.add(model);
         }
 

@@ -1,6 +1,8 @@
 package com.surpassli.www.myapp.model.leisure;
 
+import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.model.IModel;
+import com.surpassli.www.myapp.support.utils.HttpUtil;
 
 import java.util.List;
 
@@ -15,15 +17,15 @@ public class ScienceModel implements IModel<ScienceModel>{
     private Image_info image_info = new Image_info();
     private String url;
     private String title;
-    private String scienceDetails;
+//    private String scienceDetails;
 
-    public void setScienceDetails(String scienceDetails) {
-        this.scienceDetails = scienceDetails;
-    }
-
-    public String getScienceDetails() {
-        return scienceDetails;
-    }
+//    public void setScienceDetails(String scienceDetails) {
+//        this.scienceDetails = scienceDetails;
+//    }
+//
+//    public String getScienceDetails() {
+//        return scienceDetails;
+//    }
 
     @Override
     public boolean cacheAll(List<ScienceModel> list) {
@@ -42,7 +44,7 @@ public class ScienceModel implements IModel<ScienceModel>{
 
     @Override
     public void loadFromNet() {
-
+//        HttpUtil.sendGetOkhttp(AppApi.SCIENCE_URL);
     }
 
     public class Image_info {

@@ -13,17 +13,17 @@ import java.util.ArrayList;
 
 /**
  * Created by SurpassLi on 2017/2/8.
+ * EducationUtils
  */
 public class EducationUtils {
 
     public static ArrayList<Notice_Model> handNew_Notice(String response) {
         if (!TextUtils.isEmpty(response)) {
-            ArrayList<Notice_Model> arrayList = new ArrayList<Notice_Model>();
+            ArrayList<Notice_Model> arrayList = new ArrayList<>();
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 if ("Success".equals(jsonObject.getString("message"))) {
                     JSONArray jsonArray = jsonObject.getJSONArray("data");
-                    Gson gson = new Gson();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         String jsonObject1 = jsonArray.getJSONObject(i).toString();
                         Notice_Model Notice_Model = new Gson().fromJson(jsonObject1, Notice_Model.class);
