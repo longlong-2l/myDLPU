@@ -1,7 +1,7 @@
 package com.surpassli.www.myapp.support.adapter.leisure;
 
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +11,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.event.EVENT;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.leisure.ScienceModel;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.leisure.ScienceDetailActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by SurpassLi on 2017/8/9.
@@ -37,7 +42,7 @@ public class ScienceAdapter extends BaseListAdapter<ScienceModel,ScienceAdapter.
     }
 
     @Override
-    public void onBindViewHolder(VH holder, int position) {
+    public void onBindViewHolder(VH holder, final int position) {
         ScienceModel model = getItem(position);
         holder.scienceTitle.setText(model.getTitle());
         holder.comment.setText(String.valueOf(model.getReplies_count()));
@@ -45,9 +50,9 @@ public class ScienceAdapter extends BaseListAdapter<ScienceModel,ScienceAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(mContext, ScienceDetailsActivity.class);
-//                EventBus.getDefault().postSticky(new EventModel<ScienceModel>(EVENT.SEND_MODEL_DETAIL,getItem(position)));
-//                mContext.startActivity(intent);
+                Intent intent = new Intent(mContext, ScienceDetailActivity.class);
+                EventBus.getDefault().postSticky(new EventModel<ScienceModel>(EVENT.SEND_MODEL_DETAIL,getItem(position)));
+                mContext.startActivity(intent);
             }
         });
     }

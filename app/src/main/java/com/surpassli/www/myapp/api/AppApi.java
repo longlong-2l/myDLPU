@@ -68,5 +68,11 @@ public class AppApi {
      */
     public static final String FEEDBACK = "https://mydlpu.xu42.cn/api/mina/feedback";
 
+    /**
+     * 科学
+     */
     public static String SCIENCE_URL = "http://www.guokr.com/apis/minisite/article.json?retrieve_type=by_channel&channel_key=hot";
+
+    //简书基础list的url 电影
+    public static final String JianShu_List_URL= "http://www.jianshu.com/c/1hjajt";
 }

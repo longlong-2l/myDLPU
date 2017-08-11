@@ -27,6 +27,6 @@
         app:stl_defaultTabTextColor="#fff"
         app:stl_defaultTabTextHorizontalPadding="24dp"
         app:stl_underlineColor="#00000000"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
 </android.support.design.widget.AppBarLayout>

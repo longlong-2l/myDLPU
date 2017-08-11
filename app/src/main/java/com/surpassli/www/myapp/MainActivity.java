@@ -76,38 +76,6 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         presenter = new HomePresenterImpl(this);
         presenter.initLization();
         switchFragment(LifeFragment.getInstance(), "life");
-        getData();
-    }
-
-    private void getData() {
-        HttpUtil.sendGetOkhttp(AppApi.TIME, new okhttp3.Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "网络出现问题，请检查网络设置~~", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String result = response.body().string();
-                try {
-                    JSONObject jsonObject = new JSONObject(result);
-                    if ("Success".equals(jsonObject.getString("message"))) {
-                        AppVariables.time = jsonObject.getInt("time");
-                        AppVariables.time_cha = AppVariables.time - (System.currentTimeMillis() / 1000);
-                    } else {
-                        Log.i(TAG, "onResponse: " + "系统授时失败");
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
     public void initView() {
@@ -118,10 +86,11 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,33 +100,6 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         });
 
         cl_main = (CoordinatorLayout) findViewById(R.id.main_content);
-//        List<BaseFragment> fragmentList = new ArrayList<>();
-//        LifeFragment lifeFragment = new LifeFragment();
-//        EducationFragment educationFragment = new EducationFragment();
-//        MoreFragment moreFragment = new MoreFragment();
-//        MyFragment myFragment = new MyFragment();
-//
-//        fragmentList.add(lifeFragment);
-//        fragmentList.add(educationFragment);
-//        fragmentList.add(moreFragment);
-//        fragmentList.add(myFragment);
-//
-//        FragmentAdapter fragmentadapter = new FragmentAdapter(getSupportFragmentManager(), fragmentList);
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == 1) {
-            String status = data.getStringExtra("status");
-            if (status.equals("Success")) {
-            }
-        } else if (requestCode == 1 && resultCode == 2) {
-            String status = data.getStringExtra("status");
-            if (status.equals("Success")) {
-            }
-        }
     }
 
     @Override
