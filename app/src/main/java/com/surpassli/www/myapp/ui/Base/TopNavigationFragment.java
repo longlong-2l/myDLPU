@@ -14,7 +14,7 @@ import java.util.List;
  *TopNavigationFragment
  */
 
-public class TopNavigationFragment extends BaseFragment {
+public abstract class TopNavigationFragment extends BaseFragment {
 
     protected static List<BaseFragment> fragments;
     protected FragmentAdapter fragmentAdapter;

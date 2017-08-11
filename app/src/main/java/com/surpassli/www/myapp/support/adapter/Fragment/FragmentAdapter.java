@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/9.
- *FragmentAdapter
+ * FragmentAdapter
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
     private List<BaseFragment> mDatas;

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
 import com.surpassli.www.myapp.view.base.BaseRecyclerView;
 
@@ -36,14 +37,10 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
         recyclerView = (RecyclerView) parentView.findViewById(R.id.common_list_recycler);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(layoutManager);
-        bindAdapter();
-        trySetupRefreshLayout();
-        initView();
-    }
-
-    @Override
-    public String getTitle() {
-        return null;
+        bindAdapter();  //子类绑定Adapter
+        trySetupRefreshLayout();  //绑定刷新控件
+        addHeader();    //加载头部信息
+        initView();     //子类去实现
     }
 
     @Override
@@ -67,13 +64,11 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
     public void onDataRefresh() {
         if (swipeRefreshLayout.isRefreshing()) {
             swipeRefreshLayout.setRefreshing(false);
-            return;
         }
     }
 
     @Override
     public void displayLoading() {
-
     }
 
     @Override
@@ -88,5 +83,10 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
         if (adapter.getItemCount() == 0) {
             list_empty.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

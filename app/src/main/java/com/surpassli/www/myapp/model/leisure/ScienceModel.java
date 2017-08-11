@@ -1,8 +1,7 @@
 package com.surpassli.www.myapp.model.leisure;
 
-import com.surpassli.www.myapp.api.AppApi;
+import com.surpassli.www.myapp.database.dao.leisure.ScienceDAO;
 import com.surpassli.www.myapp.model.IModel;
-import com.surpassli.www.myapp.support.utils.HttpUtil;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ import java.util.List;
 
 public class ScienceModel implements IModel<ScienceModel>{
 
+    private ScienceDAO scienceDAO;
     private int replies_count;
     private Image_info image_info = new Image_info();
     private String url;
@@ -27,6 +27,10 @@ public class ScienceModel implements IModel<ScienceModel>{
 //        return scienceDetails;
 //    }
 
+    public ScienceModel() {
+        scienceDAO = new ScienceDAO();
+    }
+
     @Override
     public boolean cacheAll(List<ScienceModel> list) {
         return false;
@@ -39,12 +43,12 @@ public class ScienceModel implements IModel<ScienceModel>{
 
     @Override
     public void loadFromCache() {
-
+        scienceDAO.loadFromCache();
     }
 
     @Override
     public void loadFromNet() {
-//        HttpUtil.sendGetOkhttp(AppApi.SCIENCE_URL);
+        scienceDAO.loadFromNet();
     }
 
     public class Image_info {

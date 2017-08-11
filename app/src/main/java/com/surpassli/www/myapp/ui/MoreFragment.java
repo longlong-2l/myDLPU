@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.More.About.FeedBackActivity;
@@ -23,6 +24,7 @@ import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
  */
 public class MoreFragment extends TopNavigationFragment implements View.OnClickListener{
     private View view;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,5 +78,10 @@ public class MoreFragment extends TopNavigationFragment implements View.OnClickL
 
     public static MoreFragment getInstance(){
         return new MoreFragment();
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

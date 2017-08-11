@@ -23,6 +23,7 @@ import com.jude.rollviewpager.adapter.StaticPagerAdapter;
 import com.jude.rollviewpager.hintview.ColorPointHintView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.News.Notice_Model;
 import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
@@ -162,5 +163,10 @@ public class LifeFragment extends TopNavigationFragment {
         public int getCount() {
             return images.length;
         }
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui.leisure;
 
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 
 import java.util.ArrayList;
@@ -25,5 +26,10 @@ public class LeisureFragment extends TopNavigationFragment{
     public static LeisureFragment newInstance(){
         addChildFragments();
         return new LeisureFragment();
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

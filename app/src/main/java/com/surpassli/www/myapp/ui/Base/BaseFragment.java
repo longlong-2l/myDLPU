@@ -9,6 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.surpassli.www.myapp.event.EventModel;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 /**
  * Created by SurpassLi on 2017/8/7.
  * BaseFragment
@@ -29,17 +34,17 @@ public abstract class BaseFragment extends Fragment {
     }
 
     private void loadConfig(){
-
     }
 
-    protected abstract int getLayoutID();
-    protected  abstract void init();
-    public abstract String getTitle();
+    protected abstract int getLayoutID(); //界面加载
+    protected  abstract void init();      //数据绑定
+    public abstract String getTitle();    //获取标题
+    public abstract void onEventComing(EventModel eventModel);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
     }
 
     @Nullable
@@ -53,14 +58,14 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-//        EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
         super.onDestroy();
     }
 
-//    @Subscribe
-//    public void onEventMainThread(EventModel eventModel){
-//        if(eventModel != null){
-//            onEventComing(eventModel);
-//        }
-//    }
+    @Subscribe
+    public void onEventMainThread(EventModel eventModel){
+        if(eventModel != null){
+            onEventComing(eventModel);
+        }
+    }
 }

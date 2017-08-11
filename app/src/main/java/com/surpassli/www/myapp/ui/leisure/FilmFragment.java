@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 
 /**
@@ -26,5 +27,10 @@ public class FilmFragment extends TopNavigationFragment {
     @Override
     public String getTitle() {
         return InitApp.AppContext.getString(R.string.film);
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

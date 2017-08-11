@@ -2,15 +2,17 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
     android:layout_marginTop="6dp"
-    app:cardBackgroundColor="?attr/cardViewColor"
     app:cardCornerRadius="4dp"
     app:cardElevation="8dp"
+    card_view:cardBackgroundColor="?attr/cardViewColor"
+    card_view:cardPreventCornerOverlap="true"
     card_view:contentPadding="10dp">
 
     <RelativeLayout
@@ -18,47 +20,44 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
+        <ImageView
+            android:id="@+id/iv_science"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/header_pic"
+            android:contentDescription="@string/app_name" />
+
         <TextView
             android:id="@+id/science_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@id/iv_science"
             android:textColor="?attr/textColor"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/iv_science_hot"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_below="@id/science_title"
-            android:layout_marginTop="5dp"
-            android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_comment" />
-
         <TextView
+            android:id="@+id/tv_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/science_title"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@id/iv_science_hot"
-            android:text="@string/hot"
-            android:textColor="?attr/textColor" />
-
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/iv_science"
             android:gravity="center_vertical"
             android:textColor="?attr/textColor" />
 
-        <ImageView
-            android:id="@+id/iv_science"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:contentDescription="@string/app_name"/>
-
+        <TextView
+            android:id="@+id/tv_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_science"
+            android:layout_toStartOf="@id/tv_content"
+            android:drawablePadding="4dp"
+            android:drawableStart="@mipmap/ic_comment"
+            android:gravity="bottom"
+            android:text="@string/hot"
+            android:textColor="?attr/textColor" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

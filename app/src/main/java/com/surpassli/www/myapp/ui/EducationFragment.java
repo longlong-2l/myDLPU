@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.api.AppApi;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.News.Notice_Model;
 import com.surpassli.www.myapp.support.adapter.NewsAdapter.NewsAdapter;
 import com.surpassli.www.myapp.support.utils.EducationUtils;
@@ -34,7 +35,7 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/1/6.
- *
+ * EducationFragment
  */
 public class EducationFragment extends TopNavigationFragment {
     private RecyclerView news_RecycleView;
@@ -127,5 +128,10 @@ public class EducationFragment extends TopNavigationFragment {
 //                Toast.makeText(getActivity(), position + "click:" + "url=" + url, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

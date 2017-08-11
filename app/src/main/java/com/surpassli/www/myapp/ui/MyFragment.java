@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.surpassli.www.myapp.AppVariables;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.database.dao.AccountDAO;
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.support.utils.ActivityCollector;
 import com.surpassli.www.myapp.support.utils.Dialog.CustomDialogUtil;
 import com.surpassli.www.myapp.ui.Account.ChangedPassWord_Activity;
@@ -111,5 +112,10 @@ public class MyFragment extends TopNavigationFragment implements View.OnClickLis
 
     public static MyFragment getInstance(){
         return new MyFragment();
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui.life;
 
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 
 import java.util.ArrayList;
@@ -25,5 +26,10 @@ public class LifeFragment extends TopNavigationFragment{
     public static LifeFragment getInstance(){
         addChildFragments();
       return new LifeFragment();
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }

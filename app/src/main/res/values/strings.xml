@@ -58,7 +58,7 @@
     <!--课余-->
     <string name="science">Science</string>
     <string name="film">Film</string>
-    <string name="hot">hot ：</string>
+    <string name="hot">hot :</string>
 
     <!--校内景点-->
     <string name="school_scenery">school_scenery</string>
