@@ -42,6 +42,7 @@ public class SchoolNewsDAO implements DAO<School_News_Model> {
             values.put(SchoolNewsTable.MARK_ID, System.currentTimeMillis());
             values.put(SchoolNewsTable.SCHOOL_NEWS_TITLE, model.getSchool_news_title());
             values.put(SchoolNewsTable.SCHOOL_NEWS_URL, model.getSchool_news_url());
+            values.put(SchoolNewsTable.SCHOOL_NEWS_TIME,model.getSchool_news_time());
             DataBaseHelper.insert(SchoolNewsTable.NAME, values);
         }
         return true;
@@ -60,8 +61,9 @@ public class SchoolNewsDAO implements DAO<School_News_Model> {
         final List<School_News_Model> list = new ArrayList<>();
         while (cursor.moveToNext()) {
             School_News_Model model = new School_News_Model();
-            model.setSchool_news_title(String.valueOf(cursor.getColumnIndex(SchoolNewsTable.SCHOOL_NEWS_TITLE)));
-            model.setSchool_news_url(String.valueOf(cursor.getColumnIndex(SchoolNewsTable.SCHOOL_NEWS_URL)));
+            model.setSchool_news_title(cursor.getString(cursor.getColumnIndex(SchoolNewsTable.SCHOOL_NEWS_TITLE)));
+            model.setSchool_news_url(cursor.getString(cursor.getColumnIndex(SchoolNewsTable.SCHOOL_NEWS_URL)));
+            model.setSchool_news_time(cursor.getString(cursor.getColumnIndex(SchoolNewsTable.SCHOOL_NEWS_TIME)));
             list.add(model);
         }
         handler.post(new Runnable() {

@@ -67,14 +67,8 @@ public class SchoolNewsFragment extends BaseListFragment {
 //                displayNetworkError();
                 break;
             case EVENT.SCHOOL_NEWS_CACHE_SUCCESS:
-                if (Setting.autoRefresh) {
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            onDataRefresh();
-                        }
-                    }, 1500);
-                }
+                adapter.newList(eventModel.getDataList());
+                hideLoading();
                 break;
             case EVENT.SCHOOL_NEWS_CACHE_FAIL:
                 onDataRefresh();
