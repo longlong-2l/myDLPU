@@ -20,7 +20,7 @@ import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
 
 /**
  * Created by SurpassLi on 2017/1/6.
- *
+ * MoreFragment
  */
 public class MoreFragment extends TopNavigationFragment implements View.OnClickListener{
     private View view;
@@ -68,7 +68,6 @@ public class MoreFragment extends TopNavigationFragment implements View.OnClickL
             case R.id.tv_waiting1:
                 Intent intent = new Intent(getContext(),TestActivity.class);
                 startActivity(intent);
-//                Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_waiting2:
                 Toast.makeText(getActivity(),"正在拼命开发中，敬请期待...",Toast.LENGTH_SHORT).show();

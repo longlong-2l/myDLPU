@@ -77,4 +77,28 @@ public class AppApi {
     public static final String JianShu_List_URL= "http://www.jianshu.com/c/1hjajt";
     //简书基础url
     public static final String JianShu_Base_URL="http://www.jianshu.com";
+
+    /**
+     * 校内基础
+     */
+    public  static final String SCHOOL = "http://www.dlpu.edu.cn";
+    /**
+     * 校内新闻_html
+     */
+    public  static final String SCHOOL_NEWS = "http://www.dlpu.edu.cn/more/1";
+
+    /**
+     * 校园通知_html
+     */
+    public  static final String SCHOOL_NOTICE = "http://www.dlpu.edu.cn/more/2";
+
+    /**
+     * 校园动态_html
+     */
+    public  static final String SCHOOL_NEWS_STATUS = "http://www.dlpu.edu.cn/more/22";
+
+    /**
+     * 校内头条新闻_html
+     */
+    public  static final String SCHOOL_NEWS_HOT = "http://www.dlpu.edu.cn/more/37";
 }

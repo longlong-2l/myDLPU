@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/2/8.
+ *
  */
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
@@ -52,7 +53,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(NewsAdapter.ViewHolder holder, int position) {
         holder.tv_title.setText(mNoticeModel.get(position).getTitle());
-        holder.tv_content_url.setText(mNoticeModel.get(position).getUrl());
+//        holder.tv_content_url.setText(mNoticeModel.get(position).getUrl());
         setUpItemEvent(holder);
     }
 
@@ -63,12 +64,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         protected final TextView tv_title;
-        protected final TextView tv_content_url;
+//        protected final TextView tv_content_url;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv_title = (TextView) itemView.findViewById(R.id.tv_title);
-            tv_content_url = (TextView) itemView.findViewById(R.id.tv_content_url);
+//            tv_content_url = (TextView) itemView.findViewById(R.id.tv_content_url);
         }
     }
 
@@ -77,17 +78,17 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String url = viewHolder.tv_content_url.getText().toString();
+//                    String url = viewHolder.tv_content_url.getText().toString();
                     int layoutPosition = viewHolder.getLayoutPosition();
-                    mOnItemClickListener.onItemClick(viewHolder.itemView,layoutPosition,url);
+//                    mOnItemClickListener.onItemClick(viewHolder.itemView,layoutPosition,url);
                 }
             });
             viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    String url = viewHolder.tv_content_url.getText().toString();
+//                    String url = viewHolder.tv_content_url.getText().toString();
                     int layoutPosition = viewHolder.getLayoutPosition();
-                    mOnItemClickListener.onItemClick(viewHolder.itemView,layoutPosition,url);
+//                    mOnItemClickListener.onItemClick(viewHolder.itemView,layoutPosition,url);
                     return false;
                 }
             });

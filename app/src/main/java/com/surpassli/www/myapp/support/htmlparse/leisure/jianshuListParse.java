@@ -22,10 +22,6 @@ public class jianshuListParse {
     private String parseStr;
     private List<FilmModel> endList;
 
-    public List<FilmModel> getEndList() {
-        return endList;
-    }
-
     public jianshuListParse(String parseStr) {
         super();
         this.parseStr = parseStr;
@@ -106,5 +102,9 @@ public class jianshuListParse {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<FilmModel> getEndList() {
+        return endList;
     }
 }

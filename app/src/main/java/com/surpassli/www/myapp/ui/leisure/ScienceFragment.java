@@ -2,7 +2,6 @@ package com.surpassli.www.myapp.ui.leisure;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
@@ -68,12 +67,12 @@ public class ScienceFragment extends BaseListFragment {
                 break;
             case EVENT.SCIENCE_LOAD_CACHE_FAILURE:
                 break;
-            case EVENT.SCIENCE_REFRESH_SUCCESS:
+            case EVENT.SCIENCE_REFRESH_SUCCESS: //从网络获取数据成功
                 List list = eventModel.getDataList();
                 adapter.newList(list);
                 hideLoading();
                 break;
-            case EVENT.SCIENCE_REFRESH_FAILURE:
+            case EVENT.SCIENCE_REFRESH_FAILURE:  //从网络获取数据失败
                 hideLoading();
                 displayNetworkError();
                 break;

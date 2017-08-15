@@ -33,4 +33,11 @@ public class EVENT {
     // Film Details
     public static final int FILM_DETAILS_REFRESH_SUCCESS = 37;
     public static final int FILM_DETAILS_REFRESH_FAILURE = 38;
+
+    //School News
+    public static final int SCHOOL_NEWS_NET_SUCCESS = 44;
+    public static final int SCHOOL_NEWS_NET_FAIL = 45;
+
+    public static final int SCHOOL_NEWS_CACHE_SUCCESS = 46;
+    public static final int SCHOOL_NEWS_CACHE_FAIL = 47;
 }

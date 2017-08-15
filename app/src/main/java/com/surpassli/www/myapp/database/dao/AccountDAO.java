@@ -9,6 +9,7 @@ import com.surpassli.www.myapp.database.table.AccountTable;
 
 /**
  * Created by SurpassLi on 2017/1/9.
+ * AccountDAO
  */
 public class AccountDAO {
     public static final String TAG = "AccountDAO";

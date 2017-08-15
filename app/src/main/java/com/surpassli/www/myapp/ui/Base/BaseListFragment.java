@@ -4,9 +4,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
@@ -25,6 +25,7 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
     protected SwipeRefreshLayout swipeRefreshLayout;
     protected RecyclerView recyclerView;
     protected BaseListAdapter adapter;
+    protected ProgressBar progressBar;
 
     @Override
     protected int getLayoutID() {
@@ -35,6 +36,7 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
     protected void init() {
         layoutManager = new LinearLayoutManager(InitApp.AppContext);
         list_empty = (ImageView) parentView.findViewById(R.id.common_list_empty);
+        progressBar = (ProgressBar) parentView.findViewById(R.id.progressBar);
         recyclerView = (RecyclerView) parentView.findViewById(R.id.common_list_recycler);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(layoutManager);
@@ -70,10 +72,12 @@ public abstract class BaseListFragment extends BaseFragment implements BaseRecyc
 
     @Override
     public void displayLoading() {
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideLoading() {
+        progressBar.setVisibility(View.GONE);
         if (swipeRefreshLayout != null) {
             swipeRefreshLayout.setRefreshing(false);
         }

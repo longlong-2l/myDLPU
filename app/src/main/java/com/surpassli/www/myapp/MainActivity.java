@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.surpassli.www.myapp.ui.Home.HomeFragment;
 import com.surpassli.www.myapp.ui.leisure.LeisureFragment;
 import com.surpassli.www.myapp.view.home.HomeView;
 import com.surpassli.www.myapp.api.AppApi;
@@ -121,7 +122,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
             case R.id.home:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
-                switchFragment(LifeFragment.getInstance(), String.valueOf(item.getTitle()));
+                switchFragment(HomeFragment.newInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.library:
                 presenter.clearAllFragments();

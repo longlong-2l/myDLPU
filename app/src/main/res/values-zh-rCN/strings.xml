@@ -17,6 +17,10 @@
     <string name="logout">退出</string>
     <string name="about">关于</string>
 
+    <!--主页-->
+    <string name="school_news">校内新闻</string>
+    <string name="school_notice">校内通知</string>
+
     <!--课余-->
     <string name="science">科学</string>
     <string name="film">影评</string>

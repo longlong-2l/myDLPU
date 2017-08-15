@@ -29,7 +29,7 @@ public class HtmlUtil {
                 String e_htmlString = URLEncoder.encode(htmlString, charsetName[0]);
                 this.doc = Jsoup.parse(e_htmlString);
             } else {
-                this.doc = Jsoup.parse(htmlString);
+                    this.doc = Jsoup.parse(htmlString);
             }
         } else {
             this.doc = null;
@@ -63,7 +63,7 @@ public class HtmlUtil {
     }
 
     /**
-     * 指定属性查找
+     *  指定属性查找
      * @param cssQuery cssQuery
      * @param cssAttr  cssAttr
      */
