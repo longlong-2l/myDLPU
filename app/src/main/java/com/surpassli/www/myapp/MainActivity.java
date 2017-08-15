@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         }
         presenter = new HomePresenterImpl(this);
         presenter.initLization();
-        switchFragment(LifeFragment.getInstance(), "life");
+        switchFragment(HomeFragment.newInstance(), "Home");
     }
 
     public void initView() {
