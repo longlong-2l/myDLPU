@@ -63,6 +63,9 @@
     <!--校内景点-->
     <string name="school_scenery">school_scenery</string>
 
+    <!--影评-->
+    <string name="film_see">browse</string>
+
     <!--当前周次-->
     <string name="not_data">not_data</string>
     <string name="current_week_to">current_week_to</string>
@@ -95,6 +98,8 @@
     <string name="auto_refresh_summary">Load data from network automatically id WIFI is connected</string>
     <string name="exit_confirm_summary">Press back key twice to exit</string>
     <string name="clear_cache_summary">Clear MyDLPU`s Cache</string>
+
+    <string name="notify_info_copied">Info copied to Clipboard! You can paste it to an edit area</string>
 
     <string-array name="language">
         <item>English</item>

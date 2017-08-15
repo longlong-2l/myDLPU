@@ -20,6 +20,8 @@ public class Setting {
 
     public static boolean needRecreate = true;
 
+    public static boolean autoRefresh = true;
+
     public static final String  AUTO_REFRESH = "auto_refresh";
 
     public static final String EXIT_CONFIRM = "exit_confirm";

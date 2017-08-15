@@ -13,25 +13,25 @@ import java.util.List;
  * FragmentAdapter
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    private List<BaseFragment> mDatas;
+    private List<BaseFragment> mData;
 
-    public FragmentAdapter(FragmentManager fm, List<BaseFragment> mDatas) {
+    public FragmentAdapter(FragmentManager fm, List<BaseFragment> mData) {
         super(fm);
-        this.mDatas = mDatas;
+        this.mData = mData;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mDatas.get(position).getTitle();
+        return mData.get(position).getTitle();
     }
 
     @Override
     public Fragment getItem(int position) {
-        return mDatas.get(position);
+        return mData.get(position);
     }
 
     @Override
     public int getCount() {
-        return mDatas.size();
+        return mData.size();
     }
 }

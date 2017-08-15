@@ -34,7 +34,7 @@ import okhttp3.Response;
 public class ScienceDAO implements DAO<ScienceModel> {
 
     @Override
-    public boolean cacheAll(ArrayList<ScienceModel> list) {
+    public boolean cacheAll(List<ScienceModel> list) {
         if (list == null || list.isEmpty()) {
             return false;
         }

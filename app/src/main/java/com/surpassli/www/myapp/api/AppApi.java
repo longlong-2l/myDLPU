@@ -75,4 +75,6 @@ public class AppApi {
 
     //简书基础list的url 电影
     public static final String JianShu_List_URL= "http://www.jianshu.com/c/1hjajt";
+    //简书基础url
+    public static final String JianShu_Base_URL="http://www.jianshu.com";
 }

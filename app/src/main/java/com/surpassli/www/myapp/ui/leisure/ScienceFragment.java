@@ -2,12 +2,14 @@ package com.surpassli.www.myapp.ui.leisure;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.leisure.ScienceModel;
+import com.surpassli.www.myapp.support.Setting;
 import com.surpassli.www.myapp.support.adapter.leisure.ScienceAdapter;
 import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 
@@ -28,12 +30,12 @@ public class ScienceFragment extends BaseListFragment {
 
     @Override
     public void onDataRefresh() {
-        model.loadFromCache();
+        model.loadFromNet();
     }
 
     @Override
     public void initView() {
-        model.loadFromNet();
+        model.loadFromCache();
     }
 
     @Override
@@ -55,15 +57,25 @@ public class ScienceFragment extends BaseListFragment {
         super.onEventComing(eventModel);
         switch (eventModel.getEventCode()){
             case EVENT.SCIENCE_LOAD_CACHE_SUCCESS:
+                if (Setting.autoRefresh){
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            onDataRefresh();
+                        }
+                    },1500);
+                }
                 break;
             case EVENT.SCIENCE_LOAD_CACHE_FAILURE:
                 break;
             case EVENT.SCIENCE_REFRESH_SUCCESS:
                 List list = eventModel.getDataList();
                 adapter.newList(list);
-//                hideLoading();
+                hideLoading();
                 break;
             case EVENT.SCIENCE_REFRESH_FAILURE:
+                hideLoading();
+                displayNetworkError();
                 break;
         }
     }

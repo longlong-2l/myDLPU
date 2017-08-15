@@ -17,15 +17,15 @@ public class ScienceModel implements IModel<ScienceModel>{
     private Image_info image_info = new Image_info();
     private String url;
     private String title;
-//    private String scienceDetails;
+    private String scienceDetails;
 
-//    public void setScienceDetails(String scienceDetails) {
-//        this.scienceDetails = scienceDetails;
-//    }
-//
-//    public String getScienceDetails() {
-//        return scienceDetails;
-//    }
+    public String getScienceDetails() {
+        return scienceDetails;
+    }
+
+    public void setScienceDetails(String scienceDetails) {
+        this.scienceDetails = scienceDetails;
+    }
 
     public ScienceModel() {
         scienceDAO = new ScienceDAO();
@@ -33,12 +33,12 @@ public class ScienceModel implements IModel<ScienceModel>{
 
     @Override
     public boolean cacheAll(List<ScienceModel> list) {
-        return false;
+        return scienceDAO.cacheAll(list);
     }
 
     @Override
     public boolean clearCache() {
-        return false;
+        return scienceDAO.clearCache();
     }
 
     @Override

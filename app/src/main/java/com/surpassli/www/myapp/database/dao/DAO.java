@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.database.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/1/9.
@@ -12,7 +13,7 @@ public interface DAO<M> {
      *将数据写入到数据库中
      * @param list 数据源，需要写入的数据
      */
-    boolean cacheAll(ArrayList<M> list);
+    boolean cacheAll(List<M> list);
 
     /**
      * 清除缓存

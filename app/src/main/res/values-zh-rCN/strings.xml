@@ -87,9 +87,14 @@
     <!--校内景点-->
     <string name="school_scenery">校内景点</string>
 
+    <!--影评-->
+    <string name="film_see">浏览</string>
+
     <!--当前周次-->
     <string name="current_week_to">当前周次为</string>
     <string name="not_data">暂无数据</string>
+
+    <string name="notify_info_copied">信息已添加至剪切板,你可以将其粘贴到编辑区域</string>
 
     <string-array name="language">
         <item>English</item>
