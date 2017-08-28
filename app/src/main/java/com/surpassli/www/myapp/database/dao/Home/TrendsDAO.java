@@ -81,7 +81,7 @@ public class TrendsDAO implements DAO<Trends_Model> {
     @Override
     public void loadFromNet() {
         final Handler handler = new Handler(Looper.getMainLooper());
-        HttpUtil.sendGetOkhttp(AppApi.SCHOOL_NOTICE, new okhttp3.Callback() {
+        HttpUtil.sendGetOkhttp(AppApi.SCHOOL_NEWS_STATUS, new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 handler.post(new Runnable() {

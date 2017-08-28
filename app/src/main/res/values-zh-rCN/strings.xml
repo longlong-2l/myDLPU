@@ -18,10 +18,10 @@
     <string name="about">关于</string>
 
     <!--主页-->
-    <string name="school_hot_news">校内头条新闻</string>
-    <string name="school_news">校内新闻</string>
-    <string name="school_notice">校内通知</string>
-    <string name="school_trends">校内动态</string>
+    <string name="school_hot_news">校头条</string>
+    <string name="school_news">校新闻</string>
+    <string name="school_notice">校通知</string>
+    <string name="school_trends">校动态</string>
 
     <!--课余-->
     <string name="science">科学</string>

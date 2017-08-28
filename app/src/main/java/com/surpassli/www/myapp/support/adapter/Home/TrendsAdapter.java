@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.support.adapter.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.model.Home.Notice_Model;
+import com.surpassli.www.myapp.model.Home.Trends_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.Home.SchoolTrendsDetailActivity;
 
 import java.util.List;
 
@@ -18,13 +20,13 @@ import java.util.List;
  * NoticeAdapter
  */
 
-public class NoticeAdapter extends BaseListAdapter<Notice_Model, NoticeAdapter.VH> {
+public class TrendsAdapter extends BaseListAdapter<Trends_Model, TrendsAdapter.VH> {
 
-    public NoticeAdapter(Context mContext, Notice_Model model) {
+    public TrendsAdapter(Context mContext, Trends_Model model) {
         super(mContext, model);
     }
 
-    public NoticeAdapter(Context mContext, List<Notice_Model> modelList) {
+    public TrendsAdapter(Context mContext, List<Trends_Model> modelList) {
         super(mContext, modelList);
     }
 
@@ -41,13 +43,16 @@ public class NoticeAdapter extends BaseListAdapter<Notice_Model, NoticeAdapter.V
 
     @Override
     public void onBindViewHolder(VH holder, int position) {
-        final Notice_Model school_notices_model = getItem(position);
-        holder.title.setText(school_notices_model.getNotice_title());
-        holder.time.setText(school_notices_model.getNotice_time());
+        final Trends_Model school_trends_model = getItem(position);
+        holder.title.setText(school_trends_model.getTrends_title());
+        holder.time.setText(school_trends_model.getTrends_time());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              school_notices_model.getNotice_url();
+             Intent intent = new Intent(mContext,SchoolTrendsDetailActivity.class);
+                intent.putExtra("url",school_trends_model.getTrends_url());
+                intent.putExtra("title",mContext.getResources().getString(R.string.school_trends));
+                mContext.startActivity(intent);
             }
         });
     }

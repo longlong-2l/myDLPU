@@ -7,8 +7,8 @@ import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
-import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.support.adapter.Home.SchoolNewsAdapter;
+import com.surpassli.www.myapp.model.Home.Trends_Model;
+import com.surpassli.www.myapp.support.adapter.Home.TrendsAdapter;
 import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class SchoolTrendsFragment extends BaseListFragment {
 
-    private School_News_Model school_news_model;
+    private Trends_Model trends_model;
 
     @Override
     public String getTitle() {
@@ -29,18 +29,18 @@ public class SchoolTrendsFragment extends BaseListFragment {
 
     @Override
     public void onDataRefresh() {
-        school_news_model.loadFromNet();
+        trends_model.loadFromNet();
     }
 
     @Override
     public void initView() {
-        school_news_model.loadFromCache();
+        trends_model.loadFromCache();
     }
 
     @Override
     public void bindAdapter() {
-        school_news_model = new School_News_Model();
-        adapter = new SchoolNewsAdapter(getMyActivity(),school_news_model);
+        trends_model = new Trends_Model();
+        adapter = new TrendsAdapter(getMyActivity(),trends_model);
         recyclerView.setAdapter(adapter);
         displayLoading();
     }
@@ -56,20 +56,20 @@ public class SchoolTrendsFragment extends BaseListFragment {
     public void onEventComing(EventModel eventModel) {
         super.onEventComing(eventModel);
         switch (eventModel.getEventCode()) {
-            case EVENT.SCHOOL_NEWS_NET_SUCCESS:
+            case EVENT.SCHOOL_TRENDS_NET_SUCCESS:
                 List list = eventModel.getDataList();
                 adapter.newList(list);
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NEWS_NET_FAIL:
+            case EVENT.SCHOOL_TRENDS_NET_FAIL:
                 hideLoading();
 //                displayNetworkError();
                 break;
-            case EVENT.SCHOOL_NEWS_CACHE_SUCCESS:
+            case EVENT.SCHOOL_TRENDS_CACHE_SUCCESS:
                 adapter.newList(eventModel.getDataList());
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NEWS_CACHE_FAIL:
+            case EVENT.SCHOOL_TRENDS_CACHE_FAIL:
                 onDataRefresh();
                 break;
         }

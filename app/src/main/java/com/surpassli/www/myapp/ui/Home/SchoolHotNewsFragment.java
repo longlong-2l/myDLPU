@@ -7,8 +7,8 @@ import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
-import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.support.adapter.Home.SchoolNewsAdapter;
+import com.surpassli.www.myapp.model.Home.Hot_News_Model;
+import com.surpassli.www.myapp.support.adapter.Home.HotNewsAdapter;
 import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class SchoolHotNewsFragment extends BaseListFragment {
 
-    private School_News_Model school_news_model;
+    private Hot_News_Model hot_news_model;
 
     @Override
     public String getTitle() {
@@ -29,18 +29,18 @@ public class SchoolHotNewsFragment extends BaseListFragment {
 
     @Override
     public void onDataRefresh() {
-        school_news_model.loadFromNet();
+        hot_news_model.loadFromNet();
     }
 
     @Override
     public void initView() {
-        school_news_model.loadFromCache();
+        hot_news_model.loadFromCache();
     }
 
     @Override
     public void bindAdapter() {
-        school_news_model = new School_News_Model();
-        adapter = new SchoolNewsAdapter(getMyActivity(),school_news_model);
+        hot_news_model = new Hot_News_Model();
+        adapter = new HotNewsAdapter(getMyActivity(),hot_news_model);
         recyclerView.setAdapter(adapter);
         displayLoading();
     }
@@ -56,20 +56,20 @@ public class SchoolHotNewsFragment extends BaseListFragment {
     public void onEventComing(EventModel eventModel) {
         super.onEventComing(eventModel);
         switch (eventModel.getEventCode()) {
-            case EVENT.SCHOOL_NEWS_NET_SUCCESS:
+            case EVENT.SCHOOL_HOT_NEWS_NET_SUCCESS:
                 List list = eventModel.getDataList();
                 adapter.newList(list);
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NEWS_NET_FAIL:
+            case EVENT.SCHOOL_HOT_NEWS_NET_FAIL:
                 hideLoading();
 //                displayNetworkError();
                 break;
-            case EVENT.SCHOOL_NEWS_CACHE_SUCCESS:
+            case EVENT.SCHOOL_HOT_NEWS_CACHE_SUCCESS:
                 adapter.newList(eventModel.getDataList());
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NEWS_CACHE_FAIL:
+            case EVENT.SCHOOL_HOT_NEWS_CACHE_FAIL:
                 onDataRefresh();
                 break;
         }

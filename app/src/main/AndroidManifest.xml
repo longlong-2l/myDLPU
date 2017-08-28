@@ -98,6 +98,12 @@
         <activity
             android:name=".ui.leisure.ScienceDetailActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.Home.SchoolHotNewsDetailActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.Home.SchoolTrendsDetailActivity"
+            android:launchMode="singleTask" />
 
         <!-- dlpuAppKey -->
         <meta-data

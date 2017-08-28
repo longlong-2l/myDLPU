@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.support.adapter.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.surpassli.www.myapp.R;
-import com.surpassli.www.myapp.model.Home.Notice_Model;
+import com.surpassli.www.myapp.model.Home.Hot_News_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.Home.SchoolHotNewsDetailActivity;
 
 import java.util.List;
 
@@ -18,13 +20,13 @@ import java.util.List;
  * NoticeAdapter
  */
 
-public class NoticeAdapter extends BaseListAdapter<Notice_Model, NoticeAdapter.VH> {
+public class HotNewsAdapter extends BaseListAdapter<Hot_News_Model, HotNewsAdapter.VH> {
 
-    public NoticeAdapter(Context mContext, Notice_Model model) {
+    public HotNewsAdapter(Context mContext, Hot_News_Model model) {
         super(mContext, model);
     }
 
-    public NoticeAdapter(Context mContext, List<Notice_Model> modelList) {
+    public HotNewsAdapter(Context mContext, List<Hot_News_Model> modelList) {
         super(mContext, modelList);
     }
 
@@ -40,14 +42,17 @@ public class NoticeAdapter extends BaseListAdapter<Notice_Model, NoticeAdapter.V
     }
 
     @Override
-    public void onBindViewHolder(VH holder, int position) {
-        final Notice_Model school_notices_model = getItem(position);
-        holder.title.setText(school_notices_model.getNotice_title());
-        holder.time.setText(school_notices_model.getNotice_time());
+    public void onBindViewHolder(final VH holder, int position) {
+        final Hot_News_Model hot_news_model = getItem(position);
+        holder.title.setText(hot_news_model.getHot_News_title());
+        holder.time.setText(hot_news_model.getHot_News_time());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              school_notices_model.getNotice_url();
+                Intent intent = new Intent(mContext, SchoolHotNewsDetailActivity.class);
+                intent.putExtra("url", hot_news_model.getHot_News_url());
+                intent.putExtra("title",mContext.getResources().getString(R.string.school_hot_news));
+                mContext.startActivity(intent);
             }
         });
     }
