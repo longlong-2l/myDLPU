@@ -1,9 +1,11 @@
 package com.surpassli.www.myapp.ui.Base;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -38,9 +40,9 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
         getLink();
         wv_base = (WebView) findViewById(R.id.wv_base);
         progressBar = (ProgressBar) findViewById(R.id.pb_basewebview);
+        WebSettings webSettings = wv_base.getSettings();
+        webSettings.setJavaScriptEnabled(true);
         if (!getApplication().getString(R.string.app_introduce).equals(title) && !getApplication().getString(R.string.license).equals(title)) {
-            WebSettings webSettings = wv_base.getSettings();
-            webSettings.setJavaScriptEnabled(true);
             webSettings.setUseWideViewPort(true);
             webSettings.setLoadWithOverviewMode(true);
             DisplayMetrics metrics = new DisplayMetrics();
@@ -68,7 +70,29 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
+//                if (url.startsWith("http://") || url.startsWith("https://")) {
+//                    Intent webintent = new Intent(context, ShowResultWebViewActivity.class);
+//                    webintent.putExtra("url", url);
+//                    context.startActivity(webintent);
+//                } else {
+//                    Log.e("TAG", "url=" + url);
+//                }
+                return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                String fun = "javascript:function getClass(parent,sClass) { var aEle=parent.getElementsByTagName('div'); var aResult=[]; var i=0; for(i<0;i<aEle.length;i++) { if(aEle[i].className==sClass) { aResult.push(aEle[i]); } }; return aResult; } ";
+
+                view.loadUrl(fun);
+
+                String fun2 = "javascript:function hideOther() {getClass(document,'page_header')[0].style.display='none'; getClass(document,'the_img')[0].style.display='none'; getClass(document,'the_sidebar')[0].style.display='none';}";
+
+                view.loadUrl(fun2);
+
+                view.loadUrl("javascript:hideOther();");
+
+                super.onPageFinished(view, url);
             }
         });
         //管理加载进度的方法

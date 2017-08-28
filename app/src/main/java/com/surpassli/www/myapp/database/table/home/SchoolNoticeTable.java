@@ -20,6 +20,6 @@ public class SchoolNoticeTable {
     public static final String CREATE_TABLE = "create table " + NAME + "(" +
             SCHOOL_NOTICE_TITLE + " text, " +
             SCHOOL_NOTICE_URL + " text, " +
-            SCHOOL_NOTICE_TIME + "text, " +
+            SCHOOL_NOTICE_TIME + " text, " +
             MARK_ID + " text)";
 }
