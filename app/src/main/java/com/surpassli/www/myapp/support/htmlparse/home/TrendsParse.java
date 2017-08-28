@@ -1,7 +1,7 @@
 package com.surpassli.www.myapp.support.htmlparse.home;
 
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.model.Home.Notice_Model;
+import com.surpassli.www.myapp.model.Home.Trends_Model;
 import com.surpassli.www.myapp.support.utils.html.HtmlUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -13,15 +13,15 @@ import java.util.List;
  * NoticeParse
  */
 
-public class NoticeParse {
+public class TrendsParse {
 
 
     private String parseStr;
     private static final String ALL_ITEM_CSS = "ul[class=more_list]";//所有列表选择css
     private static final String ITEM_CSS = "li";
-    private List<Notice_Model> endList;
+    private List<Trends_Model> endList;
 
-    public NoticeParse(String string) {
+    public TrendsParse(String string) {
         super();
         this.parseStr = string;
         endList = new ArrayList();
@@ -68,14 +68,14 @@ public class NoticeParse {
                 }
             }
             for (int i = 0; i < titleString.size(); i++) {
-                endList.add(new Notice_Model(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));
+                endList.add(new Trends_Model(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Notice_Model> getEndList() {
+    public List<Trends_Model> getEndList() {
         return endList;
     }
 }

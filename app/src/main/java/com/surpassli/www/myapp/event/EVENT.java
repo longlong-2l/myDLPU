@@ -40,4 +40,25 @@ public class EVENT {
 
     public static final int SCHOOL_NEWS_CACHE_SUCCESS = 46;
     public static final int SCHOOL_NEWS_CACHE_FAIL = 47;
+
+    //School Notices
+    public static final int SCHOOL_NOTICES_NET_SUCCESS = 54;
+    public static final int SCHOOL_NOTICES_NET_FAIL = 55;
+
+    public static final int SCHOOL_NOTICES_CACHE_SUCCESS = 56;
+    public static final int SCHOOL_NOTICES_CACHE_FAIL = 57;
+
+    //School HotNews
+    public static final int SCHOOL_HOT_NEWS_NET_SUCCESS = 64;
+    public static final int SCHOOL_HOT_NEWS_NET_FAIL = 65;
+
+    public static final int SCHOOL_HOT_NEWS_CACHE_SUCCESS = 66;
+    public static final int SCHOOL_HOT_NEWS_CACHE_FAIL = 67;
+
+    //School Trends
+    public static final int SCHOOL_TRENDS_NET_SUCCESS = 74;
+    public static final int SCHOOL_TRENDS_NET_FAIL = 75;
+
+    public static final int SCHOOL_TRENDS_CACHE_SUCCESS = 76;
+    public static final int SCHOOL_TRENDS_CACHE_FAIL = 77;
 }

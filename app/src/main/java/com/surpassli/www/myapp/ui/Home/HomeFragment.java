@@ -18,8 +18,10 @@ public class HomeFragment extends TopNavigationFragment {
         } else if (fragments.size() > 0) {
             fragments.clear();
         }
+        fragments.add(new SchoolHotNewsFragment());
         fragments.add(new SchoolNewsFragment());
         fragments.add(new NoticeFragment());
+        fragments.add(new SchoolTrendsFragment());
     }
 
     public static HomeFragment newInstance(){

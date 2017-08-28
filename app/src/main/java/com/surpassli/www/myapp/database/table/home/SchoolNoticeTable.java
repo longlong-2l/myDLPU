@@ -9,13 +9,13 @@ public class SchoolNoticeTable {
 
     public static final String NAME = "SchoolNoticeTable";
 
-    public static final String SCHOOL_NOTICE_TITLE = "";
+    public static final String SCHOOL_NOTICE_TITLE = "title";
 
-    public static final String SCHOOL_NOTICE_TIME = "";
+    public static final String SCHOOL_NOTICE_TIME = "time";
 
-    public static final String SCHOOL_NOTICE_URL = "";
+    public static final String SCHOOL_NOTICE_URL = "url";
 
-    public static final String MARK_ID = "";
+    public static final String MARK_ID = "mark_id";
 
     public static final String CREATE_TABLE = "create table " + NAME + "(" +
             SCHOOL_NOTICE_TITLE + " text, " +

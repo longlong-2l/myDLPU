@@ -1,33 +1,46 @@
 package com.surpassli.www.myapp.ui.Home;
 
+import android.os.Handler;
+import android.os.Looper;
+
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
-import com.surpassli.www.myapp.model.Home.Notice_Model;
-import com.surpassli.www.myapp.support.adapter.Home.NoticeAdapter;
+import com.surpassli.www.myapp.model.Home.School_News_Model;
+import com.surpassli.www.myapp.support.adapter.Home.SchoolNewsAdapter;
 import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 
 import java.util.List;
 
 /**
- * Created by SurpassLi on 2017/8/15.
- * NoticeFragment
+ * Created by SurpassLi on 2017/8/28.
+ * SchoolTrendsFragment
  */
 
-public class NoticeFragment extends BaseListFragment {
+public class SchoolTrendsFragment extends BaseListFragment {
 
-    private Notice_Model notice_model;
+    private School_News_Model school_news_model;
+
+    @Override
+    public String getTitle() {
+        return InitApp.getContext().getString(R.string.school_trends);
+    }
+
+    @Override
+    public void onDataRefresh() {
+        school_news_model.loadFromNet();
+    }
 
     @Override
     public void initView() {
-        notice_model.loadFromCache();
+        school_news_model.loadFromCache();
     }
 
     @Override
     public void bindAdapter() {
-        notice_model = new Notice_Model();
-        adapter = new NoticeAdapter(getMyActivity(), notice_model);
+        school_news_model = new School_News_Model();
+        adapter = new SchoolNewsAdapter(getMyActivity(),school_news_model);
         recyclerView.setAdapter(adapter);
         displayLoading();
     }
@@ -37,34 +50,26 @@ public class NoticeFragment extends BaseListFragment {
 
     }
 
-    @Override
-    public String getTitle() {
-        return InitApp.getContext().getString(R.string.school_notice);
-    }
-
-    @Override
-    public void onDataRefresh() {
-        notice_model.loadFromNet();
-    }
+    private static Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     public void onEventComing(EventModel eventModel) {
         super.onEventComing(eventModel);
         switch (eventModel.getEventCode()) {
-            case EVENT.SCHOOL_NOTICES_NET_SUCCESS:
+            case EVENT.SCHOOL_NEWS_NET_SUCCESS:
                 List list = eventModel.getDataList();
                 adapter.newList(list);
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NOTICES_NET_FAIL:
+            case EVENT.SCHOOL_NEWS_NET_FAIL:
                 hideLoading();
 //                displayNetworkError();
                 break;
-            case EVENT.SCHOOL_NOTICES_CACHE_SUCCESS:
+            case EVENT.SCHOOL_NEWS_CACHE_SUCCESS:
                 adapter.newList(eventModel.getDataList());
                 hideLoading();
                 break;
-            case EVENT.SCHOOL_NOTICES_CACHE_FAIL:
+            case EVENT.SCHOOL_NEWS_CACHE_FAIL:
                 onDataRefresh();
                 break;
         }

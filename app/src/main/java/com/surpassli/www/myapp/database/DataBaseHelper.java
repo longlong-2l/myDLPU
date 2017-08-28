@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.database.table.AccountTable;
 import com.surpassli.www.myapp.database.table.ExerciseYardTable;
+import com.surpassli.www.myapp.database.table.home.SchoolNewsHotTable;
 import com.surpassli.www.myapp.database.table.home.SchoolNoticeTable;
 import com.surpassli.www.myapp.database.table.home.SchoolNewsTable;
+import com.surpassli.www.myapp.database.table.home.SchoolTrendsTable;
 import com.surpassli.www.myapp.database.table.leisure.FilmTable;
 import com.surpassli.www.myapp.database.table.leisure.ScienceTable;
 
@@ -46,8 +48,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL(ScienceTable.CREATE_TABLE);
 
         //home
+        db.execSQL(SchoolNewsHotTable.CREATE_TABLE);
         db.execSQL(SchoolNewsTable.CREATE_TABLE);
         db.execSQL(SchoolNoticeTable.CREATE_TABLE);
+        db.execSQL(SchoolTrendsTable.CREATE_TABLE);
 
         //活动场所
         db.execSQL(ExerciseYardTable.CREATE_TABLE);

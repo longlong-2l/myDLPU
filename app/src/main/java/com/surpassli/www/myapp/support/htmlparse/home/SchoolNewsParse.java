@@ -1,10 +1,8 @@
 package com.surpassli.www.myapp.support.htmlparse.home;
 
-import android.util.Log;
-
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.model.leisure.FilmModel;
+import com.surpassli.www.myapp.model.IModel;
 import com.surpassli.www.myapp.support.utils.html.HtmlUtil;
 
 import java.io.UnsupportedEncodingException;

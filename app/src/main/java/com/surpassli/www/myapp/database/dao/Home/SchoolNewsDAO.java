@@ -12,7 +12,6 @@ import com.surpassli.www.myapp.database.table.home.SchoolNewsTable;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.model.leisure.FilmModel;
 import com.surpassli.www.myapp.support.htmlparse.home.SchoolNewsParse;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 

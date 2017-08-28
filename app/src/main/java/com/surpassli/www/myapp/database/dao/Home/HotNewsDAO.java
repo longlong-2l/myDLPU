@@ -8,11 +8,11 @@ import android.os.Looper;
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.database.DataBaseHelper;
 import com.surpassli.www.myapp.database.dao.DAO;
-import com.surpassli.www.myapp.database.table.home.SchoolNoticeTable;
+import com.surpassli.www.myapp.database.table.home.SchoolNewsHotTable;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
-import com.surpassli.www.myapp.model.Home.Notice_Model;
-import com.surpassli.www.myapp.support.htmlparse.home.NoticeParse;
+import com.surpassli.www.myapp.model.Home.Hot_News_Model;
+import com.surpassli.www.myapp.support.htmlparse.home.HotNewsParse;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 
 import org.greenrobot.eventbus.EventBus;
@@ -29,40 +29,40 @@ import okhttp3.Response;
  * NoticeDAO
  */
 
-public class NoticeDAO implements DAO<Notice_Model> {
+public class HotNewsDAO implements DAO<Hot_News_Model> {
     @Override
-    public boolean cacheAll(List<Notice_Model> list) {
+    public boolean cacheAll(List<Hot_News_Model> list) {
         if (list == null) {
             return false;
         }
         clearCache();
-        for (Notice_Model model : list) {
+        for (Hot_News_Model model : list) {
             ContentValues values = new ContentValues();
-            values.put(SchoolNoticeTable.MARK_ID, System.currentTimeMillis());
-            values.put(SchoolNoticeTable.SCHOOL_NOTICE_TITLE, model.getNotice_title());
-            values.put(SchoolNoticeTable.SCHOOL_NOTICE_URL, model.getNotice_url());
-            values.put(SchoolNoticeTable.SCHOOL_NOTICE_TIME, model.getNotice_time());
-            DataBaseHelper.insert(SchoolNoticeTable.NAME, values);
+            values.put(SchoolNewsHotTable.MARK_ID, System.currentTimeMillis());
+            values.put(SchoolNewsHotTable.SCHOOL_NEWS_HOT_TITLE, model.getHot_News_title());
+            values.put(SchoolNewsHotTable.SCHOOL_NEWS_HOT_URL, model.getHot_News_url());
+            values.put(SchoolNewsHotTable.SCHOOL_NEWS_HOT_TIME, model.getHot_News_time());
+            DataBaseHelper.insert(SchoolNewsHotTable.NAME, values);
         }
         return true;
     }
 
     @Override
     public boolean clearCache() {
-        DataBaseHelper.clearTable(SchoolNoticeTable.NAME);
+        DataBaseHelper.clearTable(SchoolNewsHotTable.NAME);
         return true;
     }
 
     @Override
     public void loadFromCache() {
         Handler handler = new Handler(Looper.getMainLooper());
-        Cursor cursor = DataBaseHelper.selectAll(SchoolNoticeTable.NAME);
-        final List<Notice_Model> list = new ArrayList<>();
+        Cursor cursor = DataBaseHelper.selectAll(SchoolNewsHotTable.NAME);
+        final List<Hot_News_Model> list = new ArrayList<>();
         while (cursor.moveToNext()) {
-            Notice_Model model = new Notice_Model();
-            model.setNotice_title(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_TITLE)));
-            model.setNotice_url(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_URL)));
-            model.setNotice_url(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_TIME)));
+            Hot_News_Model model = new Hot_News_Model();
+            model.setHot_News_title(cursor.getString(cursor.getColumnIndex(SchoolNewsHotTable.SCHOOL_NEWS_HOT_TITLE)));
+            model.setHot_News_time(cursor.getString(cursor.getColumnIndex(SchoolNewsHotTable.SCHOOL_NEWS_HOT_TIME)));
+            model.setHot_News_url(cursor.getString(cursor.getColumnIndex(SchoolNewsHotTable.SCHOOL_NEWS_HOT_URL)));
             list.add(model);
         }
 
@@ -70,9 +70,9 @@ public class NoticeDAO implements DAO<Notice_Model> {
             @Override
             public void run() {
                 if (!list.isEmpty()) {
-                    EventBus.getDefault().post(new EventModel<Notice_Model>(EVENT.SCHOOL_NOTICES_CACHE_SUCCESS, list));
+                    EventBus.getDefault().post(new EventModel<Hot_News_Model>(EVENT.SCHOOL_HOT_NEWS_CACHE_SUCCESS, list));
                 } else {
-                    EventBus.getDefault().post(new EventModel<Notice_Model>(EVENT.SCHOOL_NOTICES_CACHE_FAIL));
+                    EventBus.getDefault().post(new EventModel<Hot_News_Model>(EVENT.SCHOOL_HOT_NEWS_CACHE_FAIL));
                 }
             }
         });
@@ -87,7 +87,7 @@ public class NoticeDAO implements DAO<Notice_Model> {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        EventBus.getDefault().post(new EventModel<Notice_Model>(EVENT.SCHOOL_NOTICES_NET_FAIL));
+                        EventBus.getDefault().post(new EventModel<Hot_News_Model>(EVENT.SCHOOL_HOT_NEWS_NET_FAIL));
                     }
                 });
             }
@@ -96,16 +96,16 @@ public class NoticeDAO implements DAO<Notice_Model> {
             public void onResponse(Call call, Response response) throws IOException {
                 byte[] b = response.body().bytes();
                 String res = new String(b, "GB2312");
-                NoticeParse notices_Parse = new NoticeParse(res);
-                final List<Notice_Model> notices_list = notices_Parse.getEndList();
+                HotNewsParse notices_Parse = new HotNewsParse(res);
+                final List<Hot_News_Model> hot_news_list = notices_Parse.getEndList();
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        if (!notices_list.isEmpty()) {
-                            cacheAll(notices_list);
-                            EventBus.getDefault().post(new EventModel<Notice_Model>(EVENT.SCHOOL_NOTICES_NET_SUCCESS, notices_list));
+                        if (!hot_news_list.isEmpty()) {
+                            cacheAll(hot_news_list);
+                            EventBus.getDefault().post(new EventModel<Hot_News_Model>(EVENT.SCHOOL_HOT_NEWS_NET_SUCCESS, hot_news_list));
                         } else {
-                            EventBus.getDefault().post(new EventModel<Notice_Model>(EVENT.SCHOOL_NEWS_NET_FAIL));
+                            EventBus.getDefault().post(new EventModel<Hot_News_Model>(EVENT.SCHOOL_HOT_NEWS_NET_FAIL));
                         }
                     }
                 });

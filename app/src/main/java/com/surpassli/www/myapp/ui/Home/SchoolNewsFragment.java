@@ -8,7 +8,6 @@ import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.support.Setting;
 import com.surpassli.www.myapp.support.adapter.Home.SchoolNewsAdapter;
 import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 

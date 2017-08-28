@@ -32,12 +32,10 @@ public abstract class BaseListAdapter<M extends IModel, VH extends RecyclerView.
 
     @Override
     public int getItemCount() {
-        Log.d(TAG, "getItemCount: ");
         return mItems == null ? 0 : mItems.size();
     }
 
     protected M getItem(int position){
-        Log.d(TAG, "getItem: ");
         return mItems.get(position);
     }
 

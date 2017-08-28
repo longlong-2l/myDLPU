@@ -30,25 +30,43 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    //获取主色调
+    //MD风格控件
+    //网络访问框架
+    //JSON解析框架
+    //友盟统计
+    //数据库操作框架
+    //图片缓存框架
+    //数据绑定框架
+    //自定义轮播图
+    //3D云标签
+    //自定义TabLayout
+    //自定义搜索框
+    //界面数据传递框架
+    //HTML解析
+    compile files('libs/jsoup-1.8.3.jar')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
+    compile 'junit:junit:4.12'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+    compile 'com.android.support:palette-v7:23.1.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.google.code.gson:gson:2.7'
-    compile 'com.android.support:cardview-v7:25.3.1'
-    compile 'junit:junit:4.12'
     compile 'com.umeng.analytics:analytics:latest.integration'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
     compile 'org.litepal.android:core:1.4.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jakewharton:butterknife:8.7.0'
     compile 'com.jude:rollviewpager:1.2.9'
     compile 'com.moxun:tagcloudlib:1.1.3'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.ogaclejapan.smarttablayout:library:1.6.0@aar'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    testCompile 'junit:junit:4.12'
 }

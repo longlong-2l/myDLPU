@@ -56,8 +56,10 @@
     <string name="food_building">food_building</string>
 
     <!--主页-->
+    <string name="school_hot_news">HotNews</string>
     <string name="school_news">News</string>
     <string name="school_notice">Notices</string>
+    <string name="school_trends">Trends</string>
 
     <!--课余-->
     <string name="science">Science</string>

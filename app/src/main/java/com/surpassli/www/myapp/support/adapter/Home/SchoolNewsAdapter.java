@@ -7,13 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
-import com.surpassli.www.myapp.ui.Base.BaseListFragment;
 
-import java.util.List;
 
 /**
  * Created by SurpassLi on 2017/8/15.
