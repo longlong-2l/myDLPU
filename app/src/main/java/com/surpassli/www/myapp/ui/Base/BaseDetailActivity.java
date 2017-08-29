@@ -11,8 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,31 +25,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
-import com.baidu.platform.comapi.map.F;
-import com.bumptech.glide.Glide;
-import com.google.repacked.treelayout.internal.util.java.lang.string.StringUtil;
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.common.DisplayUtil;
 import com.surpassli.www.myapp.support.utils.common.ImageUtil;
-import com.surpassli.www.myapp.ui.leisure.ScienceDetailActivity;
 import com.surpassli.www.myapp.view.base.BaseView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.OkHttpClient;
 import okhttp3.Response;
 
 /**
@@ -126,7 +115,9 @@ public abstract class BaseDetailActivity extends BaseActivity implements BaseVie
 
         // 开启缓存
         contentView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        //开启Dom Storage Api,可用于H5缓存数据，类似cookie但比cookie可存储的数据量大
         contentView.getSettings().setDomStorageEnabled(true);
+        //支持本地存储
         contentView.getSettings().setDatabaseEnabled(true);
 
         contentView.setWebViewClient(new WebViewClient() {

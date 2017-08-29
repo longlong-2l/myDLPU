@@ -15,6 +15,7 @@ import com.surpassli.www.myapp.support.utils.common.SettingUtil;
 
 /**
  * Created by SurpassLi on 2017/8/7.
+ * SettingFragment
  */
 
 public class SettingFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
@@ -62,7 +63,6 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
         mLightMode.setOnPreferenceClickListener(this);
     }
 
-
     @Override
     public boolean onPreferenceClick(Preference preference) {
         if (preference == mAppLanguage) {
@@ -84,7 +84,6 @@ public class SettingFragment extends PreferenceFragment implements Preference.On
                 .setSingleChoiceItems(
                         getResources().getStringArray(R.array.language), SettingUtil.getCurrentLanguage(),
                         new DialogInterface.OnClickListener() {
-
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 if (i != SettingUtil.getCurrentLanguage()) {

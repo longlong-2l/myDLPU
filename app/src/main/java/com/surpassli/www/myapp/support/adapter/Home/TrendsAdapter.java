@@ -49,9 +49,9 @@ public class TrendsAdapter extends BaseListAdapter<Trends_Model, TrendsAdapter.V
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             Intent intent = new Intent(mContext,SchoolTrendsDetailActivity.class);
-                intent.putExtra("url",school_trends_model.getTrends_url());
-                intent.putExtra("title",mContext.getResources().getString(R.string.school_trends));
+                Intent intent = new Intent(mContext, SchoolTrendsDetailActivity.class);
+                intent.putExtra("url", school_trends_model.getTrends_url());
+                intent.putExtra("title", mContext.getResources().getString(R.string.school_trends));
                 mContext.startActivity(intent);
             }
         });

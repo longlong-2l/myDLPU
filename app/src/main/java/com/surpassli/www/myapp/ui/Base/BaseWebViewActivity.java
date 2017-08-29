@@ -1,11 +1,9 @@
 package com.surpassli.www.myapp.ui.Base;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -14,12 +12,17 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.surpassli.www.myapp.R;
+import com.surpassli.www.myapp.event.EventModel;
+import com.surpassli.www.myapp.view.base.BaseView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * Created by SurpassLi on 2017/2/11.
  * Description: BaseWebViewActivity
  */
-public abstract class BaseWebViewActivity extends BaseToolBarActivity {
+public abstract class BaseWebViewActivity extends BaseToolBarActivity implements BaseView {
     protected WebView wv_base;
     protected ProgressBar progressBar;
     protected boolean isLoading = true;
@@ -31,13 +34,32 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
         setContentView(R.layout.activity_basewebview);
         initToolBar();
         setToolbarTitle(title);
-        initData();
+        initView();
+        EventBus.getDefault().register(this);
+    }
+    @Subscribe
+    public abstract void onEventComing(EventModel eventModel);  //EventBus绑定
+
+
+    @Override
+    public void hideLoading() {
+        if (progressBar!=null) {
+            progressBar.setVisibility(View.GONE);
+        }
     }
 
-    protected abstract String getLink();
+    @Override
+    public void displayLoading() {
+        if (progressBar != null) {
+            progressBar.setVisibility(View.VISIBLE);
+        }
+    }
 
-    private void initData() {
-        getLink();
+    @Override
+    public void displayNetworkError() { }
+
+    @Override
+    public void initView() {
         wv_base = (WebView) findViewById(R.id.wv_base);
         progressBar = (ProgressBar) findViewById(R.id.pb_basewebview);
         WebSettings webSettings = wv_base.getSettings();
@@ -70,29 +92,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//                if (url.startsWith("http://") || url.startsWith("https://")) {
-//                    Intent webintent = new Intent(context, ShowResultWebViewActivity.class);
-//                    webintent.putExtra("url", url);
-//                    context.startActivity(webintent);
-//                } else {
-//                    Log.e("TAG", "url=" + url);
-//                }
                 return true;
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                String fun = "javascript:function getClass(parent,sClass) { var aEle=parent.getElementsByTagName('div'); var aResult=[]; var i=0; for(i<0;i<aEle.length;i++) { if(aEle[i].className==sClass) { aResult.push(aEle[i]); } }; return aResult; } ";
-
-                view.loadUrl(fun);
-
-                String fun2 = "javascript:function hideOther() {getClass(document,'page_header')[0].style.display='none'; getClass(document,'the_img')[0].style.display='none'; getClass(document,'the_sidebar')[0].style.display='none';}";
-
-                view.loadUrl(fun2);
-
-                view.loadUrl("javascript:hideOther();");
-
-                super.onPageFinished(view, url);
             }
         });
         //管理加载进度的方法
@@ -109,9 +109,12 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity {
                 }
             }
         });
+//        wv_base.loadDataWithBaseURL("file:///android_asset/", "<link rel=\"stylesheet\" type=\"text/css\" href=\"guokr.css\" />" + getLink(), "text/html", "utf-8", null);
+    }
 
-        if (!TextUtils.isEmpty(getLink())) {
-            wv_base.loadUrl(getLink());
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

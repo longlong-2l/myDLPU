@@ -2,6 +2,7 @@ package com.surpassli.www.myapp.ui.Home;
 
 import android.content.Intent;
 
+import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
 
 /**
@@ -11,10 +12,15 @@ import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
 
 public class SchoolHotNewsDetailActivity extends BaseWebViewActivity {
 
-    @Override
+
     protected String getLink() {
         Intent intent = getIntent();
         title = intent.getStringExtra("title");
         return intent.getStringExtra("url");
+    }
+
+    @Override
+    public void onEventComing(EventModel eventModel) {
+
     }
 }
