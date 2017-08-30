@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.support.adapter.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.Home.SchoolDetailActivity;
 
 
 /**
@@ -36,13 +38,16 @@ public class SchoolNewsAdapter extends BaseListAdapter<School_News_Model, School
 
     @Override
     public void onBindViewHolder(VH holder, int position) {
-        School_News_Model school_news_model = getItem(position);
+        final School_News_Model school_news_model = getItem(position);
         holder.title.setText(school_news_model.getSchool_news_title());
         holder.time.setText(school_news_model.getSchool_news_time());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(mContext, SchoolDetailActivity.class);
+                intent.putExtra("url", school_news_model.getSchool_news_url());
+                intent.putExtra("title", mContext.getResources().getString(R.string.school_news));
+                mContext.startActivity(intent);
             }
         });
     }

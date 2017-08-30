@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.Hot_News_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.Home.SchoolDetailActivity;
 import com.surpassli.www.myapp.ui.Home.SchoolHotNewsDetailActivity;
 
 import java.util.List;
@@ -49,9 +50,9 @@ public class HotNewsAdapter extends BaseListAdapter<Hot_News_Model, HotNewsAdapt
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, SchoolHotNewsDetailActivity.class);
+                Intent intent = new Intent(mContext, SchoolDetailActivity.class);
                 intent.putExtra("url", hot_news_model.getHot_News_url());
-                intent.putExtra("title",mContext.getResources().getString(R.string.school_hot_news));
+                intent.putExtra("title", mContext.getResources().getString(R.string.school_hot_news));
                 mContext.startActivity(intent);
             }
         });

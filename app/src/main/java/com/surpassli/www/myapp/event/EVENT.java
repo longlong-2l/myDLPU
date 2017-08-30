@@ -62,6 +62,6 @@ public class EVENT {
     public static final int SCHOOL_TRENDS_CACHE_SUCCESS = 76;
     public static final int SCHOOL_TRENDS_CACHE_FAIL = 77;
 
-    public static final int SCHOOL_TRENDS_DETAIL_SUCCESS = 78;
-    public static final int SCHOOL_TRENDS_DETAIL_FAIL = 79;
+    public static final int SCHOOL_DETAIL_SUCCESS = 78;
+    public static final int SCHOOL_DETAIL_FAIL = 79;
 }

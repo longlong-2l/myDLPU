@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.Trends_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
-import com.surpassli.www.myapp.ui.Home.SchoolTrendsDetailActivity;
+import com.surpassli.www.myapp.ui.Home.SchoolDetailActivity;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class TrendsAdapter extends BaseListAdapter<Trends_Model, TrendsAdapter.V
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, SchoolTrendsDetailActivity.class);
+                Intent intent = new Intent(mContext, SchoolDetailActivity.class);
                 intent.putExtra("url", school_trends_model.getTrends_url());
                 intent.putExtra("title", mContext.getResources().getString(R.string.school_trends));
                 mContext.startActivity(intent);

@@ -62,7 +62,7 @@ public class NoticeDAO implements DAO<Notice_Model> {
             Notice_Model model = new Notice_Model();
             model.setNotice_title(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_TITLE)));
             model.setNotice_url(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_URL)));
-            model.setNotice_url(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_TIME)));
+            model.setNotice_time(cursor.getString(cursor.getColumnIndex(SchoolNoticeTable.SCHOOL_NOTICE_TIME)));
             list.add(model);
         }
 

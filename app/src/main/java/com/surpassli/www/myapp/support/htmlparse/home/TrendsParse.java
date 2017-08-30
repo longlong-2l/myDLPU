@@ -15,7 +15,6 @@ import java.util.List;
 
 public class TrendsParse {
 
-
     private String parseStr;
     private static final String ALL_ITEM_CSS = "ul[class=more_list]";//所有列表选择css
     private static final String ITEM_CSS = "li";

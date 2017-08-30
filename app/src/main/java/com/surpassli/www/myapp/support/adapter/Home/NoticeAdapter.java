@@ -1,6 +1,7 @@
 package com.surpassli.www.myapp.support.adapter.Home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.Notice_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
+import com.surpassli.www.myapp.ui.Home.SchoolDetailActivity;
 
 import java.util.List;
 
@@ -47,7 +49,10 @@ public class NoticeAdapter extends BaseListAdapter<Notice_Model, NoticeAdapter.V
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              school_notices_model.getNotice_url();
+                Intent intent = new Intent(mContext, SchoolDetailActivity.class);
+                intent.putExtra("url", school_notices_model.getNotice_url());
+                intent.putExtra("title", mContext.getResources().getString(R.string.school_notice));
+                mContext.startActivity(intent);
             }
         });
     }

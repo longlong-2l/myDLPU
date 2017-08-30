@@ -2,7 +2,6 @@ package com.surpassli.www.myapp.ui.Base;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -26,20 +25,19 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
     protected WebView wv_base;
     protected ProgressBar progressBar;
     protected boolean isLoading = true;
-    protected String title = "";
+    protected String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basewebview);
         initToolBar();
-        setToolbarTitle(title);
         initView();
+        setToolbarTitle(title);
         EventBus.getDefault().register(this);
     }
     @Subscribe
     public abstract void onEventComing(EventModel eventModel);  //EventBus绑定
-
 
     @Override
     public void hideLoading() {
@@ -109,7 +107,6 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
                 }
             }
         });
-//        wv_base.loadDataWithBaseURL("file:///android_asset/", "<link rel=\"stylesheet\" type=\"text/css\" href=\"guokr.css\" />" + getLink(), "text/html", "utf-8", null);
     }
 
     @Override

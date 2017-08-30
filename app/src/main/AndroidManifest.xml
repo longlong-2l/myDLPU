@@ -102,7 +102,7 @@
             android:name=".ui.Home.SchoolHotNewsDetailActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.Home.SchoolTrendsDetailActivity"
+            android:name=".ui.Home.SchoolDetailActivity"
             android:launchMode="singleTask" />
 
         <!-- dlpuAppKey -->

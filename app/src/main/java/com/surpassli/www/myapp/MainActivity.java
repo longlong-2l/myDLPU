@@ -2,11 +2,11 @@ package com.surpassli.www.myapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
@@ -16,40 +16,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import com.surpassli.www.myapp.ui.Home.HomeFragment;
 import com.surpassli.www.myapp.ui.leisure.LeisureFragment;
 import com.surpassli.www.myapp.view.home.HomeView;
-import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.presenter.Home.HomePresenter;
 import com.surpassli.www.myapp.presenter.Home.HomePresenterImpl;
-import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.ui.Base.BaseActivity;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
 import com.surpassli.www.myapp.ui.EducationFragment;
-import com.surpassli.www.myapp.ui.LifeFragment;
 import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.MoreFragment;
-import com.surpassli.www.myapp.ui.MyFragment;
 import com.surpassli.www.myapp.ui.Setting.SettingActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Response;
-
 public class MainActivity extends BaseActivity implements HomeView, NavigationView.OnNavigationItemSelectedListener {
-    private static final String TAG = "MainActivity";
     public static HomePresenter presenter;
     private FragmentManager fragmentManager = getSupportFragmentManager();
-    private FragmentTransaction fragmentTransaction;
     private long lastPressTime = 0;
     private DrawerLayout drawer;
     private CoordinatorLayout cl_main;
@@ -63,6 +46,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
         boolean isLogin = prefs.getBoolean("isLogin", false);
         int userId = prefs.getInt("userId", 0);
@@ -91,14 +75,14 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
         cl_main = (CoordinatorLayout) findViewById(R.id.main_content);
     }
@@ -163,7 +147,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
 
     private void switchFragment(TopNavigationFragment fragment, String title) {
         setTitle(title);
-        fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id._main_frame_layout, fragment);
         fragmentTransaction.commit();
     }
