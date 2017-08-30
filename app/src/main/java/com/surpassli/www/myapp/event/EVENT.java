@@ -64,4 +64,11 @@ public class EVENT {
 
     public static final int SCHOOL_DETAIL_SUCCESS = 78;
     public static final int SCHOOL_DETAIL_FAIL = 79;
+
+    //WeatherFragment
+    public static final int FIRSTWEATHER_NET_SUCCESS = 84;
+    public static final int FIRSTWEATHER_NET_FAIL = 85;
+
+    public static final int FIRSTWEATHER_CACHE_SUCCESS = 86;
+    public static final int FIRSTWEATHER_CACHE_FAIL = 87;
 }

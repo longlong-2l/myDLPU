@@ -28,6 +28,13 @@
     <string name="film">影评</string>
     <string name="hot">热度 ：</string>
 
+    <!--生活-->
+    <string name="weather">天气</string>
+    <string name="location">位置</string>
+    <string name="country_weather">全国天气</string>
+    <string name="AQI">AQI指数</string>
+    <string name="PM2_5">PM2.5指数</string>
+
     <!--考试成绩-->
     <string name="exam_property">属性</string>
     <string name="exam_one">考试一</string>

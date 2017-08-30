@@ -20,6 +20,7 @@ import android.view.MenuItem;
 
 import com.surpassli.www.myapp.ui.Home.HomeFragment;
 import com.surpassli.www.myapp.ui.leisure.LeisureFragment;
+import com.surpassli.www.myapp.ui.life.LifeFragment;
 import com.surpassli.www.myapp.view.home.HomeView;
 import com.surpassli.www.myapp.presenter.Home.HomePresenter;
 import com.surpassli.www.myapp.presenter.Home.HomePresenterImpl;
@@ -108,11 +109,6 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
                 drawer.closeDrawer(GravityCompat.START);
                 switchFragment(HomeFragment.newInstance(), String.valueOf(item.getTitle()));
                 break;
-            case R.id.library:
-                presenter.clearAllFragments();
-                drawer.closeDrawer(GravityCompat.START);
-                switchFragment(EducationFragment.getInstance(), String.valueOf(item.getTitle()));
-                break;
             case R.id.leisure:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
@@ -121,12 +117,17 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
             case R.id.life:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
+                switchFragment(LifeFragment.getInstance(), String.valueOf(item.getTitle()));
+                break;
+            case R.id.library:
+                presenter.clearAllFragments();
+                drawer.closeDrawer(GravityCompat.START);
                 switchFragment(MoreFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.education:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
-                switchFragment(EducationFragment.getInstance(), String.valueOf(item.getTitle()));
+                switchFragment(MoreFragment.getInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.theme:
                 drawer.closeDrawer(GravityCompat.START);
