@@ -3,10 +3,8 @@ package com.surpassli.www.myapp.ui.More.BaiduMap;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
@@ -24,11 +22,11 @@ import com.surpassli.www.myapp.R;
 
 /**
  * Created by SurpassLi on 2017/2/14.
+ * LocationActivity
  */
 public class LocationActivity extends AppCompatActivity {
     private TextureMapView mTextureMapView;
     private BaiduMap mBaiduMap;
-    private Toolbar mToolBar;
     //定位相关
     private LocationClient mLocationClient;
     private myLocationListener mLocationListener;
@@ -139,16 +137,6 @@ public class LocationActivity extends AppCompatActivity {
 
     private void initView() {
         mTextureMapView = (TextureMapView) findViewById(R.id.mv_baidu);
-        mToolBar = (Toolbar) findViewById(R.id.tb_location);
-        setSupportActionBar(mToolBar);
-        getSupportActionBar().setTitle("地图");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//给左上角图标的左边加上一个返回的图标 。对应ActionBar.DISPLAY_HOME_AS_UP
-        mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         //设置打开Activity时直接显示500米左右
         mBaiduMap = mTextureMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);

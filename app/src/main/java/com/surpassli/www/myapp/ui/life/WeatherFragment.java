@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -34,6 +36,7 @@ public class WeatherFragment extends BaseFragment {
 
     private LinearLayout forecastLayout;
     private TextView country_weather;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,14 @@ public class WeatherFragment extends BaseFragment {
     @Override
     protected void init() {
         forecastLayout = (LinearLayout) parentView.findViewById(R.id.first_forecast_layout);
+        swipeRefreshLayout = (SwipeRefreshLayout) parentView.findViewById(R.id.weather_refresh);
         country_weather = (TextView) parentView.findViewById(R.id.tv_country_weather);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getDataFromNet("CN101070201");
+            }
+        });
         country_weather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +109,7 @@ public class WeatherFragment extends BaseFragment {
                             SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getMyActivity()).edit();
                             editor.putString("weather", responseText);
                             editor.apply();
+                            swipeRefreshLayout.setRefreshing(false);
                             EventBus.getDefault().post(new EventModel<Weather>(EVENT.FIRSTWEATHER_NET_SUCCESS, weather));
                         } else {
                             EventBus.getDefault().post(new EventModel<Weather_Forecast>(EVENT.FIRSTWEATHER_NET_FAIL));

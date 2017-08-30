@@ -70,7 +70,7 @@
     <!--生活-->
     <string name="weather">Weather</string>
     <string name="location">Location</string>
-    <string name="country_weather">Country Weather</string>
+    <string name="country_weather">Search Country Weather</string>
     <string name="AQI">AQI</string>
     <string name="PM2_5">PM2.5</string>
 

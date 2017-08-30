@@ -31,7 +31,7 @@
     <!--生活-->
     <string name="weather">天气</string>
     <string name="location">位置</string>
-    <string name="country_weather">全国天气</string>
+    <string name="country_weather">查看全国天气</string>
     <string name="AQI">AQI指数</string>
     <string name="PM2_5">PM2.5指数</string>
 
