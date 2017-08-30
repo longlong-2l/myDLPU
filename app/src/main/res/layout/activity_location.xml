@@ -33,9 +33,15 @@
             android:text="" />
     </LinearLayout>
 
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/mv_baidu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dadsadad"
+        android:id="@+id/test"/>
+
+    <!--<com.baidu.mapapi.map.TextureMapView-->
+        <!--android:id="@+id/mv_baidu"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
 </LinearLayout>

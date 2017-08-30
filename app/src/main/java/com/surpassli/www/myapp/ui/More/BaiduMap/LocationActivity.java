@@ -40,7 +40,7 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //初始化Context全局变量，在setContentView之前调用
         SDKInitializer.initialize(getApplicationContext());
-        setContentView(R.layout.activity_location);
+        setContentView(R.layout.activity_location2);
         this.mContext = this;
         initView();
         initLocation();
