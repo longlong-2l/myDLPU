@@ -2,8 +2,9 @@ package com.surpassli.www.myapp.support.htmlparse.home;
 
 import com.surpassli.www.myapp.api.AppApi;
 import com.surpassli.www.myapp.model.Home.School_News_Model;
-import com.surpassli.www.myapp.model.IModel;
 import com.surpassli.www.myapp.support.utils.html.HtmlUtil;
+
+import org.jsoup.Jsoup;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -35,37 +36,18 @@ public class SchoolNewsParse {
             List<String> contentUrl = new ArrayList<>();
 
             HtmlUtil htmlUtil = new HtmlUtil(parseStr);
-            List all_list = htmlUtil.parseRawString(ALL_ITEM_CSS);
-            if (all_list == null || all_list.isEmpty()) {
-                return;
-            }
-            htmlUtil = new HtmlUtil(all_list.get(0).toString());
+            String all = htmlUtil.parseToString(ALL_ITEM_CSS);
+            htmlUtil = new HtmlUtil(all);
             List<String> titleString = htmlUtil.parseRawString(ITEM_CSS);
             for (String resultString : titleString) {
                 //解析内容Url
-                String urlFirstCut[] = resultString.split("<li><a href=\"");
-                if (urlFirstCut.length > 1) {
-                    String urlSecondCut[] = urlFirstCut[1].split("\" target=\"_blank\"");
-                    if (urlSecondCut.length > 1) {
-                        contentUrl.add(urlSecondCut[0]);
-                    }
-                }
-                //解析时间
-                String timeFirstCut[] = resultString.split("more_news_time\">");
-                if (timeFirstCut.length > 1) {
-                    String timeSecondCut[] = timeFirstCut[1].split("</span>");
-                    if (timeSecondCut.length > 1) {
-                        time.add(timeSecondCut[0]);
-                    }
-                }
+                contentUrl.add(Jsoup.parse(resultString).select("a").attr("href"));
+                String content = Jsoup.parse(resultString).body().text();
+                String contentCut[] = content.split(" ");
                 //解析标题
-                String titleFirstCut[] = resultString.split("target=\"_blank\">");
-                if (titleFirstCut.length > 1) {
-                    String titleSecondCut[] = titleFirstCut[1].split("<span class=\"more_news_time\">");
-                    if (titleSecondCut.length > 1) {
-                        title.add(titleSecondCut[0]);
-                    }
-                }
+                title.add(contentCut[0]);
+                //解析时间
+                time.add(contentCut[1]);
             }
             for (int i = 0; i < titleString.size(); i++) {
                 endList.add(new School_News_Model(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));

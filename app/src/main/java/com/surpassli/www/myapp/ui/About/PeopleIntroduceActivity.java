@@ -16,8 +16,9 @@ public class PeopleIntroduceActivity extends BaseWebViewActivity {
 
     @Override
     public void initView() {
-        super.initView();
         Intent intent = getIntent();
+        styleView = intent.getStringExtra(BaseWebViewActivity.VIEW_STYLE);
+        super.initView();
         wv_base.loadUrl(intent.getStringExtra("url"));
     }
 

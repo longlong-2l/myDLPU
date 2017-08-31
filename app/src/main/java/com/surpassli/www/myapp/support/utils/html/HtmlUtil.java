@@ -1,5 +1,7 @@
 package com.surpassli.www.myapp.support.utils.html;
 
+import android.util.Log;
+
 import com.surpassli.www.myapp.support.utils.common.TextUtil;
 
 import org.jsoup.Jsoup;
@@ -60,6 +62,14 @@ public class HtmlUtil {
             resultList.add(myElement.get(i).toString());
         }
         return resultList;
+    }
+
+    /**
+     * 返回解析后的原生html
+     * 参数（css选择样式）
+     */
+    public String parseToString(String cssQuery) {
+        return  doc.select(cssQuery).toString();
     }
 
     /**

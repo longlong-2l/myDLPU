@@ -14,8 +14,6 @@ import java.util.List;
  */
 
 public class jianshuListParse {
-    private static final String CUT_LEFT_STR = "hide loader-tiny";//左边切割字符串
-    private static final String CUT_RIGHT_STR = "reject-collection-submission";//右边切割字符串
     private static final String ALL_ITEM_CSS = "ul[class=note-list]";//所有列表选择css
     private static final String ITEM_CSS = "li";
     private static final String ITEM_TITLE_CSS = "a[class=title]";

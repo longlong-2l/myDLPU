@@ -1,14 +1,15 @@
 package com.surpassli.www.myapp.ui.Base;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.surpassli.www.myapp.R;
@@ -27,6 +28,10 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
     protected ProgressBar progressBar;
     protected boolean isLoading = true;
     protected String title;
+    protected CardView cv_cardView;
+    protected String styleView;
+    public static final String VIEW_STYLE = "viewStyle";
+    public static final String ALL_VIEW = "allView";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +39,6 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
         setContentView(R.layout.activity_basewebview);
         initToolBar();
         initView();
-        Intent intent = getIntent();
-        String url = intent.getStringExtra("url");
-        if (url != null) {
-            wv_base.loadUrl(url);
-        }
         setToolbarTitle(title);
         EventBus.getDefault().register(this);
     }
@@ -68,6 +68,17 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
     public void initView() {
         wv_base = (WebView) findViewById(R.id.wv_base);
         progressBar = (ProgressBar) findViewById(R.id.pb_basewebview);
+        cv_cardView = (CardView) findViewById(R.id.cv_web);
+        if (ALL_VIEW.equals(styleView)) {
+            FrameLayout.LayoutParams cardParams = (FrameLayout.LayoutParams) cv_cardView.getLayoutParams();
+            cardParams.leftMargin = 0;
+            cardParams.rightMargin = 0;
+            cv_cardView.setLayoutParams(cardParams);
+            FrameLayout.LayoutParams webParams = (FrameLayout.LayoutParams) wv_base.getLayoutParams();
+            webParams.leftMargin = 0;
+            webParams.rightMargin = 0;
+            wv_base.setLayoutParams(webParams);
+        }
         WebSettings webSettings = wv_base.getSettings();
         webSettings.setJavaScriptEnabled(true);
         if (!getApplication().getString(R.string.app_introduce).equals(title) && !getApplication().getString(R.string.license).equals(title)) {
@@ -92,13 +103,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
         wv_base.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view,url,favicon);
-                progressBar.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return true;
+                super.onPageStarted(view, url, favicon);
             }
 
             @Override
@@ -114,7 +119,7 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
                 super.onProgressChanged(view, newProgress);
                 if (isLoading) {
                     progressBar.incrementProgressBy(newProgress - progressBar.getProgress());
-                    if (newProgress > 99) {
+                    if (newProgress >= 50) {
                         isLoading = false;
                         progressBar.setVisibility(View.GONE);
                     }

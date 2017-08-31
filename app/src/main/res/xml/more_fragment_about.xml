@@ -29,7 +29,7 @@
         <Preference
             android:icon="@mipmap/ic_xu42"
             android:key="author_php"
-            android:summary="http://xu42.cn/"
+            android:summary="https://xu42.cn"
             android:title="xu42" />
     </PreferenceCategory>
     <PreferenceCategory android:title="Web前端">

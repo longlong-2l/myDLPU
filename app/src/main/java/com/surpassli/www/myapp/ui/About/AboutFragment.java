@@ -74,14 +74,17 @@ public class AboutFragment extends PreferenceFragment implements Preference.OnPr
         } else if (author_android == preference) {
             Intent intent = new Intent(getActivity(), PeopleIntroduceActivity.class);
             intent.putExtra("url",author_android.getSummary());
+            intent.putExtra(BaseWebViewActivity.VIEW_STYLE,BaseWebViewActivity.ALL_VIEW);
             startActivity(intent);
         } else if (author_php == preference) {
             Intent intent = new Intent(getActivity(), PeopleIntroduceActivity.class);
             intent.putExtra("url",author_php.getSummary());
+            intent.putExtra(BaseWebViewActivity.VIEW_STYLE,BaseWebViewActivity.ALL_VIEW);
             startActivity(intent);
         } else if (author_web == preference) {
             Intent intent = new Intent(getActivity(), PeopleIntroduceActivity.class);
             intent.putExtra("url",author_web.getSummary());
+            intent.putExtra(BaseWebViewActivity.VIEW_STYLE,BaseWebViewActivity.ALL_VIEW);
             startActivity(intent);
         }
         return false;
