@@ -14,7 +14,6 @@ import com.surpassli.www.myapp.event.EVENT;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.model.Education.EducationFileModel;
 import com.surpassli.www.myapp.support.htmlparse.Education.EducationFileParse;
-import com.surpassli.www.myapp.support.htmlparse.home.HotNewsParse;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 
 import org.greenrobot.eventbus.EventBus;

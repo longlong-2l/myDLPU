@@ -96,6 +96,11 @@ public class AppApi {
     public  static final String SCHOOL_NEWS_HOT = "http://www.dlpu.edu.cn/more/37";
 
     /**
+     * 教务处基础
+     */
+    public  static final String EDUCATION = "http://jiaowu.dlpu.edu.cn";
+
+    /**
      * 教务通知公告_html
      */
     public  static final String EDUCATION_NOTICE = "http://jiaowu.dlpu.edu.cn/more/3";

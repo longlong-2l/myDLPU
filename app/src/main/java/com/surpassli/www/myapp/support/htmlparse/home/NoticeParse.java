@@ -44,14 +44,14 @@ public class NoticeParse {
                 //解析内容Url
                 contentUrl.add(Jsoup.parse(resultString).select("a").attr("href"));
                 String content = Jsoup.parse(resultString).body().text();
-                String contentCut[] = content.split(" ");
+                String contentCut[] = content.split("\\[");
                 //解析标题
                 title.add(contentCut[0]);
                 //解析时间
-                time.add(contentCut[1]);
+                time.add("[" + contentCut[1]);
             }
             for (int i = 0; i < titleString.size(); i++) {
-                endList.add(new Notice_Model(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));
+                endList.add(new Notice_Model(AppApi.SCHOOL + contentUrl.get(i), title.get(i), time.get(i)));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();

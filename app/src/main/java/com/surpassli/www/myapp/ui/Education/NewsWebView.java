@@ -8,7 +8,6 @@ import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
  * BaseWebViewActivity
  */
 public class NewsWebView extends BaseWebViewActivity {
-    private String url;
 
     @Override
     public void onEventComing(EventModel eventModel) {
