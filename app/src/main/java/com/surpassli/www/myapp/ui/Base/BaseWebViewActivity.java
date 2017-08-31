@@ -1,5 +1,6 @@
 package com.surpassli.www.myapp.ui.Base;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -33,15 +34,21 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
         setContentView(R.layout.activity_basewebview);
         initToolBar();
         initView();
+        Intent intent = getIntent();
+        String url = intent.getStringExtra("url");
+        if (url != null) {
+            wv_base.loadUrl(url);
+        }
         setToolbarTitle(title);
         EventBus.getDefault().register(this);
     }
+
     @Subscribe
     public abstract void onEventComing(EventModel eventModel);  //EventBus绑定
 
     @Override
     public void hideLoading() {
-        if (progressBar!=null) {
+        if (progressBar != null) {
             progressBar.setVisibility(View.GONE);
         }
     }
@@ -54,7 +61,8 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
     }
 
     @Override
-    public void displayNetworkError() { }
+    public void displayNetworkError() {
+    }
 
     @Override
     public void initView() {
@@ -84,13 +92,19 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
         wv_base.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageFinished(view, url);
-                progressBar.setVisibility(View.GONE);
+                super.onPageStarted(view,url,favicon);
+                progressBar.setVisibility(View.VISIBLE);
             }
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return true;
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                progressBar.setVisibility(View.GONE);
             }
         });
         //管理加载进度的方法

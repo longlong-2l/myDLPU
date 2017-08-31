@@ -1,7 +1,6 @@
-package com.surpassli.www.myapp.ui.More.About;
+package com.surpassli.www.myapp.ui.About;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +19,12 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/2/17.
+ * FeedBackActivity
  */
 public class FeedBackActivity extends BaseToolBarActivity {
     private EditText respondentET;
     private EditText emailET;
     private EditText bodyET;
-    private MenuItem sendMenu;
-    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +38,8 @@ public class FeedBackActivity extends BaseToolBarActivity {
     private void initView() {
         respondentET = (EditText) findViewById(R.id.respondent);
         emailET = (EditText) findViewById(R.id.email);
-        bodyET = (EditText) findViewById(R.id.respondent);
-        mButton = (Button) findViewById(R.id.bt_submit);
+        bodyET = (EditText) findViewById(R.id.body);
+        Button mButton = (Button) findViewById(R.id.bt_submit);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

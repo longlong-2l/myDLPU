@@ -34,6 +34,10 @@
     <string name="country_weather">查看全国天气</string>
     <string name="AQI">AQI指数</string>
     <string name="PM2_5">PM2.5指数</string>
+    <string name="normal_map">普通地图</string>
+    <string name="satellite_map">卫星地图</string>
+    <string name="traffic_map">实时交通</string>
+    <string name="my_location">我的位置</string>
 
     <!--考试成绩-->
     <string name="exam_property">属性</string>

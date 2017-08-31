@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
+import com.surpassli.www.myapp.ui.About.About_us_activity;
 import com.surpassli.www.myapp.ui.Home.HomeFragment;
 import com.surpassli.www.myapp.ui.leisure.LeisureFragment;
 import com.surpassli.www.myapp.ui.life.LifeFragment;
@@ -26,8 +27,6 @@ import com.surpassli.www.myapp.presenter.Home.HomePresenter;
 import com.surpassli.www.myapp.presenter.Home.HomePresenterImpl;
 import com.surpassli.www.myapp.ui.Base.BaseActivity;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
-import com.surpassli.www.myapp.ui.EducationFragment;
-import com.surpassli.www.myapp.ui.More.About.About_us_activity;
 import com.surpassli.www.myapp.ui.MoreFragment;
 import com.surpassli.www.myapp.ui.Setting.SettingActivity;
 

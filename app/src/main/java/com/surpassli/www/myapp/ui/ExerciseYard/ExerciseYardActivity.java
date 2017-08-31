@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.ui.More.ExerciseYard;
+package com.surpassli.www.myapp.ui.ExerciseYard;
 
 import android.os.Bundle;
 import android.util.Log;

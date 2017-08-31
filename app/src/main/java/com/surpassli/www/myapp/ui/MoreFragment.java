@@ -11,12 +11,11 @@ import android.widget.Toast;
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.TopNavigationFragment;
-import com.surpassli.www.myapp.ui.More.About.About_us_activity;
-import com.surpassli.www.myapp.ui.More.About.FeedBackActivity;
-import com.surpassli.www.myapp.ui.More.BaiduMap.LocationActivity;
-import com.surpassli.www.myapp.ui.More.ExerciseYard.ExerciseYardActivity;
-import com.surpassli.www.myapp.ui.More.Scenery.SceneryActivity;
-import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
+import com.surpassli.www.myapp.ui.About.About_us_activity;
+import com.surpassli.www.myapp.ui.About.FeedBackActivity;
+import com.surpassli.www.myapp.ui.ExerciseYard.ExerciseYardActivity;
+import com.surpassli.www.myapp.ui.Scenery.SceneryActivity;
+import com.surpassli.www.myapp.ui.life.WeatherActivity;
 
 /**
  * Created by SurpassLi on 2017/1/6.
@@ -54,7 +53,6 @@ public class MoreFragment extends TopNavigationFragment implements View.OnClickL
                 startActivity(new Intent(getActivity(), WeatherActivity.class));
                 break;
             case R.id.tv_school_location:
-                startActivity(new Intent(getActivity(), LocationActivity.class));
                 break;
             case R.id.tv_exercise_yard:
                 startActivity(new Intent(getActivity(), ExerciseYardActivity.class));

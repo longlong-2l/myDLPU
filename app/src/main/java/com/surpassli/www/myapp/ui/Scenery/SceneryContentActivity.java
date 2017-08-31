@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.ui.More.Scenery;
+package com.surpassli.www.myapp.ui.Scenery;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.ui.More.Weather;
+package com.surpassli.www.myapp.ui.life;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -33,6 +33,7 @@ import okhttp3.Response;
 
 /**
  * Created by SurpassLi on 2017/1/25.
+ * ChooseAreaFragment
  */
 public class ChooseAreaFragment extends Fragment {
 

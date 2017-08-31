@@ -12,7 +12,6 @@ import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.model.Home.Hot_News_Model;
 import com.surpassli.www.myapp.support.adapter.BaseListAdapter;
 import com.surpassli.www.myapp.ui.Home.SchoolDetailActivity;
-import com.surpassli.www.myapp.ui.Home.SchoolHotNewsDetailActivity;
 
 import java.util.List;
 

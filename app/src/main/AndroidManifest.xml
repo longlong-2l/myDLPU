@@ -45,10 +45,10 @@
             android:name=".ui.Account.Course_Result_Activity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.About.About_us_activity"
+            android:name=".ui.About.About_us_activity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.About.MyAppIntroduceActivity"
+            android:name=".ui.About.MyAppIntroduceActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.Account.Level_Grade_Activity"
@@ -57,16 +57,16 @@
             android:name=".ui.Account.Course_Table_Activity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.Weather.WeatherActivity"
+            android:name=".ui.life.WeatherActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.Scenery.SceneryActivity"
+            android:name=".ui.Scenery.SceneryActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.Scenery.SceneryContentActivity"
+            android:name=".ui.Scenery.SceneryContentActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.ExerciseYard.ExerciseYardActivity"
+            android:name=".ui.ExerciseYard.ExerciseYardActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.TestActivity"
@@ -78,28 +78,28 @@
             android:name=".ui.Base.BaseToolBarActivity"
             android:launchMode="singleTask" />
         <activity
+            android:name=".ui.About.PeopleIntroduceActivity"
+            android:launchMode="singleTask"/>
+        <activity
             android:name=".ui.Account.ChangedPassWord_Activity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.BaiduMap.LocationActivity"
+            android:name=".ui.About.LicenseActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.About.LicenseActivity"
+            android:name=".ui.ExerciseYard.ExerciseActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.More.ExerciseYard.ExerciseActivity"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".ui.More.About.FeedBackActivity"
+            android:name=".ui.About.FeedBackActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.Setting.SettingActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.leisure.ScienceDetailActivity"
+            android:name=".ui.life.LocationActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.Home.SchoolHotNewsDetailActivity"
+            android:name=".ui.leisure.ScienceDetailActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.Home.SchoolDetailActivity"
@@ -147,7 +147,7 @@
 
         <activity android:name=".ui.Account.CurrentWeekActivity" />
         <activity android:name=".ui.Account.ExamManagerActivity" />
-        <activity android:name=".ui.leisure.FilmDetailActivity"/>
+        <activity android:name=".ui.leisure.FilmDetailActivity" />
     </application>
 
 </manifest>

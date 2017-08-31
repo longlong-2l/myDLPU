@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.ui.More.Weather;
+package com.surpassli.www.myapp.ui.life;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +11,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;

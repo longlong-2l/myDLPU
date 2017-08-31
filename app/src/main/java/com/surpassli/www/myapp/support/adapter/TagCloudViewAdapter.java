@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.moxun.tagcloudlib.view.TagsAdapter;
 import com.surpassli.www.myapp.model.ExerciseYard;
-import com.surpassli.www.myapp.ui.More.ExerciseYard.ExerciseActivity;
+import com.surpassli.www.myapp.ui.ExerciseYard.ExerciseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

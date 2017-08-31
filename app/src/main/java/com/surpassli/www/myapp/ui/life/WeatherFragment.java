@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.preference.PreferenceManager;
-import android.preference.SwitchPreference;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.surpassli.www.myapp.InitApp;
 import com.surpassli.www.myapp.R;
@@ -23,7 +21,6 @@ import com.surpassli.www.myapp.gson.Weather_Forecast;
 import com.surpassli.www.myapp.support.utils.HttpUtil;
 import com.surpassli.www.myapp.support.utils.Utility;
 import com.surpassli.www.myapp.ui.Base.BaseFragment;
-import com.surpassli.www.myapp.ui.More.Weather.WeatherActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -35,7 +32,6 @@ import okhttp3.Response;
 public class WeatherFragment extends BaseFragment {
 
     private LinearLayout forecastLayout;
-    private TextView country_weather;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
@@ -52,7 +48,7 @@ public class WeatherFragment extends BaseFragment {
     protected void init() {
         forecastLayout = (LinearLayout) parentView.findViewById(R.id.first_forecast_layout);
         swipeRefreshLayout = (SwipeRefreshLayout) parentView.findViewById(R.id.weather_refresh);
-        country_weather = (TextView) parentView.findViewById(R.id.tv_country_weather);
+        TextView country_weather = (TextView) parentView.findViewById(R.id.tv_country_weather);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

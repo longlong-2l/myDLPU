@@ -73,6 +73,10 @@
     <string name="country_weather">Search Country Weather</string>
     <string name="AQI">AQI</string>
     <string name="PM2_5">PM2.5</string>
+    <string name="normal_map">Normal Map</string>
+    <string name="satellite_map">Satellite Map</string>
+    <string name="traffic_map">Traffic Map</string>
+    <string name="my_location">My Location</string>
 
     <!--校内景点-->
     <string name="school_scenery">school_scenery</string>

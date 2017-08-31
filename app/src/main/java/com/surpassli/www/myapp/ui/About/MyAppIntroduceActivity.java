@@ -1,8 +1,10 @@
-package com.surpassli.www.myapp.ui.More.About;
+package com.surpassli.www.myapp.ui.About;
 
 import com.surpassli.www.myapp.R;
 import com.surpassli.www.myapp.event.EventModel;
 import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
+
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * Created by SurpassLi on 2017/1/19.
@@ -10,12 +12,15 @@ import com.surpassli.www.myapp.ui.Base.BaseWebViewActivity;
  */
 public class MyAppIntroduceActivity extends BaseWebViewActivity {
 
-    protected String getLink() {
-        super.title=getApplicationContext().getString(R.string.app_introduce);
-        return "file:///android_asset/MyAppIntroduction.html";
+    @Override
+    public void initView() {
+        super.initView();
+        super.title = getString(R.string.app_introduce);
+        wv_base.loadUrl("file:///android_asset/MyAppIntroduction.html");
     }
 
     @Override
+    @Subscribe
     public void onEventComing(EventModel eventModel) {
 
     }

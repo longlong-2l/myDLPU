@@ -49,7 +49,7 @@
 
         <fragment
             android:id="@+id/choose_area_fragment"
-            android:name="com.surpassli.www.myapp.ui.More.Weather.ChooseAreaFragment"
+            android:name="com.surpassli.www.myapp.ui.life.ChooseAreaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start" />

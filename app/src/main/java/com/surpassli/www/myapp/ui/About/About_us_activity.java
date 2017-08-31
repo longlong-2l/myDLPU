@@ -1,4 +1,4 @@
-package com.surpassli.www.myapp.ui.More.About;
+package com.surpassli.www.myapp.ui.About;
 
 import android.os.Bundle;
 
