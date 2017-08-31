@@ -19,6 +19,7 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 
 import com.surpassli.www.myapp.ui.About.About_us_activity;
+import com.surpassli.www.myapp.ui.Education.EducationFragment;
 import com.surpassli.www.myapp.ui.Home.HomeFragment;
 import com.surpassli.www.myapp.ui.leisure.LeisureFragment;
 import com.surpassli.www.myapp.ui.life.LifeFragment;
@@ -116,7 +117,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
             case R.id.life:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
-                switchFragment(LifeFragment.getInstance(), String.valueOf(item.getTitle()));
+                switchFragment(LifeFragment.newInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.library:
                 presenter.clearAllFragments();
@@ -126,7 +127,7 @@ public class MainActivity extends BaseActivity implements HomeView, NavigationVi
             case R.id.education:
                 presenter.clearAllFragments();
                 drawer.closeDrawer(GravityCompat.START);
-                switchFragment(MoreFragment.getInstance(), String.valueOf(item.getTitle()));
+                switchFragment(EducationFragment.newInstance(), String.valueOf(item.getTitle()));
                 break;
             case R.id.theme:
                 drawer.closeDrawer(GravityCompat.START);

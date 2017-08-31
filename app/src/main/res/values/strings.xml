@@ -78,6 +78,11 @@
     <string name="traffic_map">Traffic Map</string>
     <string name="my_location">My Location</string>
 
+    <!--教务-->
+    <string name="education_trends">Education Trends</string>
+    <string name="education_notices">Education Notices</string>
+    <string name="education_files">Education Files</string>
+
     <!--校内景点-->
     <string name="school_scenery">school_scenery</string>
 

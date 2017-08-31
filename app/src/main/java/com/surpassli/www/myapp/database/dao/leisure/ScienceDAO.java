@@ -81,10 +81,8 @@ public class ScienceDAO implements DAO<ScienceModel> {
             @Override
             public void run() {
                 if (!list.isEmpty()) {
-                    // 从缓存获取成功　发送消息
                     EventBus.getDefault().post(new EventModel<ScienceModel>(EVENT.SCIENCE_LOAD_CACHE_SUCCESS, list));
                 } else {
-                    // 从缓存获取失败
                     EventBus.getDefault().post(new EventModel<ScienceModel>(EVENT.SCIENCE_LOAD_CACHE_FAILURE));
                 }
             }

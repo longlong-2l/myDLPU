@@ -20,7 +20,7 @@ public class Setting {
 
     public static boolean needRecreate = true;
 
-    public static boolean autoRefresh = true;
+    public static boolean autoRefresh = false;
 
     public static final String  AUTO_REFRESH = "auto_refresh";
 

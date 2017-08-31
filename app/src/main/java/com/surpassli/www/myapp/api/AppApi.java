@@ -2,16 +2,13 @@ package com.surpassli.www.myapp.api;
 
 /**
  * Created by dell on 2017/1/10.
+ * AppApi
  */
 public class AppApi {
 
 
     public static final String HOST = "https://dlpu-aao-api.xu42.cn/v1";
 
-    /**
-     * 时间戳
-     */
-    public static final String TIME = HOST + "/time";
     /**
      * 登录
      */
@@ -58,10 +55,6 @@ public class AppApi {
      * 通知公告
      */
     public static final String NOTICE = HOST + "/news/notice";
-    /**
-     * 教务文件
-     */
-    public static final String EDUCATION_FILE = HOST + "/news/teachingFiles";
 
     /**
      * 意见反馈
@@ -101,4 +94,19 @@ public class AppApi {
      * 校内头条新闻_html
      */
     public  static final String SCHOOL_NEWS_HOT = "http://www.dlpu.edu.cn/more/37";
+
+    /**
+     * 教务通知公告_html
+     */
+    public  static final String EDUCATION_NOTICE = "http://jiaowu.dlpu.edu.cn/more/3";
+
+    /**
+     * 教务文件_html
+     */
+    public  static final String EDUCATION_FILE = "http://jiaowu.dlpu.edu.cn/more/4";
+
+    /**
+     * 教务新闻_html
+     */
+    public  static final String EDUCATION_NEWS = "http://jiaowu.dlpu.edu.cn/more/2";
 }

@@ -22,7 +22,7 @@ public class LifeFragment extends TopNavigationFragment{
         fragments.add(new LocationFragment());
     }
 
-    public static LifeFragment getInstance(){
+    public static LifeFragment newInstance(){
         addChildFragments();
       return new LifeFragment();
     }

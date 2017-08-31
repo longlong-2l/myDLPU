@@ -1,7 +1,7 @@
-package com.surpassli.www.myapp.support.htmlparse.home;
+package com.surpassli.www.myapp.support.htmlparse.Education;
 
 import com.surpassli.www.myapp.api.AppApi;
-import com.surpassli.www.myapp.model.Home.Hot_News_Model;
+import com.surpassli.www.myapp.model.Education.EducationFileModel;
 import com.surpassli.www.myapp.support.utils.html.HtmlUtil;
 
 import org.jsoup.Jsoup;
@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by SurpassLi on 2017/8/15.
- * NoticeParse
+ * Created by SurpassLi on 2017/8/31.
+ * EducationFileParse
  */
 
-public class HotNewsParse {
+public class EducationFileParse {
 
     private String parseStr;
     private static final String ALL_ITEM_CSS = "ul[class=more_list]";//所有列表选择css
     private static final String ITEM_CSS = "li";
-    private List<Hot_News_Model> endList;
+    private List<EducationFileModel> endList;
 
-    public HotNewsParse(String string) {
+    public EducationFileParse(String string) {
         super();
         this.parseStr = string;
         endList = new ArrayList();
@@ -50,14 +50,14 @@ public class HotNewsParse {
                 time.add(contentCut[1]);
             }
             for (int i = 0; i < titleString.size(); i++) {
-                endList.add(new Hot_News_Model(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));
+                endList.add(new EducationFileModel(AppApi.SCHOOL+ contentUrl.get(i),title.get(i),time.get(i)));
             }
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
 
-    public List<Hot_News_Model> getEndList() {
+    public List<EducationFileModel> getEndList() {
         return endList;
     }
 }

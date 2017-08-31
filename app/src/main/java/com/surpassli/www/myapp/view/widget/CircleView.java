@@ -22,6 +22,7 @@ import com.surpassli.www.myapp.R;
 
 /**
  * Created by SurpassLi on 2017/8/9.
+ * 这个圆形头像显示是自己写的，网上有很好的开源框架
  * CircleView
  */
 

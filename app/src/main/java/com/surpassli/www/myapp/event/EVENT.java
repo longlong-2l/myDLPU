@@ -71,4 +71,25 @@ public class EVENT {
 
     public static final int FIRSTWEATHER_CACHE_SUCCESS = 86;
     public static final int FIRSTWEATHER_CACHE_FAIL = 87;
+
+    //Education Trends
+    public static final int EDUCATION_TRENDS_NET_SUCCESS = 94;
+    public static final int EDUCATION_TRENDS_NET_FAIL = 95;
+
+    public static final int EDUCATION_TRENDS_CACHE_SUCCESS = 96;
+    public static final int EDUCATION_TRENDS_CACHE_FAIL = 97;
+
+    //Education File
+    public static final int EDUCATION_FILE_NET_SUCCESS = 104;
+    public static final int EDUCATION_FILE_NET_FAIL = 105;
+
+    public static final int EDUCATION_FILE_CACHE_SUCCESS = 106;
+    public static final int EDUCATION_FILE_CACHE_FAIL = 107;
+
+    //Education Notices
+    public static final int EDUCATION_NOTICES_NET_SUCCESS = 114;
+    public static final int EDUCATION_NOTICES_NET_FAIL = 115;
+
+    public static final int EDUCATION_NOTICES_CACHE_SUCCESS = 116;
+    public static final int EDUCATION_NOTICES_CACHE_FAIL = 117;
 }

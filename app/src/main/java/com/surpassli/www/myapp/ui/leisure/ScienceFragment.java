@@ -63,6 +63,9 @@ public class ScienceFragment extends BaseListFragment {
                             onDataRefresh();
                         }
                     },1500);
+                }else{
+                    adapter.newList(eventModel.getDataList());
+                    hideLoading();
                 }
                 break;
             case EVENT.SCIENCE_LOAD_CACHE_FAILURE:

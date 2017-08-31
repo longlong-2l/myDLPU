@@ -45,6 +45,9 @@ public class FilmFragment extends BaseListFragment {
                             onDataRefresh();
                         }
                     },1500);
+                }else{
+                    adapter.newList(eventModel.getDataList());
+                    hideLoading();
                 }
                 break;
             case EVENT.FILM_LOAD_CACHE_FAILURE:

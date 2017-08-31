@@ -81,24 +81,6 @@ public abstract class BaseWebViewActivity extends BaseToolBarActivity implements
         }
         WebSettings webSettings = wv_base.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        if (!getApplication().getString(R.string.app_introduce).equals(title) && !getApplication().getString(R.string.license).equals(title)) {
-            webSettings.setUseWideViewPort(true);
-            webSettings.setLoadWithOverviewMode(true);
-            DisplayMetrics metrics = new DisplayMetrics();
-            getWindowManager().getDefaultDisplay().getMetrics(metrics);
-            int mDensity = metrics.densityDpi;
-            if (mDensity == 240) {
-                webSettings.setUseWideViewPort(true);
-            } else if (mDensity == 160) {
-                webSettings.setUseWideViewPort(true);
-            } else if (mDensity == 120) {
-                webSettings.setUseWideViewPort(true);
-            } else if (mDensity == DisplayMetrics.DENSITY_XHIGH) {
-                webSettings.setUseWideViewPort(true);
-            } else if (mDensity == DisplayMetrics.DENSITY_TV) {
-                webSettings.setUseWideViewPort(true);
-            }
-        }
         //覆盖启动默认浏览器的行为
         wv_base.setWebViewClient(new WebViewClient() {
             @Override

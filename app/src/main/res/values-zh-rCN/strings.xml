@@ -39,6 +39,12 @@
     <string name="traffic_map">实时交通</string>
     <string name="my_location">我的位置</string>
 
+    <!--教务-->
+    <string name="education_trends">新闻动态</string>
+    <string name="education_notices">教务通知</string>
+    <string name="education_files">教务文件</string>
+
+
     <!--考试成绩-->
     <string name="exam_property">属性</string>
     <string name="exam_one">考试一</string>
